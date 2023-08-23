@@ -1,0 +1,71 @@
+body {
+	background-color: var(--bnm-color-body-background); // Fallback for when there is no custom background color defined.
+}
+
+.bnm-container {
+	width: 1200px;
+	max-width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body.bnm-boxed {
+	background-color: var(--bnm-color-boxed-layout-background);
+
+	#page {
+		margin: 0 auto;
+		width: 1280px;
+		max-width: 100%;
+		background-color: var(--bnm-color-body-background);
+	}
+}
+
+body.bnm-boxed .bnm-container {
+	width: auto;
+	max-width: 93.75%;
+}
+
+.site-content {
+	padding: 30px 0;
+
+	@media only screen and (min-width: 600px) {
+		padding: 50px 0;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.content-area {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	#primary {
+		//width: 67.5%;
+		width: 70%;
+	}
+	
+	#secondary {
+		//width: 29.16667%;
+		width: 30%;
+		padding-left: 50px;
+	}
+
+	.bnm-left-sidebar {
+		#secondary {
+			order: -10;
+			padding-left: 0;
+			padding-right: 50px;
+		}
+	}
+
+	.bnm-center-content {
+		#primary {
+			margin: 0 auto;
+		}
+	}
+}
+
+.bnm-no-sidebar #primary {
+	width: 100%;
+}
+

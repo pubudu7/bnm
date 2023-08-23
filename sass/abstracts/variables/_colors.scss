@@ -1,0 +1,45 @@
+$color__background-body: #fff;
+$color__background-screen: #f1f1f1;
+$color__background-hr: #ccc;
+$color__background-button: #e6e6e6;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+
+$color__text-screen: #21759b;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+$color__link: #4169e1; //royalblue
+$color__link-visited: #800080; //purple
+$color__link-hover: #191970; //midnightblue
+$color__text-main: #444444;
+
+$color__border-abbr: #666;
+
+// Default Colors.
+:root {
+    --bnm-color-primary: #f87c7c;
+    --bnm-color-tertiary: #1D223F;
+
+    --bnm-color-body-background: #ffffff;
+    --bnm-color-boxed-layout-background: #dddddd;
+    --bnm-color-main-menu: #1d223f;
+
+    --bnm-color-text-main: #222222;
+    --bnm-color-text-light: #787878;
+    --bnm-color-text-darker: #000000;
+    --bnm-color-link: #000000;
+    --bnm-color-link-hover: var(--bnm-color-primary);
+    --bnm-color-link-visited: #5d7ddb;
+
+    --bnm-color-button-background: var(--bnm-color-primary);
+    --bnm-color-button-text: #ffffff;
+    --bnm-color-button-hover-background: #222222;
+    --bnm-color-button-focus-background: #111111;
+
+    --bnm-color-border: #cccccc;
+    --bnm-color-input-border: #ccc;
+    --bnm-color-text-input-focus: var(--bnm-color-text-main);
+    --bnm-color-input: var(--bnm-color-text-main);
+
+    --bnm-color-background-pre: #eeeeee;
+}

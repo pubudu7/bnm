@@ -1,0 +1,15 @@
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+
+// Responsive Widths.
+
+$mobile_width: 600px;
+$tablet_width: 768px;
+$narrow_desktop_width: 960px;
+$desktop_width: 1168px;
+$wide_width: 1379px;
+
+:root {
+    --bnm-post-cols-gap: 40px;
+    --bnm-footer-cols-gap: 40px;
+}

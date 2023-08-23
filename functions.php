@@ -1,0 +1,336 @@
+<?php
+/**
+ * BNM functions and definitions
+ *
+ * @package BNM
+ */
+
+if ( ! defined( 'BNM_VERSION' ) ) {
+	// Replace the version number of the theme on each release.
+	define( 'BNM_VERSION', '1.0.2' );
+}
+
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
+function bnm_setup() {
+	/*
+		* Make theme available for translation.
+		* Translations can be filed in the /languages/ directory.
+		* If you're building a theme based on BNM, use a find and replace
+		* to change 'bnm' to the name of your theme in all the template files.
+		*/
+	load_theme_textdomain( 'bnm', get_template_directory() . '/languages' );
+
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+
+	/*
+		* Let WordPress manage the document title.
+		* By adding theme support, we declare that this theme does not use a
+		* hard-coded <title> tag in the document head, and expect WordPress to
+		* provide it for us.
+		*/
+	add_theme_support( 'title-tag' );
+
+	// Add support for Block Styles.
+	add_theme_support( 'wp-block-styles' );
+
+	// Add support for responsive embedded content.
+	add_theme_support( 'responsive-embeds' );
+
+	// Enqueue editor styles.
+	add_editor_style( 'editor-style.css' );
+
+	// Add support for full and wide align images.
+	add_theme_support( 'align-wide' );
+
+	/*
+		* Enable support for Post Thumbnails on posts and pages.
+		*
+		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		*/
+	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'bnm-featured-image', 1200, 9999 );
+	add_image_size( 'bnm-archive-image', 800, 450, true );
+	add_image_size( 'bnm-archive-image-large', 1200, 675, true );
+
+	if ( ! get_theme_mod( 'bnm_archive_image_crop', false ) ) {
+		add_image_size( 'bnm-archive-image', 800, 9999, false );
+		add_image_size( 'bnm-archive-image-large', 1200, 9999, false );
+	}
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus(
+		array(
+			'primary' => esc_html__( 'Primary Menu', 'bnm' ),
+			'secondary' => esc_html__( 'Secondary Menu', 'bnm' ),
+			'social' => esc_html__( 'Social Menu', 'bnm' ),
+		)
+	);
+
+	/*
+		* Switch default core markup for search form, comment form, and comments
+		* to output valid HTML5.
+		*/
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+			'style',
+			'script',
+		)
+	);
+
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	/**
+	 * Add support for core custom logo.
+	 *
+	 * @link https://codex.wordpress.org/Theme_Logo
+	 */
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height' 		=> 70,
+			'width' 		=> 350,
+			'flex-height'	=> true,
+			'flex-width' 	=> true,
+		)
+	);
+}
+add_action( 'after_setup_theme', 'bnm_setup' );
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function bnm_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'bnm_content_width', 840 );
+}
+add_action( 'after_setup_theme', 'bnm_content_width', 0 );
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function bnm_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'bnm' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'bnm' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Slide-out Sidebar', 'bnm' ),
+			'id'            => 'header-1',
+			'description'   => esc_html__( 'Add widgets here to appear in an off-screen sidebar when it is enabled under the Customizer Header Settings.', 'bnm' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Above Header', 'bnm' ),
+			'id'            => 'header-4',
+			'description'   => esc_html__( 'Add widgets here to appear before the Header', 'bnm' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Header Sidebar', 'bnm' ),
+			'id'            => 'header-2',
+			'description'   => esc_html__( 'Add widgets here to appear on the Header', 'bnm' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Below Header', 'bnm' ),
+			'id'            => 'header-3',
+			'description'   => esc_html__( 'Add widgets here to appear before the Header', 'bnm' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer 1', 'bnm' ),
+			'id'            => 'footer-1',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer 2', 'bnm' ),
+			'id'            => 'footer-2',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer 3', 'bnm' ),
+			'id'            => 'footer-3',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer 4', 'bnm' ),
+			'id'            => 'footer-4',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'bnm_widgets_init' );
+
+/**
+ * Enqueue scripts and styles.
+ */
+function bnm_scripts() {
+	wp_enqueue_style( 'bnm-style', get_stylesheet_uri(), array(), BNM_VERSION );
+	wp_style_add_data( 'bnm-style', 'rtl', 'replace' );
+
+	wp_enqueue_script( 'bnm-main', get_template_directory_uri() . '/js/main.js', array(), BNM_VERSION, true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'bnm_scripts' );
+
+/**
+ * Handle SVG icons.
+ */ 
+require get_template_directory() . '/inc/class-bnm-svg-icons.php';
+
+/**
+ * Custom Nav Walker
+ */
+require get_template_directory() . '/inc/class-bnm-nav-walker.php';
+
+/**
+ * Meta boxes
+ */
+require get_template_directory() . '/inc/class-bnm-meta-boxes.php';
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer/custom-controls/fonts/fonts.php';
+require get_template_directory() . '/inc/customizer/customizer.php';
+require get_template_directory() . '/inc/typography.php';
+require get_template_directory() . '/inc/wptt-webfont-loader.php';
+
+/**
+* Enqueue Google fonts.
+*/
+function bnm_load_fonts() {
+	$fonts_arr = array();
+	$body_font = get_theme_mod( 'bnm_font_family_1', '' );
+	$headings_font = get_theme_mod( 'bnm_font_family_2', '' );
+
+    if ( $body_font ) {
+		$fonts_arr[] = $body_font;
+	}
+
+	if ( $headings_font ) {
+		$fonts_arr[] = $headings_font;
+	}
+
+	if ( empty( $fonts_arr ) ) {
+		return;
+	}
+
+	$font_uri = bnm_get_google_font_uri( $fonts_arr );
+
+	if ( ! is_admin() && ! is_customize_preview() ) {
+		$font_uri = wptt_get_webfont_url( esc_url_raw( $font_uri ) );
+	}
+
+	// Load Google Fonts
+	wp_enqueue_style( 'bnm-fonts', $font_uri, array(), null, 'screen' );
+}
+add_action( 'wp_enqueue_scripts', 'bnm_load_fonts' );
+
+/**
+ * Display custom color CSS in customizer and on frontend.
+ */
+function bnm_custom_css_wrap() {
+	require_once get_parent_theme_file_path( 'inc/css-output.php' );
+	?>
+
+	<style type="text/css" id="bnm-custom-css">
+		<?php echo wp_strip_all_tags( bnm_custom_css() ); ?>
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'bnm_custom_css_wrap' );
+
+/**
+ * Display custom font CSS in customizer and on frontend.
+ */
+function bnm_custom_typography_wrap() {
+	if ( is_admin() ) {
+		return;
+	}
+	?>
+
+	<style type="text/css" id="bnm-fonts-css">
+		<?php echo wp_strip_all_tags( bnm_custom_typography_css() ); ?>
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'bnm_custom_typography_wrap' );

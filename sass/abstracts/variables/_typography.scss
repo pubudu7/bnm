@@ -1,0 +1,34 @@
+// stylelint-disable value-keyword-case
+
+// stylelint-enable value-keyword-case
+$font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+:root {
+    --bnm-font-family-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --bnm-font-family-headings: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --bnm-font-family-code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    --bnm-font-family-pre: "Courier 10 Pitch", courier, monospace;
+
+    --bnm-font-size-base: 16px;
+    --bnm-font-size-base-md: 17px;
+    --bnm-font-size-xxxs: 0.688rem; // 11px
+    --bnm-font-size-xxs: 0.75rem; // 12px
+    --bnm-font-size-xs: 0.844rem; // 13.5px
+    --bnm-font-size-sm: 0.875rem; // 14px
+    --bnm-font-size-md: 1.125rem; // 18px
+    --bnm-font-size-lg: 1.375rem; // 22px
+    --bnm-font-size-xl: 1.5rem; // 24px
+    --bnm-font-size-xxl: 1.688rem; // 27px
+    --bnm-font-size-xxxl: 2rem; // 32px
+    --bnm-font-size-xxxxl: 2.25rem; // 36px
+
+    --bnm-line-height-body: 1.5;
+    --bnm-line-height-article: 1.7;
+    --bnm-line-height-headings: 1.3;
+    --bnm-line-height-pre: 1.6;
+
+    --bnm-font-weight-headings: 500;
+}

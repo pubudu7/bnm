@@ -1,0 +1,39 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.bnm-readmore-btn {
+	border: none;
+	border-radius: 3px;
+	background: var(--bnm-color-button-background);
+	color: var(--bnm-color-button-text);
+	cursor: pointer;
+	line-height: 1;
+	padding: 0.8rem 1rem;
+	font-family: var(--bnm-font-family-headings);
+	font-size: var(--bnm-font-size-base);
+	font-weight: bold;
+
+	&:hover {
+		background: var(--bnm-color-button-hover-background);
+	}
+
+	&:active,
+	&:focus {
+		background: var(--bnm-color-button-focus-background);
+	}
+}
+
+svg.bnm-svg-icon {
+	fill: currentColor;
+}
+
+.bnm-readmore-btn {
+	font-size: var(--bnm-font-size-xs);
+	display: inline-block;
+	padding: 0.7rem 0.9rem;
+
+	&:hover {
+		color: #ffffff;
+	}
+}

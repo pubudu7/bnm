@@ -1,0 +1,56 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-family: var(--bnm-font-family-headings);
+	line-height: var(--bnm-line-height-headings);
+	font-weight: var(--bnm-font-weight-headings);
+	margin: 20px 0;
+}
+
+h1 {
+	font-size: var(--bnm-font-size-xxxl);
+}
+
+h2 {
+	font-size: var(--bnm-font-size-xl);
+}
+
+h3 {
+	font-size: var(--bnm-font-size-lg);
+}
+
+h4 {
+	font-size: var(--bnm-font-size-md);
+}
+
+h5 {
+	font-size: var(--bnm-font-size-base);
+}
+
+h6 {
+	font-size: var(--bnm-font-size-sm);
+}
+
+.site-title {
+	font-family: var(--bnm-font-family-headings);
+	font-size: 26px;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 0;
+
+	@media screen and (min-width: 768px) {
+		font-size: 35px;
+	}
+
+	a, a:visited {
+		color: #000000;
+	}
+}
+
+.site-description {
+	margin: 0;
+}

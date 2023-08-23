@@ -1,0 +1,18 @@
+html {
+	font-size: var( --bnm-font-size-base );
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: var(--bnm-color-text-main);
+	font-family: var(--bnm-font-family-body);
+	font-size: 1rem;
+	line-height: var(--bnm-line-height-body);
+}
+
+@import "headings";
+@import "copy";
