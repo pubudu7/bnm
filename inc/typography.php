@@ -20,10 +20,17 @@ function bnm_custom_typography_css() {
     $post_mobile_font_size    = get_theme_mod( 'bnm_post_mobile_font_size', '' );    
 
     $css = '';
+    $block_editor_css = '';
 
     if ( $body_font ) {
         $css .= '
             :root {
+                --bnm-font-family-body: ' . wp_kses( $body_font, null ) . ';
+            }
+        ';
+
+        $block_editor_css .= '
+            :root .editor-styles-wrapper {
                 --bnm-font-family-body: ' . wp_kses( $body_font, null ) . ';
             }
         ';
@@ -35,11 +42,23 @@ function bnm_custom_typography_css() {
                 --bnm-font-family-headings: ' . wp_kses( $headings_font, null ) . ';
             }
         ';
+
+        $block_editor_css .= '
+            :root .editor-styles-wrapper {
+                --bnm-font-family-headings: ' . wp_kses( $headings_font, null ) . ';
+            }
+        ';
     }
 
     if ( $headings_font_weight ) {
         $css .= '
             :root {
+                --bnm-font-weight-headings: ' . esc_attr( $headings_font_weight ) . ';
+            }
+        ';
+
+        $block_editor_css .= '
+            :root .editor-styles-wrapper {
                 --bnm-font-weight-headings: ' . esc_attr( $headings_font_weight ) . ';
             }
         ';
@@ -81,6 +100,12 @@ function bnm_custom_typography_css() {
                 font-size: ' . esc_attr( $post_desktop_font_size ) . ';
             }
         ';
+
+        $block_editor_css .= '
+            .editor-styles-wrapper .is-root-container {
+                font-size: ' . esc_attr( $post_desktop_font_size ) . ';
+            }
+        ';
     }
 
     if ( $post_tablet_font_size ) {
@@ -88,6 +113,14 @@ function bnm_custom_typography_css() {
             @media screen and (max-width: 768px) {
                 .single .bnm-entry {
                     font-size: ' . esc_attr( $post_tablet_font_size ) . ';
+                }
+            }
+        ';
+
+        $block_editor_css .= '
+            @media screen and (max-width: 768px) {
+                .editor-styles-wrapper .is-root-container {
+                    font-size: ' . esc_attr( $post_desktop_font_size ) . ';
                 }
             }
         ';
@@ -101,7 +134,31 @@ function bnm_custom_typography_css() {
                 }
             }
         ';
+
+        $block_editor_css .= '
+            @media screen and (max-width: 600px) {
+                .editor-styles-wrapper .is-root-container {
+                    font-size: ' . esc_attr( $post_desktop_font_size ) . ';
+                }
+            }
+        ';
     }
 
-    return $css;
+    if ( '' !== $css ) {
+        $theme_css = $css;
+    } else {
+        $theme_css = '';
+    }
+
+    if ( '' !== $block_editor_css ) {
+        $editor_css = $block_editor_css;
+    } else {
+        $editor_css = '';
+    }
+
+    if ( function_exists( 'register_block_type' ) && is_admin() ) {
+        $theme_css = $editor_css;
+    }
+
+    return $theme_css;
 }

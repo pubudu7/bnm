@@ -367,10 +367,7 @@ function bnm_theme_customizer_styles() {
 	}
 
 	$theme_customizations = "";
-	/**
-	 * TO DO: Check this with other font styles or merge typography styles with bnm_custom_css()
-	 * Add .editor-styles-wrapper font bnm_custom_typography_css()
-	 */
+
 	$typography_css = bnm_custom_typography_css();
 	if ( $typography_css ) {
 		$theme_customizations .= $typography_css;
