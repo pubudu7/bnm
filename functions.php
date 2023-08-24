@@ -43,8 +43,11 @@ function bnm_setup() {
 	// Add support for responsive embedded content.
 	add_theme_support( 'responsive-embeds' );
 
+	// Add support for editor styles.
+	add_theme_support( 'editor-styles' );
+	
 	// Enqueue editor styles.
-	add_editor_style( 'editor-style.css' );
+	add_editor_style( 'css/editor-style.css' );
 
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
@@ -274,21 +277,37 @@ require get_template_directory() . '/inc/customizer/customizer.php';
 require get_template_directory() . '/inc/typography.php';
 require get_template_directory() . '/inc/wptt-webfont-loader.php';
 
+if ( ! function_exists( 'bnm_get_fonts_array' ) ) :
+	/**
+	 * Gets the user chosen fonts from customizer as an array.
+	 */
+	function bnm_get_fonts_array() {
+		$fonts_arr = array();
+		$body_font = get_theme_mod( 'bnm_font_family_1', '' );
+		$headings_font = get_theme_mod( 'bnm_font_family_2', '' );
+	
+		if ( $body_font ) {
+			$fonts_arr[] = $body_font;
+		}
+	
+		if ( $headings_font ) {
+			$fonts_arr[] = $headings_font;
+		}
+	
+		if ( empty( $fonts_arr ) ) {
+			return;
+		}
+
+		return $fonts_arr;
+	}
+
+endif;
+
 /**
 * Enqueue Google fonts.
 */
 function bnm_load_fonts() {
-	$fonts_arr = array();
-	$body_font = get_theme_mod( 'bnm_font_family_1', '' );
-	$headings_font = get_theme_mod( 'bnm_font_family_2', '' );
-
-    if ( $body_font ) {
-		$fonts_arr[] = $body_font;
-	}
-
-	if ( $headings_font ) {
-		$fonts_arr[] = $headings_font;
-	}
+	$fonts_arr = bnm_get_fonts_array();
 
 	if ( empty( $fonts_arr ) ) {
 		return;
@@ -334,3 +353,44 @@ function bnm_custom_typography_wrap() {
 	<?php
 }
 add_action( 'wp_head', 'bnm_custom_typography_wrap' );
+
+/**
+ * Enqueue theme customizations and fonts for the block editor.
+ */
+function bnm_theme_customizer_styles() {
+
+	wp_enqueue_style( 'bnm-editor-customizer-styles', get_theme_file_uri( '/css/style-editor-customizer.css' ), false, BNM_VERSION, 'all' );
+
+	$fonts_arr = bnm_get_fonts_array();
+	if ( ! empty( $fonts_arr ) ) {
+		wp_enqueue_style( 'bnm-font-import', bnm_get_google_font_uri( $fonts_arr ), array(), null );
+	}
+
+	$theme_customizations = "";
+	/**
+	 * TO DO: Check this with other font styles or merge typography styles with bnm_custom_css()
+	 * Add .editor-styles-wrapper font bnm_custom_typography_css()
+	 */
+	$typography_css = bnm_custom_typography_css();
+	if ( $typography_css ) {
+		$theme_customizations .= $typography_css;
+	}
+
+	require_once get_parent_theme_file_path( 'inc/css-output.php' );
+
+	$theme_customizations .= bnm_custom_css();
+
+	if ( $theme_customizations ) {
+		wp_add_inline_style( 'bnm-editor-customizer-styles', $theme_customizations );
+	}
+
+}
+add_action( 'enqueue_block_editor_assets', 'bnm_theme_customizer_styles' );
+
+/**
+ * Enqueue CSS styles for the editor that use the <body> tag.
+ */
+function bnm_enqueue_editor_override_assets() {
+	wp_enqueue_style( 'bnm-editor-overrides', get_theme_file_uri( '/css/style-editor-overrides.css' ), false, BNM_VERSION, 'all' );
+}
+add_action( 'enqueue_block_editor_assets', 'bnm_enqueue_editor_override_assets' );
