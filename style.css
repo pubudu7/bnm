@@ -65,7 +65,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --bnm-color-button-text: #ffffff;
   --bnm-color-button-hover-background: #222222;
   --bnm-color-button-focus-background: #111111;
-  --bnm-color-border: #cccccc;
+  --bnm-color-border: #dddddd;
   --bnm-color-input-border: #ccc;
   --bnm-color-text-input-focus: var(--bnm-color-text-main);
   --bnm-color-input: var(--bnm-color-text-main);
@@ -93,7 +93,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --bnm-line-height-article: 1.7;
   --bnm-line-height-headings: 1.3;
   --bnm-line-height-pre: 1.6;
-  --bnm-font-weight-headings: 500;
+  --bnm-font-weight-headings: 600;
 }
 
 :root {
@@ -816,7 +816,7 @@ textarea {
 --------------------------------------------- */
 @media only screen and (max-width: 768px) {
   .bnm-default-header .site-header {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid var(--bnm-color-border);
   }
 }
 
@@ -915,6 +915,10 @@ textarea {
   color: var(--bnm-color-text-light);
 }
 
+.bnm-top-bar .bnm-slideout-toggle span {
+  background: #000000;
+}
+
 .top-bar-inner {
   display: flex;
   align-items: center;
@@ -932,6 +936,10 @@ textarea {
   .bnm-header-inner {
     flex-wrap: nowrap;
   }
+}
+
+.bnm-header-inner .bnm-slideout-toggle span {
+  background: #000000;
 }
 
 .bnm-default-header.logo-aligned-center .bnm-header-inner {
@@ -1118,7 +1126,7 @@ textarea {
   border: none;
   color: inherit;
   font-size: 20px;
-  padding: 0 20px 0 0;
+  padding: 0;
 }
 
 .bnm-slideout-toggle:hover {
@@ -1127,6 +1135,38 @@ textarea {
 
 .bnm-slideout-toggle:active, .bnm-slideout-toggle:focus {
   background-color: transparent;
+}
+
+.bnm-slideout-toggle span {
+  display: block;
+  background: #ffffff;
+  height: 1px;
+  width: 23px;
+  position: absolute;
+  left: 0;
+  border: 1px solid #ffffff;
+  border-radius: 1px;
+}
+
+.bnmst-bars {
+  position: relative;
+  width: 45px;
+  height: 15px;
+}
+
+span.bnmst1 {
+  top: 0px;
+  width: 23px;
+}
+
+span.bnmst2 {
+  top: 7px;
+  width: 17px;
+}
+
+span.bnmst3 {
+  top: 14px;
+  width: 11px;
 }
 
 .bnm-slideout-sidebar {
@@ -1427,15 +1467,11 @@ textarea {
   transform: rotate(-90deg);
 }
 
-.main-navigation li:first-child a {
-  padding-left: 0;
-}
-
 .main-navigation a {
   color: #ffffff;
   display: block;
   font-size: var(--bnm-font-size-base);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   padding: 0 16px;
   line-height: 45px;
@@ -1454,7 +1490,7 @@ textarea {
   color: #000000;
   display: block;
   font-size: var(--bnm-font-size-sm);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   padding: 0 11px;
   line-height: 40px;
@@ -1464,21 +1500,51 @@ textarea {
   padding-left: 0;
 }
 
-.bnm-line-header .site-header {
-  border-bottom: 1px solid #dddddd;
-}
-
-.bnm-line-header .site-header .main-navigation {
+.bnm-line-header .main-navigation {
   background-color: transparent;
   margin-left: auto;
 }
 
-.bnm-line-header .site-header .main-navigation a {
+.bnm-line-header .main-navigation ul li a:hover {
+  color: var(--bnm-color-primary);
+}
+
+.bnm-line-header .main-navigation ul ul .current_page_item > a,
+.bnm-line-header .main-navigation ul ul .current-menu-item > a,
+.bnm-line-header .main-navigation ul ul .current_page_ancestor > a,
+.bnm-line-header .main-navigation ul ul .current-menu-ancestor > a,
+.bnm-line-header .main-navigation ul ul a {
+  color: #ffffff;
+}
+
+.bnm-line-header .main-navigation ul ul .current_page_item > a,
+.bnm-line-header .main-navigation ul ul .current-menu-item > a,
+.bnm-line-header .main-navigation ul ul .current_page_ancestor > a,
+.bnm-line-header .main-navigation ul ul .current-menu-ancestor > a {
+  background: #111111;
+}
+
+.bnm-line-header .main-navigation ul ul li a:hover {
+  color: #ffffff;
+}
+
+.bnm-line-header .main-navigation a {
   color: #000000;
 }
 
-.bnm-line-header .site-header .main-navigation ul ul a {
+.bnm-line-header .main-navigation ul ul a {
   color: #ffffff;
+}
+
+.bnm-line-header .main-navigation .current_page_item > a,
+.bnm-line-header .main-navigation .current-menu-item > a,
+.bnm-line-header .main-navigation .current_page_ancestor > a,
+.bnm-line-header .main-navigation .current-menu-ancestor > a {
+  color: var(--bnm-color-primary);
+}
+
+.bnm-line-header .site-header {
+  border-bottom: 1px solid var(--bnm-color-border);
 }
 
 .bnm-default-header .site-header .bnm-main-menu {
@@ -1493,6 +1559,53 @@ textarea {
 
 .bnm-default-header.menu-align-right .main-navigation {
   margin-left: auto;
+}
+
+.bnm-default-header .main-navigation ul li {
+  position: relative;
+}
+
+.bnm-default-header .main-navigation ul li a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--bnm-color-primary);
+}
+
+.bnm-default-header .main-navigation ul ul li a:hover::after {
+  display: none;
+}
+
+.bnm-default-header .main-navigation ul ul .current_page_item > a,
+.bnm-default-header .main-navigation ul ul .current-menu-item > a,
+.bnm-default-header .main-navigation ul ul .current_page_ancestor > a,
+.bnm-default-header .main-navigation ul ul .current-menu-ancestor > a {
+  background: #111111;
+}
+
+.bnm-default-header .main-navigation ul ul .current_page_item > a::after,
+.bnm-default-header .main-navigation ul ul .current-menu-item > a::after,
+.bnm-default-header .main-navigation ul ul .current_page_ancestor > a::after,
+.bnm-default-header .main-navigation ul ul .current-menu-ancestor > a::after {
+  display: none;
+}
+
+.bnm-default-header .main-navigation .current_page_item > a::after,
+.bnm-default-header .main-navigation .current-menu-item > a::after,
+.bnm-default-header .main-navigation .current_page_ancestor > a::after,
+.bnm-default-header .main-navigation .current-menu-ancestor > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--bnm-color-primary);
 }
 
 .bnm-mobile-menu-toggle {
@@ -1518,7 +1631,7 @@ textarea {
 
 .bnm-mobile-menu {
   margin-bottom: 20px;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid var(--bnm-color-border);
 }
 
 .bnm-mobile-menu ul {
@@ -1537,7 +1650,7 @@ textarea {
   line-height: 45px;
   color: #ffffff;
   font-size: var(--bnm-font-size-base);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .bnm-mobile-menu ul ul {
@@ -1602,7 +1715,7 @@ textarea {
 
 .posts-navigation .nav-links {
   font-size: var(--bnm-font-size-md);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .post-navigation .nav-links {
@@ -1617,7 +1730,7 @@ textarea {
 .post-navigation .nav-links .post-title {
   color: var(--bnm-color-text-darker);
   font-size: var(--bnm-font-size-md);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .post-navigation .nav-links .post-title:hover {
@@ -1662,7 +1775,7 @@ textarea {
   background: var(--bnm-color-primary);
   border: 1px solid var(--bnm-color-primary);
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .pagination a.page-numbers:hover {
@@ -1822,13 +1935,13 @@ textarea {
 
 .edit-link {
   font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   margin-left: 1em;
 }
 
 .bnm-read-more {
   color: var(--bnm-color-text-darker);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .bnm-read-more:visited {
@@ -2026,7 +2139,7 @@ textarea {
 
 .entry-meta .author a {
   color: #000000;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .entry-meta .author a:visited {
@@ -2074,14 +2187,14 @@ textarea {
 }
 
 .bnm-author-name {
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
 .bnm-author-link {
   color: var(--bnm-color-primary);
   font-size: var(--bnm-font-size-sm);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .bnm-author-link:visited {

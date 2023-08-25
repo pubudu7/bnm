@@ -114,7 +114,12 @@ if ( ! function_exists( 'bnm_slide_out_menu_toggle' ) ) :
 	function bnm_slide_out_menu_toggle( $location = 'primary-menu' ) {
 		if ( $location === get_theme_mod( 'bnm_slideout_btn_loc', 'primary-menu' ) && true === get_theme_mod( 'bnm_show_slideout_sb', false ) ) : ?>
 			<button class="bnm-slideout-toggle">
-				<?php bnm_the_icon_svg( 'menu-bars' ); ?>
+				<div class="bnmst-bars">
+					<span class="bnmst1"></span>
+					<span class="bnmst2"></span>
+					<span class="bnmst3"></span>
+				</div>
+				<?php //bnm_the_icon_svg( 'menu-bars' ); ?>
 			</button>
 		<?php endif; 
 	}

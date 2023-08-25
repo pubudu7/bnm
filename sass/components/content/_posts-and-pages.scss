@@ -142,13 +142,13 @@
 
 .edit-link {
 	font-style: italic;
-	font-weight: 500;
+	font-weight: 600;
 	margin-left: 1em;
 }
 
 .bnm-read-more {
 	color: var(--bnm-color-text-darker);
-	font-weight: 500;;
+	font-weight: 600;;
 
 	&:visited {
 		color: var(--bnm-color-text-darker);
@@ -369,7 +369,7 @@
 
 	.author a {
 		color: #000000;
-		font-weight: 500;
+		font-weight: 600;
 
 		&:visited {
 			color: #000000;
@@ -419,14 +419,14 @@
 }
 
 .bnm-author-name {
-	font-weight: 500;
+	font-weight: 600;
 	margin-bottom: 10px;
 }
 
 .bnm-author-link {
 	color: var(--bnm-color-primary);
 	font-size: var(--bnm-font-size-sm);
-	font-weight: 500;
+	font-weight: 600;
 
 	&:visited {
 		color: var(--bnm-color-primary);

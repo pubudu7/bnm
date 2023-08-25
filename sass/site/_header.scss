@@ -1,7 +1,7 @@
 .bnm-default-header {
 	.site-header {
 		@media only screen and (max-width: 768px) {
-			border-bottom: 1px solid #dddddd;
+			border-bottom: 1px solid var( --bnm-color-border );
 		}
 	}
 
@@ -100,6 +100,10 @@
 			color: var(--bnm-color-text-light);
 		}
 	}
+
+	.bnm-slideout-toggle span {
+		background: #000000;
+	}
 }
 
 .top-bar-inner {
@@ -116,6 +120,10 @@
 
 	@media only screen and (min-width: 768px) {
 		flex-wrap: nowrap;
+	}
+
+	.bnm-slideout-toggle span {
+		background: #000000;
 	}
 } 
 
@@ -320,7 +328,7 @@
 	border: none;
 	color: inherit;
 	font-size: 20px;
-	padding: 0 20px 0 0;
+	padding: 0;
 
 	&:hover {
 		background-color: transparent;
@@ -330,6 +338,38 @@
 	&:focus {
 		background-color: transparent;
 	}
+
+	span {
+		display: block;
+		background: #ffffff;
+		height: 1px;
+		width: 23px;
+		position: absolute;
+		left: 0;
+		border: 1px solid #ffffff;
+		border-radius: 1px;
+	}
+}
+
+.bnmst-bars {
+	position: relative;
+	width: 45px;
+	height: 15px;
+}
+
+span.bnmst1 {
+	top: 0px;
+	width: 23px;
+}
+
+span.bnmst2 {
+	top: 7px;
+	width: 17px;
+}
+
+span.bnmst3 {
+	top: 14px;
+	width: 11px;
 }
 
 .bnm-slideout-sidebar {
