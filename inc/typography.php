@@ -102,7 +102,7 @@ function bnm_custom_typography_css() {
         ';
 
         $block_editor_css .= '
-            .editor-styles-wrapper .is-root-container {
+            .wp-block-post-content {
                 font-size: ' . esc_attr( $post_desktop_font_size ) . ';
             }
         ';
@@ -119,7 +119,7 @@ function bnm_custom_typography_css() {
 
         $block_editor_css .= '
             @media screen and (max-width: 768px) {
-                .editor-styles-wrapper .is-root-container {
+                .wp-block-post-content {
                     font-size: ' . esc_attr( $post_desktop_font_size ) . ';
                 }
             }
@@ -137,7 +137,7 @@ function bnm_custom_typography_css() {
 
         $block_editor_css .= '
             @media screen and (max-width: 600px) {
-                .editor-styles-wrapper .is-root-container {
+                .wp-block-post-content {
                     font-size: ' . esc_attr( $post_desktop_font_size ) . ';
                 }
             }

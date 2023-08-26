@@ -387,7 +387,7 @@ add_action( 'enqueue_block_editor_assets', 'bnm_theme_customizer_styles' );
 /**
  * Enqueue CSS styles for the editor that use the <body> tag.
  */
-function bnm_enqueue_editor_override_assets() {
+function bnm_enqueue_editor_styles() {
 	wp_enqueue_style( 'bnm-editor-overrides', get_theme_file_uri( '/css/style-editor-overrides.css' ), false, BNM_VERSION, 'all' );
 }
-add_action( 'enqueue_block_editor_assets', 'bnm_enqueue_editor_override_assets' );
+add_action( 'enqueue_block_editor_assets', 'bnm_enqueue_editor_styles' );
