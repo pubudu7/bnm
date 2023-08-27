@@ -4,3 +4,24 @@
 
 /* Footer */
 @import "footer";
+
+/* Seperate Containers */
+body.seperate-containers {
+    background-color: #f5f5f5;
+
+    .page-header,
+    .comments-area,
+    .nav-previous,
+    .nav-next,
+    .widget,
+    .bnm-entry:not(.wp-block-post) {
+        background-color: #ffffff;
+        padding: 30px;
+    }
+
+    .comment-list li:first-child article, 
+    .comment-list li:first-child .pingback, 
+    .comment-list li:first-child .trackback {
+        border-top: none;
+    }
+}

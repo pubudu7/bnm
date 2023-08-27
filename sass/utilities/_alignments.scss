@@ -1,3 +1,5 @@
+.bnm-entry .entry-content > *.wp-block-image .alignleft, 
+.bnm-entry .entry-content > *.alignleft,
 .alignleft {
 
 	/*rtl:ignore*/
@@ -8,6 +10,8 @@
 	margin-bottom: 1.5em;
 }
 
+.bnm-entry .entry-content > *.wp-block-image .alignright, 
+.bnm-entry .entry-content > *.alignright,
 .alignright {
 
 	/*rtl:ignore*/

@@ -15,7 +15,7 @@
 		}
 	}
 
-	&.wide-pmenu {
+	&.bnm-wide-pmenu {
 		.bnm-menu-wrapper.bnm-container {
 			width: 100%;
 		}
@@ -23,7 +23,7 @@
 
 }
 
-.wide-topbar {
+.bnm-wide-topbar {
 	.top-bar-inner.bnm-container {
 		width: 100%;
 		@media screen and (min-width: 600px) {
@@ -34,7 +34,7 @@
 	}
 }
 
-.wide-header {
+.bnm-wide-header {
 	.bnm-header-inner.bnm-container {
 		width: 100%;
 		@media screen and (min-width: 600px) {

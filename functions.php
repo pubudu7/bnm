@@ -303,24 +303,41 @@ if ( ! function_exists( 'bnm_get_fonts_array' ) ) :
 
 endif;
 
+if ( ! function_exists( 'bnm_get_fonts_url' ) ) :
+	/**
+	 * Gets the font url.
+	 */
+	function bnm_get_fonts_url() {
+		$fonts_arr = bnm_get_fonts_array();
+
+		if ( empty( $fonts_arr ) ) {
+			return;
+		}
+	
+		$font_url = bnm_get_google_font_uri( $fonts_arr );
+
+		return $font_url;
+	}
+
+endif;
+
 /**
 * Enqueue Google fonts.
 */
 function bnm_load_fonts() {
-	$fonts_arr = bnm_get_fonts_array();
 
-	if ( empty( $fonts_arr ) ) {
+	$font_url = bnm_get_fonts_url();
+
+	if ( empty( $font_url ) ) {
 		return;
 	}
 
-	$font_uri = bnm_get_google_font_uri( $fonts_arr );
-
 	if ( ! is_admin() && ! is_customize_preview() ) {
-		$font_uri = wptt_get_webfont_url( esc_url_raw( $font_uri ) );
+		$font_url = wptt_get_webfont_url( esc_url_raw( $font_url ) );
 	}
 
 	// Load Google Fonts
-	wp_enqueue_style( 'bnm-fonts', $font_uri, array(), null, 'screen' );
+	wp_enqueue_style( 'bnm-fonts', $font_url, array(), null, 'screen' );
 }
 add_action( 'wp_enqueue_scripts', 'bnm_load_fonts' );
 

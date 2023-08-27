@@ -35,6 +35,10 @@ function bnm_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	if ( 'seperate-containers' === get_theme_mod( 'bnm_content_layout', 'no-containers' ) ) {
+		$classes[] = 'seperate-containers';
+	}
+
 	if ( 'single-line' === $header_layout ) {
 
 		$classes[] = 'bnm-line-header';
@@ -62,19 +66,19 @@ function bnm_body_classes( $classes ) {
 
 		$menu_width = get_theme_mod( 'bnm_menu_width', 'contained' );
 		if ( 'full' === $menu_width ) {
-			$classes[] = 'wide-pmenu';
+			$classes[] = 'bnm-wide-pmenu';
 		}
 
 	}
 
 	$header_width = get_theme_mod( 'bnm_header_width', 'contained' );
 	if ( 'full' === $header_width ) {
-		$classes[] = 'wide-header';
+		$classes[] = 'bnm-wide-header';
 	}
 
 	$topbar_width = get_theme_mod( 'bnm_topbar_width', 'contained' );
 	if ( 'full' === $topbar_width ) {
-		$classes[] = 'wide-topbar';
+		$classes[] = 'bnm-wide-topbar';
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
@@ -99,10 +103,10 @@ function bnm_body_classes( $classes ) {
 	$archive_thumbnail_align = get_theme_mod( 'bnm_archive_thumbnail_align', 'left' );
 	if ( 'beside-article' ===  $archive_thumbnail_position ) {
 		$classes[] = 'bnm-arc-img-ba';
-		$classes[] = 'msaif-' . esc_attr( $archive_thumbnail_align );
+		$classes[] = 'bnmaif-' . esc_attr( $archive_thumbnail_align );
 	} elseif ( 'beside-content' === $archive_thumbnail_position ) {
 		$classes[] = 'bnm-arc-img-bc';
-		$classes[] = 'msaif-' . esc_attr( $archive_thumbnail_align );
+		$classes[] = 'bnmaif-' . esc_attr( $archive_thumbnail_align );
 	}
 
 	if ( get_theme_mod( 'bnm_images_rounded_borders', false ) ) {

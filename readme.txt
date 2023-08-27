@@ -12,7 +12,7 @@ BNM is a simple, fast theme for blogging sites.
 
 == Description ==
 
-BNM is a simple, fast theme for blogging sites.
+BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor.
 
 == Installation ==
 
@@ -21,6 +21,10 @@ BNM is a simple, fast theme for blogging sites.
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.0.2 =
+* Updated theme description.
+* Added editor styles.
 
 = 1.0.1 =
 * Fixed a JS issue in main.js

@@ -482,3 +482,28 @@
 .infinite-scroll .pagination {
 	display: none;
 }
+
+.bnm-entry .page-links {
+	padding: 30px 0;
+}
+
+/* Pagination inside post/page content */
+.bnm-entry .post-page-numbers {
+	border: 1px solid var(--bnm-color-border);
+    color: var(--bnm-color-text-main) !important;
+    padding: 7px 15px;
+    margin: 0 2px 5px 2px;
+    display: inline-block;
+	text-decoration: none !important;
+
+	&:visited {
+		color: #000000;
+	}
+
+	&:hover,
+	&.current {
+		background-color: var(--bnm-color-primary);
+		border: 1px solid var(--bnm-color-primary);
+		color: #ffffff !important;
+	}
+}
