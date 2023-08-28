@@ -13,6 +13,12 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<?php
+
+		/**
+		 * Before Main Content Hook
+		 */
+		do_action( 'bnm_before_main_content' );
+
 		while ( have_posts() ) :
 			the_post();
 
@@ -26,6 +32,12 @@ get_header();
 			endif;
 
 		endwhile; // End of the loop.
+
+		/**
+		 * After Main Content Hook
+		 */
+		do_action( 'bnm_after_main_content' );
+
 		?>
 
 	</main><!-- #main -->

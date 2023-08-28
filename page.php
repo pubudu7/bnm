@@ -18,6 +18,12 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<?php
+
+		/**
+		 * Before Main Content Hook
+		 */
+		do_action( 'bnm_before_main_content' );
+
 		while ( have_posts() ) :
 			the_post();
 
@@ -29,10 +35,20 @@ get_header();
 			endif;
 
 		endwhile; // End of the loop.
+
+		/**
+		 * After Main Content Hook
+		 */
+		do_action( 'bnm_after_main_content' );
+
 		?>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+	$bnm_page_layout = bnm_get_layout();
+	if ( 'right-sidebar' === $bnm_page_layout || 'left-sidebar' === $bnm_page_layout ) {
+		get_sidebar();
+	}
+
 get_footer();

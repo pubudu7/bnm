@@ -12,20 +12,31 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php
+
+		// Before content hook
+		do_action( 'bnm_before_content' );
+
 		if ( 'before-header' === get_theme_mod( 'bnm_post_image_position', 'after-header' ) ) {
 			bnm_post_thumbnail( 'bnm-featured-image' );
 		}
 	?>
 
-	<?php bnm_categories(); ?>
+	<?php 
+		// Before entry header hook.
+		do_action( 'bnm_before_entry_header' );
+
+		bnm_categories(); 
+	?>
 
 	<header class="entry-header">
 		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+		// Before entry title hook.
+		do_action( 'bnm_before_entry_title' );
+		
+		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+
+		// After entry title hook.
+		do_action( 'bnm_after_entry_title' );
 
 		if ( 'post' === get_post_type() ) :
 			?>
@@ -36,6 +47,9 @@
 	</header><!-- .entry-header -->
 
 	<?php
+		// After entry header hook.
+		do_action( 'bnm_after_entry_header' );
+		
 		if ( 'after-header' === get_theme_mod( 'bnm_post_image_position', 'after-header' ) ) {
 			bnm_post_thumbnail( 'bnm-featured-image' );
 		}
@@ -64,6 +78,10 @@
 				'after'  => '</div>',
 			)
 		);
+
+		// After entry content hook.
+		do_action( 'bnm_after_entry_content' );
+
 		?>
 	</div><!-- .entry-content -->
 
@@ -75,6 +93,11 @@
 		if ( ! is_singular( 'attachment' ) ) { 
 			get_template_part( 'template-parts/author', 'bio' ); 
 		}
+	?>
+
+	<?php 
+		// After content hook
+		do_action( 'bnm_after_content' ); 
 	?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

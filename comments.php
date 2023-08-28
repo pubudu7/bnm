@@ -18,6 +18,10 @@
 if ( post_password_required() ) {
 	return;
 }
+
+// Before comment area hook
+do_action( 'bnm_before_comments' );
+
 ?>
 
 <div id="comments" class="comments-area">
@@ -45,6 +49,13 @@ if ( post_password_required() ) {
 			}
 			?>
 		</h2><!-- .comments-title -->
+
+		<?php
+			/**
+			 * Below comment area title hook.
+			 */
+			do_action( 'bnm_below_comments_title' );
+		?>
 
 		<?php the_comments_navigation(); ?>
 

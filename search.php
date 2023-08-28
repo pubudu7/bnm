@@ -11,6 +11,13 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
+		<?php
+		/**
+		 * Before Main Content Hook
+		 */
+		do_action( 'bnm_before_main_content' );
+
+		?>
 
 		<?php if ( have_posts() ) : ?>
 
@@ -26,6 +33,12 @@ get_header();
 			<div id="blog-entries">
 
 			<?php
+			
+			/**
+			 * Before search loop hook
+			 */
+			do_action( 'bnm_before_loop', 'search' );
+
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -38,6 +51,12 @@ get_header();
 				get_template_part( 'template-parts/content', 'search' );
 
 			endwhile;
+
+			/**
+			 * After index loop hook
+			 */
+			do_action( 'bnm_after_loop', 'search' );
+
 			?>
 
 			</div><!-- #blog-entries -->
@@ -51,6 +70,12 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
+
+		/**
+		 * After Main Content Hook
+		 */
+		do_action( 'bnm_after_main_content' );
+
 		?>
 
 	</main><!-- #main -->

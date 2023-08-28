@@ -100,7 +100,7 @@ $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
 
 	</header><!-- #masthead -->
 
-	<?php do_action( 'after_header' ); ?>
+	<?php do_action( 'bnm_after_header' ); ?>
 
 	<?php if ( is_active_sidebar( 'header-3' ) ) : ?>
 		<div class="bnm-sidebar-header-after">
@@ -112,3 +112,4 @@ $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
 
 	<div id="content" class="site-content">
 		<div class="content-area bnm-container">
+			<?php do_action( 'bnm_inside_container' ); ?>

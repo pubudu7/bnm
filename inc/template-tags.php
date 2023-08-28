@@ -119,7 +119,6 @@ if ( ! function_exists( 'bnm_slide_out_menu_toggle' ) ) :
 					<span class="bnmst2"></span>
 					<span class="bnmst3"></span>
 				</div>
-				<?php //bnm_the_icon_svg( 'menu-bars' ); ?>
 			</button>
 		<?php endif; 
 	}

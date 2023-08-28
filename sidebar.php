@@ -13,5 +13,20 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php 
+
+	/**
+	 * Before sidebar hook.
+	 */
+	do_action( 'bnm_before_main_sidebar' );
+	
+	
+	dynamic_sidebar( 'sidebar-1' ); 
+
+	/**
+	 * After sidebar hook.
+	 */
+	do_action( 'bnm_after_main_sidebar' );
+	
+	?>
 </aside><!-- #secondary -->

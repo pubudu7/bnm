@@ -12,6 +12,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php
+
+		// Before content hook
+		do_action( 'bnm_before_content' );
+
 		if ( 'before-header' === bnm_archive_thumbnail_position() || 'beside-article' === bnm_archive_thumbnail_position() ) {
 			bnm_post_thumbnail( 'bnm-archive-image' );
 		}
@@ -19,15 +23,27 @@
 
 	<div class="bnm-article-inner">
 	
-		<?php bnm_categories(); ?>
+		<?php 
+			// Before entry header hook.
+			do_action( 'bnm_before_entry_header' );
+
+			bnm_categories(); 
+		?>
 		
 		<header class="entry-header">
+
 			<?php
+			// Before entry title hook.
+			do_action( 'bnm_before_entry_title' );
+
 			if ( is_singular() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			else :
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			endif;
+
+			// After entry title hook.
+			do_action( 'bnm_after_entry_title' );
 
 			if ( 'post' === get_post_type() ) :
 				?>
@@ -38,6 +54,10 @@
 		</header><!-- .entry-header -->
 
 		<?php
+		
+			// After entry header hook.
+			do_action( 'bnm_after_entry_header' );
+
 			if ( 'after-header' === bnm_archive_thumbnail_position() ) {
 				bnm_post_thumbnail( 'bnm-archive-image' );
 			}
@@ -57,12 +77,21 @@
 					} elseif ( 'content' === $bnm_content_type ) {
 						the_content();
 					}
+
+					// After entry content hook.
+					do_action( 'bnm_after_entry_content' );
 				?>
 			</div><!-- .entry-content -->
 
 			<?php bnm_read_more_button() ?>
+
 		</div><!-- .entry-content-wrapper -->
 
 	</div><!-- .bnm-article-inner -->
+
+	<?php 
+		// After content hook
+		do_action( 'bnm_after_content' ); 
+	?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

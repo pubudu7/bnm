@@ -12,6 +12,13 @@ get_header();
 
 	<main id="primary" class="site-main">
 
+		<?php
+			/**
+			 * Before Main Content Hook
+			 */
+			do_action( 'bnm_before_main_content' );
+		?>
+
 		<section class="error-404 not-found">
 			<header class="page-header">
 				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'bnm' ); ?></h1>
@@ -53,6 +60,13 @@ get_header();
 
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->
+
+		<?php
+			/**
+			 * After Main Content Hook
+			 */
+			do_action( 'bnm_after_main_content' );
+		?>
 
 	</main><!-- #main -->
 

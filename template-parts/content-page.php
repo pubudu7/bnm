@@ -10,11 +10,30 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<?php
+		// Before content hook
+		do_action( 'bnm_before_content' );
+	?>
+
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php 
+			// Before page title hook.
+			do_action( 'bnm_before_page_title' );
+
+			the_title( '<h1 class="entry-title">', '</h1>' ); 
+
+			// After page title hook.
+			do_action( 'bnm_after_page_title' );
+		?>
 	</header><!-- .entry-header -->
 
-	<?php bnm_post_thumbnail(); ?>
+	<?php 
+		// After page header hook.
+		do_action( 'bnm_after_page_header' );
+
+		bnm_post_thumbnail(); 
+	?>
 
 	<div class="entry-content">
 		<?php
@@ -51,4 +70,11 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
+	
+	<?php 
+		// After content hook
+		do_action( 'bnm_after_content' ); 
+	?>
+
+
 </article><!-- #post-<?php the_ID(); ?> -->

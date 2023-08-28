@@ -507,7 +507,7 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'bnm_panel_header',
 		array(
-			'priority' 			=> 200,
+			'priority' 			=> 192,
 			'capability' 		=> 'edit_theme_options',
 			'title' 			=> esc_html__( 'Header Settings', 'bnm' )
 		)
@@ -898,7 +898,7 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'bnm_panel_blog',
 		array(
-			'priority' 			=> 200,
+			'priority' 			=> 194,
 			'capability' 		=> 'edit_theme_options',
 			'title' 			=> esc_html__( 'Blog Settings', 'bnm' )
 		)
@@ -1300,7 +1300,7 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'bnm_panel_post',
 		array(
-			'priority' 			=> 200,
+			'priority' 			=> 196,
 			'capability' 		=> 'edit_theme_options',
 			'title' 			=> esc_html__( 'Post Settings', 'bnm' )
 		)
@@ -1538,6 +1538,41 @@ function bnm_customize_register( $wp_customize ) {
 			'type'        => 'checkbox',
 			'label'       => esc_html__( 'Display author bio at the bottom of the post.', 'bnm' ),
 			'section'     => 'bnm_post_content_section',
+		)
+	);
+
+	// Page Settings Section
+	$wp_customize->add_section(
+		'bnm_page_section',
+		array(
+			'title' => esc_html__( 'Page Settings', 'bnm' ),
+			'priority' => 198
+		)
+	);
+
+	$wp_customize->add_setting(
+		'bnm_page_layout',
+		array(
+			'default'			=> 'right-sidebar',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_select'
+		)
+	);
+	$wp_customize->add_control(
+		new BNM_Radio_Image_Control( 
+			$wp_customize,
+			'bnm_page_layout',
+			array(
+				'section'		=> 'bnm_page_section',
+				'label'			=> esc_html__( 'Page Layout', 'bnm' ),
+				'choices'		=> array(
+					'right-sidebar'	        => $images_uri . '2cr.png',
+					'left-sidebar' 	        => $images_uri . '2cl.png',
+					'no-sidebar' 		    => $images_uri . '1c.png',
+					'center-content' 	    => $images_uri . '1cc.png'
+				)
+			)
 		)
 	);
 

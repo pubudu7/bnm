@@ -18,6 +18,12 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<?php
+
+		/**
+		 * Before Main Content Hook
+		 */
+		do_action( 'bnm_before_main_content' );
+
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) :
@@ -31,6 +37,12 @@ get_header();
 			?>
 				<div id="blog-entries">
 					<?php
+
+						/**
+						 * Before index loop hook
+						 */
+						do_action( 'bnm_before_loop', 'index' );
+
 						/* Start the Loop */
 						while ( have_posts() ) :
 
@@ -44,6 +56,11 @@ get_header();
 							get_template_part( 'template-parts/content', get_post_type() );
 
 						endwhile;
+
+						/**
+						 * After index loop hook
+						 */
+						do_action( 'bnm_after_loop', 'index' );
 					?>
 				</div><!-- #blog-entries -->
 			<?php
@@ -55,6 +72,12 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
+
+		/**
+		 * After Main Content Hook
+		 */
+		do_action( 'bnm_after_main_content' );
+
 		?>
 
 	</main><!-- #main -->

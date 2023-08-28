@@ -25,6 +25,9 @@ BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast a
 = 1.0.2 =
 * Updated theme description.
 * Added editor styles.
+* Added page layout option.
+* Added New Hooks.
+* Fixed prefix issue on "after_header" hook.
 
 = 1.0.1 =
 * Fixed a JS issue in main.js

@@ -12,6 +12,14 @@
 ?>
 	</div><!-- .bnm-container -->
 	</div><!-- .site-content -->
+
+	<?php
+		/**
+		 * Before Footer Hook
+		 */
+		do_action( 'bnm_before_footer' ); 
+	?>
+
 	<footer id="colophon" class="site-footer">
 
 		<?php
@@ -72,6 +80,14 @@
 			</div><!-- .bnm-container -->
 		</div><!-- .bnm-footer-bottom -->
 	</footer><!-- #colophon -->
+
+	<?php
+		/**
+		 * After Footer hook
+		 */
+		do_action( 'bnm_after_footer' ); 
+	?>
+
 </div><!-- #page -->
 
 <?php
