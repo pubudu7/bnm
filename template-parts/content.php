@@ -80,10 +80,10 @@
 
 					// After entry content hook.
 					do_action( 'bnm_after_entry_content' );
+
+					bnm_read_more_button();
 				?>
 			</div><!-- .entry-content -->
-
-			<?php bnm_read_more_button() ?>
 
 		</div><!-- .entry-content-wrapper -->
 

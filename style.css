@@ -11,7 +11,7 @@ Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: bnm
-Tags: news, blog, grid-layout, right-sidebar, two-columns, custom-logo, custom-menu, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
+Tags: news, blog, grid-layout, right-sidebar, two-columns, custom-logo, custom-menu, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, rtl-language-support
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
@@ -1889,16 +1889,16 @@ body.seperate-containers .comment-list li:first-child .trackback {
   margin: 1.5em 0 0;
 }
 
-.page-content a:not(.bnm-read-more):not(.wp-block-button__link),
-.entry-content a:not(.bnm-read-more):not(.wp-block-button__link),
-.entry-summary a:not(.bnm-read-more):not(.wp-block-button__link) {
+.page-content a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn),
+.entry-content a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn),
+.entry-summary a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn) {
   color: #046bd2;
   text-decoration: underline;
 }
 
-.page-content a:not(.bnm-read-more):not(.wp-block-button__link):hover,
-.entry-content a:not(.bnm-read-more):not(.wp-block-button__link):hover,
-.entry-summary a:not(.bnm-read-more):not(.wp-block-button__link):hover {
+.page-content a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn):hover,
+.entry-content a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn):hover,
+.entry-summary a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn):hover {
   color: var(--bnm-color-primary);
 }
 

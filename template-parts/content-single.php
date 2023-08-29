@@ -33,7 +33,7 @@
 		// Before entry title hook.
 		do_action( 'bnm_before_entry_title' );
 		
-		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		the_title( '<h1 class="entry-title">', '</h1>' );
 
 		// After entry title hook.
 		do_action( 'bnm_after_entry_title' );

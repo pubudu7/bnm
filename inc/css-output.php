@@ -39,9 +39,9 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
         $article_link_color = get_theme_mod( 'bnm_article_links_color', '#046bd2' );
         if ( ! empty( $article_link_color ) && '#046bd2' != $article_link_color ) {
             $theme_css .= '
-                .page-content a:not(.bnm-read-more):not(.wp-block-button__link), 
-                .entry-content a:not(.bnm-read-more):not(.wp-block-button__link), 
-                .entry-summary a:not(.bnm-read-more):not(.wp-block-button__link) {
+                .page-content a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn), 
+                .entry-content a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn), 
+                .entry-summary a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn) {
                     color: '. esc_attr( $article_link_color ) .';
                 }
             ';

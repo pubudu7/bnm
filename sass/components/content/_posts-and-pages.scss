@@ -24,7 +24,7 @@
 .entry-summary {
 	margin: 1.5em 0 0;
 
-	a:not(.bnm-read-more):not(.wp-block-button__link) {
+	a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn) {
 		color: #046bd2;
 		text-decoration: underline;
 

@@ -25,8 +25,11 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->register_control_type( 'BNM_Slider_Control' );
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	$wp_customize->get_control( 'blogname' )->priority         = 1;
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_control( 'blogdescription' )->priority  = 3;
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
 
 	$wp_customize->get_section( 'header_image' )->panel 		= 'bnm_panel_header';
 	$wp_customize->get_section( 'header_image' )->priority 		= 50;
@@ -50,6 +53,42 @@ function bnm_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+	// Hide site title
+	$wp_customize->add_setting(
+		'bnm_hide_site_title',
+		array(
+			'default'           => false,
+			'sanitize_callback' => 'bnm_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_hide_site_title',
+		array(
+			'type'        => 'checkbox',
+			'label'       => esc_html__( 'Hide site title', 'bnm' ),
+			'priority'	  => 2,
+			'section'     => 'title_tagline',
+		)
+	);
+
+	// Hide site title
+	$wp_customize->add_setting(
+		'bnm_hide_site_tagline',
+		array(
+			'default'           => false,
+			'sanitize_callback' => 'bnm_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_hide_site_tagline',
+		array(
+			'type'        => 'checkbox',
+			'label'       => esc_html__( 'Hide site tagline', 'bnm' ),
+			'priority'	  => 4,
+			'section'     => 'title_tagline',
+		)
+	);
 
 	// Logo Max Width
 	$wp_customize->add_setting(
@@ -1083,7 +1122,7 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'bnm_show_cat_links',
 		array(
-			'default'           => false,
+			'default'           => true,
 			'sanitize_callback' => 'bnm_sanitize_checkbox',
 		)
 	);

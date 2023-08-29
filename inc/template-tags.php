@@ -10,6 +10,13 @@
 if ( ! function_exists( 'bnm_site_title' ) ) : 
 
 	function bnm_site_title() {
+
+		$bnm_site_title = get_bloginfo( 'title' );
+		$bnm_description = get_bloginfo( 'description', 'display' );
+
+		$hide_title = ( get_theme_mod( 'bnm_hide_site_title', false ) || '' == $bnm_site_title ) ? true : false;
+		$hide_tagline = ( get_theme_mod( 'bnm_hide_site_tagline', false ) || '' == $bnm_description ) ? true : false;
+
 		?>
 		<div class="site-branding-container">
 			<?php if ( has_custom_logo() ) : ?>
@@ -20,17 +27,22 @@ if ( ! function_exists( 'bnm_site_title' ) ) :
 
 			<div class="site-branding">
 				<?php
-				if ( is_front_page() && is_home() ) :
-					?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php
-				else :
-					?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
+
+				if ( ! $hide_title ) :
+
+					if ( is_front_page() && is_home() ) :
+						?>
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php
+					else :
+						?>
+						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<?php
+					endif;
+
 				endif;
-				$bnm_description = get_bloginfo( 'description', 'display' );
-				if ( $bnm_description || is_customize_preview() ) :
+				
+				if ( ! $hide_tagline ) :
 					?>
 					<p class="site-description"><?php echo $bnm_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 				<?php endif; ?>
@@ -195,7 +207,7 @@ if ( ! function_exists( 'bnm_categories' ) ) :
 			if ( is_single() ) {
 				$show_category_list = get_theme_mod( 'bnm_show_cat_links_s', true );
 			} else {
-				$show_category_list = get_theme_mod( 'bnm_show_cat_links', false );
+				$show_category_list = get_theme_mod( 'bnm_show_cat_links', true );
 			}
 
 			if ( ! $show_category_list ) {

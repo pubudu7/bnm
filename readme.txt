@@ -27,7 +27,9 @@ BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast a
 * Added editor styles.
 * Added page layout option.
 * Added New Hooks.
-* Fixed prefix issue on "after_header" hook.
+* Added RTL language support.
+* Fixed prefix issue. Renamed "after_header" hook to "bnm_after_header".
+* Added controls to show/hide site title and tagline.
 
 = 1.0.1 =
 * Fixed a JS issue in main.js
@@ -60,7 +62,7 @@ Source: https://stocksnap.io/photo/business-team-BXVO5YWHDY
 
 Image 2 shown in screenshot.png, Copyright Matt Moloney
 License: CC0 1.0 Universal (CC0 1.0)
-Source: https://stocksnap.io/photo/woman-portrait-NCT0MAJ5LE
+Source: https://stocksnap.io/photo/woman-portrait-HWEIR0YYLW
 
 Image 3 shown in screenshot.png, Copyright Kristin Hardwick
 License: CC0 1.0 Universal (CC0 1.0)
@@ -69,3 +71,7 @@ Source: https://stocksnap.io/photo/people-browsing-5TSIDK0IPJ
 Image 4 shown in screenshot.png, Copyright Sergei Gussev
 License: CC0 1.0 Universal (CC0 1.0)
 Source: https://stocksnap.io/photo/coastal-landscape-8IEKJZN1OV
+
+Image 5 shown in screenshot.png, Copyright Studio 7042
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://stocksnap.io/photo/macbook-coffee-LXOMYCLBQO
