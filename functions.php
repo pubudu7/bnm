@@ -104,8 +104,6 @@ function bnm_setup() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height' 		=> 70,
-			'width' 		=> 350,
 			'flex-height'	=> true,
 			'flex-width' 	=> true,
 		)

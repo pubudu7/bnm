@@ -1866,11 +1866,6 @@ body.seperate-containers .comment-list li:first-child .trackback {
   display: block;
 }
 
-.post,
-.page {
-  margin: 0 0 1.5em;
-}
-
 .updated:not(.published) {
   display: none;
 }
@@ -2078,6 +2073,7 @@ body.seperate-containers .comment-list li:first-child .trackback {
 }
 
 .cat-links {
+  color: #cccccc;
   margin: 0 0 5px;
   display: block;
 }
@@ -2371,7 +2367,7 @@ body.seperate-containers .comment-list li:first-child .trackback {
 }
 
 .comment-author a {
-  color: #e74c3c;
+  color: var(--bnm-color-primary);
 }
 
 .comment-author a:hover {
@@ -2412,7 +2408,7 @@ footer.comment-meta {
 .comment-metadata a:focus,
 .pingback .comment-edit-link:hover,
 .pingback .comment-edit-link:focus {
-  color: #e74c3c;
+  color: var(--bnm-color-primary);
 }
 
 .comment-metadata .edit-link,
@@ -2445,7 +2441,7 @@ footer.comment-meta {
 
 .comment-reply-link:hover,
 .comment-reply-link:focus {
-  background: #e74c3c;
+  background: var(--bnm-color-primary);
   color: #fff;
   outline: 0;
 }
@@ -2493,7 +2489,7 @@ footer.comment-meta {
 }
 
 .required {
-  color: #e74c3c;
+  color: var(--bnm-color-primary);
 }
 
 .comment-reply-title {
@@ -2513,15 +2509,6 @@ footer.comment-meta {
 .comment-reply-title small a:hover,
 .comment-reply-title small a:focus {
   color: #1a1a1a;
-}
-
-.comment-reply-title small a:before {
-  content: "\f00d";
-  font-family: 'FontAwesome';
-  font-size: 20px;
-  position: relative;
-  top: -5px;
-  color: #e74c3c;
 }
 
 /* Widgets

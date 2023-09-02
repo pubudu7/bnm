@@ -109,9 +109,9 @@ function bnm_body_classes( $classes ) {
 		$classes[] = 'bnmaif-' . esc_attr( $archive_thumbnail_align );
 	}
 
-	if ( get_theme_mod( 'bnm_images_rounded_borders', false ) ) {
-		$classes[] = 'bnm-img-rb';
-	}
+	// if ( get_theme_mod( 'bnm_images_rounded_borders', false ) ) {
+	// 	$classes[] = 'bnm-img-rb';
+	// }
 	$footer_sidebar_count = get_theme_mod( 'bnm_footer_sidebar_count', '3' );
 	if ( $footer_sidebar_count ) {
 		$classes[] = 'bnm-footer-cols-' . esc_attr( $footer_sidebar_count );
@@ -277,14 +277,10 @@ if ( ! function_exists( 'bnm_excerpt_more' ) ) {
 			return apply_filters(
 				'bnm_excerpt_more_output',
 				sprintf(
-					' &hellip; <a title="%1$s" class="bnm-read-more" href="%2$s" aria-label="%3$s">%4$s</a>',
+					' &hellip; <a title="%1$s" class="bnm-read-more" href="%2$s"><span class="screen-reader-text">%3$s</span>%4$s</a>',
 					the_title_attribute( 'echo=0' ),
 					esc_url( get_permalink( get_the_ID() ) ),
-					sprintf(
-						/* translators: Aria-label describing the read more button */
-						_x( 'More on %s', 'more on post title', 'bnm' ),
-						the_title_attribute( 'echo=0' )
-					),
+					esc_html( get_the_title( get_the_ID() ) ),
 					__( 'Read more', 'bnm' ),
 				)
 			);

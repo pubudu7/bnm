@@ -58,30 +58,48 @@ $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
 			</div><!-- .bnm-top-bar -->
 		<?php endif; ?>
 
-		<div class="bnm-header-inner bnm-container">
+		<div class="bnm-header-inner-wrapper">
 
-			<?php bnm_slide_out_menu_toggle( 'before-logo' ); ?>
+			<?php 
+				/**
+				 * Before header inner action
+				 */
+				do_action( 'bnm_before_header_inner' );
+			?>
 
-			<?php bnm_site_title(); ?>
+			<div class="bnm-header-inner bnm-container">
 
-			<?php if ( 'single-line' === $bnm_header_layout ) : ?>
-				<nav id="site-navigation" class="main-navigation bnm-menu desktop-only">
-					<?php bnm_primary_nav(); ?>
-				</nav>
-				<?php bnm_search_box(); ?>
-			<?php endif; ?>
+				<?php bnm_slide_out_menu_toggle( 'before-logo' ); ?>
 
-			<?php if ( is_active_sidebar( 'header-2' ) ) : ?>
-				<div class="bnm-header-sidebar">
-					<?php dynamic_sidebar( 'header-2' ); ?>
-				</div>
-			<?php endif; ?>
+				<?php bnm_site_title(); ?>
 
-			<button class="bnm-mobile-menu-toggle">
-				<?php bnm_the_icon_svg( 'menu-bars' ); ?>
-			</button>
-		
-		</div><!-- .bnm-header-inner -->
+				<?php if ( 'single-line' === $bnm_header_layout ) : ?>
+					<nav id="site-navigation" class="main-navigation bnm-menu desktop-only">
+						<?php bnm_primary_nav(); ?>
+					</nav>
+					<?php bnm_search_box(); ?>
+				<?php endif; ?>
+
+				<?php if ( is_active_sidebar( 'header-2' ) ) : ?>
+					<div class="bnm-header-sidebar">
+						<?php dynamic_sidebar( 'header-2' ); ?>
+					</div>
+				<?php endif; ?>
+
+				<button class="bnm-mobile-menu-toggle">
+					<?php bnm_the_icon_svg( 'menu-bars' ); ?>
+				</button>
+			
+			</div><!-- .bnm-header-inner -->
+
+			<?php 
+				/**
+				 * After header inner action
+				 */
+				do_action( 'bnm_after_header_inner' );
+			?>
+
+		</div><!-- .bnm-header-inner-wrapper -->
 
 		<?php if ( 'default' === $bnm_header_layout ) : ?>
 			<div class="bnm-main-menu desktop-only">

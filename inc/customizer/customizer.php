@@ -526,7 +526,7 @@ function bnm_customize_register( $wp_customize ) {
 	) );
 
 	// General - Featured images rounded borders
-	$wp_customize->add_setting(
+	/*$wp_customize->add_setting(
 		'bnm_images_rounded_borders',
 		array(
 			'default'           => false,
@@ -540,7 +540,7 @@ function bnm_customize_register( $wp_customize ) {
 			'label'       => esc_html__( 'Make corners rounded on featured images', 'bnm' ),
 			'section'     => 'bnm_general_section',
 		)
-	);
+	);*/
 
 	// Header Settings Panel
 	$wp_customize->add_panel(
@@ -626,91 +626,177 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Header Padding Top
-	$wp_customize->add_setting( 
-		'bnm_default_header_padding_top',
-		array(
-			'default'           => 40,
-			'type'              => 'theme_mod',
-			'capablity'         => 'edit_theme_options',
-			'sanitize_callback' => 'absint',
-		)
-	);
-	$wp_customize->add_control( 
-		'bnm_default_header_padding_top',
-		array(
-			'settings'		    => 'bnm_default_header_padding_top',
-			'section'		    => 'bnm_header_layout_section',
-			'type'			    => 'number',
-			'label'			    => esc_html__( 'Header Padding Top (px)', 'bnm' ),
-			'description'	    => esc_html__( 'Default: 40px', 'bnm' ),
-			'active_callback'	=> 'bnm_is_default_header'
-		)
-	);
+	// // Header Padding Top
+	// $wp_customize->add_setting( 
+	// 	'bnm_default_header_padding_top',
+	// 	array(
+	// 		'default'           => '',
+	// 		'type'              => 'theme_mod',
+	// 		'capablity'         => 'edit_theme_options',
+	// 		'sanitize_callback' => 'absint',
+	// 	)
+	// );
+	// $wp_customize->add_control( 
+	// 	'bnm_default_header_padding_top',
+	// 	array(
+	// 		'settings'		    => 'bnm_default_header_padding_top',
+	// 		'section'		    => 'bnm_header_layout_section',
+	// 		'type'			    => 'number',
+	// 		'label'			    => esc_html__( 'Header Padding Top (px)', 'bnm' ),
+	// 		'description'	    => esc_html__( 'Default: 40px', 'bnm' ),
+	// 		'active_callback'	=> 'bnm_is_default_header'
+	// 	)
+	// );
 
-	// Header Padding Bottom
-	$wp_customize->add_setting( 
-		'bnm_default_header_padding_bottom',
+	// Header Padding Top - Desktop
+	$wp_customize->add_setting(
+		'bnm_header_padding_top_desktop',
 		array(
-			'default'           => 40,
-			'type'              => 'theme_mod',
-			'capablity'         => 'edit_theme_options',
-			'sanitize_callback' => 'absint',
+			'default'			=> '',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_number_blank'
+		)
+	);
+	// Header Padding Top - Tablet
+	$wp_customize->add_setting(
+		'bnm_header_padding_top_tablet',
+		array(
+			'default'			=> '',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_number_blank'
+		)
+	);
+	// Header Padding Top - Mobile
+	$wp_customize->add_setting(
+		'bnm_header_padding_top_mobile',
+		array(
+			'default'			=> '',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_number_blank'
 		)
 	);
 	$wp_customize->add_control( 
-		'bnm_default_header_padding_bottom',
+		new BNM_Responsive_Number_Control( $wp_customize, 'bnm_header_padding_top',
 		array(
-			'settings'		    => 'bnm_default_header_padding_bottom',
-			'section'		    => 'bnm_header_layout_section',
-			'type'			    => 'number',
-			'label'			    => esc_html__( 'Header Padding Bottom (px)', 'bnm' ),
-			'description'	    => esc_html__( 'Default: 40px', 'bnm' ),
-			'active_callback'	=> 'bnm_is_default_header'
+			'label'         => esc_html__( 'Header Padding Top (px)', 'bnm' ),
+			'section'       => 'bnm_header_layout_section',
+			'settings'      => array(
+				'desktop'   => 'bnm_header_padding_top_desktop',
+				'tablet'    => 'bnm_header_padding_top_tablet',
+				'mobile'    => 'bnm_header_padding_top_mobile'
+			)
 		)
-	);
+	) );
 
-	// Header Padding Top
-	$wp_customize->add_setting( 
-		'bnm_line_header_padding_top',
+	// Header Padding Bottom - Desktop
+	$wp_customize->add_setting(
+		'bnm_header_padding_bottom_desktop',
 		array(
-			'default'           => 20,
-			'type'              => 'theme_mod',
-			'capablity'         => 'edit_theme_options',
-			'sanitize_callback' => 'absint',
+			'default'			=> '',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_number_blank'
+		)
+	);
+	// Header Padding Bottom - Tablet
+	$wp_customize->add_setting(
+		'bnm_header_padding_bottom_tablet',
+		array(
+			'default'			=> '',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_number_blank'
+		)
+	);
+	// Header Padding Bottom - Mobile
+	$wp_customize->add_setting(
+		'bnm_header_padding_bottom_mobile',
+		array(
+			'default'			=> '',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_number_blank'
 		)
 	);
 	$wp_customize->add_control( 
-		'bnm_line_header_padding_top',
+		new BNM_Responsive_Number_Control( $wp_customize, 'bnm_header_padding_bottom',
 		array(
-			'section'		    => 'bnm_header_layout_section',
-			'type'			    => 'number',
-			'label'			    => esc_html__( 'Header Padding Top (px)', 'bnm' ),
-			'description'	    => esc_html__( 'Default: 20px', 'bnm' ),
-			'active_callback'	=> 'bnm_is_line_header'
+			'label'         => esc_html__( 'Header Padding Bottom (px)', 'bnm' ),
+			'section'       => 'bnm_header_layout_section',
+			'settings'      => array(
+				'desktop'   => 'bnm_header_padding_bottom_desktop',
+				'tablet'    => 'bnm_header_padding_bottom_tablet',
+				'mobile'    => 'bnm_header_padding_bottom_mobile'
+			)
 		)
-	);
+	) );
 
-	// Header Padding Bottom
-	$wp_customize->add_setting( 
-		'bnm_line_header_padding_bottom',
-		array(
-			'default'           => 20,
-			'type'              => 'theme_mod',
-			'capablity'         => 'edit_theme_options',
-			'sanitize_callback' => 'absint',
-		)
-	);
-	$wp_customize->add_control( 
-		'bnm_line_header_padding_bottom',
-		array(
-			'section'		    => 'bnm_header_layout_section',
-			'type'			    => 'number',
-			'label'			    => esc_html__( 'Header Padding Bottom (px)', 'bnm' ),
-			'description'	    => esc_html__( 'Default: 20px', 'bnm' ),
-			'active_callback'	=> 'bnm_is_line_header'
-		)
-	);
+	// // Header Padding Bottom
+	// $wp_customize->add_setting( 
+	// 	'bnm_default_header_padding_bottom',
+	// 	array(
+	// 		'default'           => '',
+	// 		'type'              => 'theme_mod',
+	// 		'capablity'         => 'edit_theme_options',
+	// 		'sanitize_callback' => 'absint',
+	// 	)
+	// );
+	// $wp_customize->add_control( 
+	// 	'bnm_default_header_padding_bottom',
+	// 	array(
+	// 		'settings'		    => 'bnm_default_header_padding_bottom',
+	// 		'section'		    => 'bnm_header_layout_section',
+	// 		'type'			    => 'number',
+	// 		'label'			    => esc_html__( 'Header Padding Bottom (px)', 'bnm' ),
+	// 		'description'	    => esc_html__( 'Default: 40px', 'bnm' ),
+	// 		'active_callback'	=> 'bnm_is_default_header'
+	// 	)
+	// );
+
+	// // Header Padding Top
+	// $wp_customize->add_setting( 
+	// 	'bnm_line_header_padding_top',
+	// 	array(
+	// 		'default'           => '',
+	// 		'type'              => 'theme_mod',
+	// 		'capablity'         => 'edit_theme_options',
+	// 		'sanitize_callback' => 'absint',
+	// 	)
+	// );
+	// $wp_customize->add_control( 
+	// 	'bnm_line_header_padding_top',
+	// 	array(
+	// 		'section'		    => 'bnm_header_layout_section',
+	// 		'type'			    => 'number',
+	// 		'label'			    => esc_html__( 'Header Padding Top (px)', 'bnm' ),
+	// 		'description'	    => esc_html__( 'Default: 20px', 'bnm' ),
+	// 		'active_callback'	=> 'bnm_is_line_header'
+	// 	)
+	// );
+
+	// // Header Padding Bottom
+	// $wp_customize->add_setting( 
+	// 	'bnm_line_header_padding_bottom',
+	// 	array(
+	// 		'default'           => '',
+	// 		'type'              => 'theme_mod',
+	// 		'capablity'         => 'edit_theme_options',
+	// 		'sanitize_callback' => 'absint',
+	// 	)
+	// );
+	// $wp_customize->add_control( 
+	// 	'bnm_line_header_padding_bottom',
+	// 	array(
+	// 		'section'		    => 'bnm_header_layout_section',
+	// 		'type'			    => 'number',
+	// 		'label'			    => esc_html__( 'Header Padding Bottom (px)', 'bnm' ),
+	// 		'description'	    => esc_html__( 'Default: 20px', 'bnm' ),
+	// 		'active_callback'	=> 'bnm_is_line_header'
+	// 	)
+	// );
 
 	// Menu Section
 	$wp_customize->add_section(
@@ -1789,15 +1875,17 @@ function bnm_sanitize_number_absint( $number, $setting ) {
  * Check if the given value is a number or blank.
  */
 function bnm_sanitize_number_blank( $number, $setting ) {
-	
-	// Ensure $number is an absolute integer (whole number, zero or greater).
-	$number = absint( $number );
 
-	if ( $number >= 0 ) {
-		return $number;
-	} else {
-		return $setting->default;
+	if ( '' != $number ) {
+		// Ensure $number is an absolute integer (whole number, zero or greater).
+		$number = absint( $number );
+
+		if ( $number >= 0 ) {
+			return $number;
+		} 
 	}
+
+	return $setting->default;
 
 }
 

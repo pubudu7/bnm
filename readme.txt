@@ -4,7 +4,7 @@ Contributors: pubudu-malalasekara
 Requires at least: 4.5
 Tested up to: 6.3
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,7 @@ BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast a
 * Added RTL language support.
 * Fixed prefix issue. Renamed "after_header" hook to "bnm_after_header".
 * Added controls to show/hide site title and tagline.
+* Added screen-reader-text for read more link.
 
 = 1.0.1 =
 * Fixed a JS issue in main.js
