@@ -62,7 +62,7 @@ function bnm_setup() {
 	add_image_size( 'bnm-archive-image', 800, 450, true );
 	add_image_size( 'bnm-archive-image-large', 1200, 675, true );
 
-	if ( ! get_theme_mod( 'bnm_archive_image_crop', false ) ) {
+	if ( ! get_theme_mod( 'bnm_archive_image_crop', true ) ) {
 		add_image_size( 'bnm-archive-image', 800, 9999, false );
 		add_image_size( 'bnm-archive-image-large', 1200, 9999, false );
 	}

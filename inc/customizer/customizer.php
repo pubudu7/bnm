@@ -30,11 +30,16 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->get_control( 'blogdescription' )->priority  = 3;
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-
+	/*
+	// Un-comment when the custom-header feature is ready.
+	$wp_customize->get_control( 'header_textcolor' )->priority 		= 1;
 	$wp_customize->get_section( 'header_image' )->panel 		= 'bnm_panel_header';
 	$wp_customize->get_section( 'header_image' )->priority 		= 50;
+	// Hide the checkbox "Display site title and tagline"
+	$wp_customize->remove_control( 'display_header_text' );
+	*/
 
-
+	// uri for the customizer images folder
 	$images_uri = get_template_directory_uri() . '/inc/customizer/assets/images/'; 
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
@@ -626,28 +631,6 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
-	// // Header Padding Top
-	// $wp_customize->add_setting( 
-	// 	'bnm_default_header_padding_top',
-	// 	array(
-	// 		'default'           => '',
-	// 		'type'              => 'theme_mod',
-	// 		'capablity'         => 'edit_theme_options',
-	// 		'sanitize_callback' => 'absint',
-	// 	)
-	// );
-	// $wp_customize->add_control( 
-	// 	'bnm_default_header_padding_top',
-	// 	array(
-	// 		'settings'		    => 'bnm_default_header_padding_top',
-	// 		'section'		    => 'bnm_header_layout_section',
-	// 		'type'			    => 'number',
-	// 		'label'			    => esc_html__( 'Header Padding Top (px)', 'bnm' ),
-	// 		'description'	    => esc_html__( 'Default: 40px', 'bnm' ),
-	// 		'active_callback'	=> 'bnm_is_default_header'
-	// 	)
-	// );
-
 	// Header Padding Top - Desktop
 	$wp_customize->add_setting(
 		'bnm_header_padding_top_desktop',
@@ -733,70 +716,6 @@ function bnm_customize_register( $wp_customize ) {
 			)
 		)
 	) );
-
-	// // Header Padding Bottom
-	// $wp_customize->add_setting( 
-	// 	'bnm_default_header_padding_bottom',
-	// 	array(
-	// 		'default'           => '',
-	// 		'type'              => 'theme_mod',
-	// 		'capablity'         => 'edit_theme_options',
-	// 		'sanitize_callback' => 'absint',
-	// 	)
-	// );
-	// $wp_customize->add_control( 
-	// 	'bnm_default_header_padding_bottom',
-	// 	array(
-	// 		'settings'		    => 'bnm_default_header_padding_bottom',
-	// 		'section'		    => 'bnm_header_layout_section',
-	// 		'type'			    => 'number',
-	// 		'label'			    => esc_html__( 'Header Padding Bottom (px)', 'bnm' ),
-	// 		'description'	    => esc_html__( 'Default: 40px', 'bnm' ),
-	// 		'active_callback'	=> 'bnm_is_default_header'
-	// 	)
-	// );
-
-	// // Header Padding Top
-	// $wp_customize->add_setting( 
-	// 	'bnm_line_header_padding_top',
-	// 	array(
-	// 		'default'           => '',
-	// 		'type'              => 'theme_mod',
-	// 		'capablity'         => 'edit_theme_options',
-	// 		'sanitize_callback' => 'absint',
-	// 	)
-	// );
-	// $wp_customize->add_control( 
-	// 	'bnm_line_header_padding_top',
-	// 	array(
-	// 		'section'		    => 'bnm_header_layout_section',
-	// 		'type'			    => 'number',
-	// 		'label'			    => esc_html__( 'Header Padding Top (px)', 'bnm' ),
-	// 		'description'	    => esc_html__( 'Default: 20px', 'bnm' ),
-	// 		'active_callback'	=> 'bnm_is_line_header'
-	// 	)
-	// );
-
-	// // Header Padding Bottom
-	// $wp_customize->add_setting( 
-	// 	'bnm_line_header_padding_bottom',
-	// 	array(
-	// 		'default'           => '',
-	// 		'type'              => 'theme_mod',
-	// 		'capablity'         => 'edit_theme_options',
-	// 		'sanitize_callback' => 'absint',
-	// 	)
-	// );
-	// $wp_customize->add_control( 
-	// 	'bnm_line_header_padding_bottom',
-	// 	array(
-	// 		'section'		    => 'bnm_header_layout_section',
-	// 		'type'			    => 'number',
-	// 		'label'			    => esc_html__( 'Header Padding Bottom (px)', 'bnm' ),
-	// 		'description'	    => esc_html__( 'Default: 20px', 'bnm' ),
-	// 		'active_callback'	=> 'bnm_is_line_header'
-	// 	)
-	// );
 
 	// Menu Section
 	$wp_customize->add_section(
@@ -1161,7 +1080,7 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'bnm_archive_image_crop',
 		array(
-			'default'           => false,
+			'default'           => true,
 			'sanitize_callback' => 'bnm_sanitize_checkbox',
 		)
 	);

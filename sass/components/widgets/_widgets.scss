@@ -15,4 +15,27 @@
 		list-style: none;
 		margin-bottom: 0.5em;
 	}
+
+	&:first-of-type {
+		margin-top: 0;
+	}
+
+	.wp-block-spacer {
+		margin-bottom: -50px;
+	}
+
+}
+
+.bnm-sidebar-header-before .widget:last-of-type,
+.bnm-sidebar-header-after .widget:last-of-type {
+	margin-bottom: 0;
+}
+
+.bnm-sidebar-header-before .widget:first-of-type,
+.bnm-sidebar-header-after .widget:first-of-type {
+	margin-top: 0;
+}
+
+.bnm-footer-widget-area .widget:first-of-type {
+	margin-top: 50px;
 }

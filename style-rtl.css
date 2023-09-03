@@ -4,7 +4,7 @@ Theme Name: BNM
 Theme URI: https://themezhut.com/themes/bnm/
 Author: ThemezHut
 Author URI: https://themezhut.com
-Description: BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor. 
+Description: BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor. See more details at https://themezhut.com/themes/bnm/
 Version: 1.0.2
 Tested up to: 6.3
 Requires PHP: 5.6
@@ -1866,11 +1866,6 @@ body.seperate-containers .comment-list li:first-child .trackback {
   display: block;
 }
 
-.post,
-.page {
-  margin: 0 0 1.5em;
-}
-
 .updated:not(.published) {
   display: none;
 }
@@ -2078,6 +2073,7 @@ body.seperate-containers .comment-list li:first-child .trackback {
 }
 
 .cat-links {
+  color: #cccccc;
   margin: 0 0 5px;
   display: block;
 }
@@ -2371,7 +2367,7 @@ body.seperate-containers .comment-list li:first-child .trackback {
 }
 
 .comment-author a {
-  color: #e74c3c;
+  color: var(--bnm-color-primary);
 }
 
 .comment-author a:hover {
@@ -2412,7 +2408,7 @@ footer.comment-meta {
 .comment-metadata a:focus,
 .pingback .comment-edit-link:hover,
 .pingback .comment-edit-link:focus {
-  color: #e74c3c;
+  color: var(--bnm-color-primary);
 }
 
 .comment-metadata .edit-link,
@@ -2445,7 +2441,7 @@ footer.comment-meta {
 
 .comment-reply-link:hover,
 .comment-reply-link:focus {
-  background: #e74c3c;
+  background: var(--bnm-color-primary);
   color: #fff;
   outline: 0;
 }
@@ -2493,7 +2489,7 @@ footer.comment-meta {
 }
 
 .required {
-  color: #e74c3c;
+  color: var(--bnm-color-primary);
 }
 
 .comment-reply-title {
@@ -2515,15 +2511,6 @@ footer.comment-meta {
   color: #1a1a1a;
 }
 
-.comment-reply-title small a:before {
-  content: "\f00d";
-  font-family: 'FontAwesome';
-  font-size: 20px;
-  position: relative;
-  top: -5px;
-  color: #e74c3c;
-}
-
 /* Widgets
 --------------------------------------------- */
 .widget {
@@ -2542,6 +2529,28 @@ footer.comment-meta {
 .widget ul li {
   list-style: none;
   margin-bottom: 0.5em;
+}
+
+.widget:first-of-type {
+  margin-top: 0;
+}
+
+.widget .wp-block-spacer {
+  margin-bottom: -50px;
+}
+
+.bnm-sidebar-header-before .widget:last-of-type,
+.bnm-sidebar-header-after .widget:last-of-type {
+  margin-bottom: 0;
+}
+
+.bnm-sidebar-header-before .widget:first-of-type,
+.bnm-sidebar-header-after .widget:first-of-type {
+  margin-top: 0;
+}
+
+.bnm-footer-widget-area .widget:first-of-type {
+  margin-top: 50px;
 }
 
 /* Media

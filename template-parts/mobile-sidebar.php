@@ -1,5 +1,6 @@
 <aside class="bnm-mobile-sidebar">
 	<button class="bnm-mobile-menu-toggle">
+		<span class="screen-reader-text"><?php esc_html_e( 'Close', 'bnm' ); ?></span>
 		<?php bnm_the_icon_svg( 'close' ); ?>
 	</button>
 

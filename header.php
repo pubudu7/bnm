@@ -87,6 +87,7 @@ $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
 				<?php endif; ?>
 
 				<button class="bnm-mobile-menu-toggle">
+					<span class="screen-reader-text"><?php esc_html_e( 'Main Menu', 'bnm' ); ?></span>
 					<?php bnm_the_icon_svg( 'menu-bars' ); ?>
 				</button>
 			
