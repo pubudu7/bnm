@@ -61,6 +61,7 @@ function bnm_setup() {
 	add_image_size( 'bnm-featured-image', 1200, 9999 );
 	add_image_size( 'bnm-archive-image', 800, 450, true );
 	add_image_size( 'bnm-archive-image-large', 1200, 675, true );
+	add_image_size( 'bnm-thumbnail', 250, 170, true );
 
 	if ( ! get_theme_mod( 'bnm_archive_image_crop', true ) ) {
 		add_image_size( 'bnm-archive-image', 800, 9999, false );
@@ -134,6 +135,26 @@ function bnm_widgets_init() {
 			'name'          => esc_html__( 'Sidebar', 'bnm' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'bnm' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Front Page: Full Width', 'bnm' ),
+			'id'            => 'bnm-magazine-1',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Front Page: Beside main sidebar', 'bnm' ),
+			'id'            => 'bnm-magazine-2',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -266,6 +287,12 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Widgets.
+ */
+require get_template_directory() . '/inc/widgets/widget-functions.php';
+require get_template_directory() . '/inc/widgets/bnm-posts-widget-1.php';
 
 /**
  * Customizer additions.

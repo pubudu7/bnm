@@ -228,9 +228,9 @@ function bnm_customize_register( $wp_customize ) {
 
 	// Link Color.
 	$wp_customize->add_setting(
-		'bnm_article_links_color',
+		'bnm_links_color',
 		array(
-			'default'			=> '#046bd2',
+			'default'			=> '#000000',
 			'capability'		=> 'edit_theme_options',
 			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
 		)
@@ -238,11 +238,11 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control( 
 			$wp_customize,
-			'bnm_article_links_color',
+			'bnm_links_color',
 			array(
 				'section'		    => 'colors',
 				'priority'          => 1,
-				'label'			    => esc_html__( 'Article Links Color', 'bnm' ),
+				'label'			    => esc_html__( 'Links Color', 'bnm' ),
 			)
 		)
 	);
@@ -1192,23 +1192,6 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Archive - Show comments link
-	$wp_customize->add_setting(
-		'bnm_show_comments_link',
-		array(
-			'default'           => true,
-			'sanitize_callback' => 'bnm_sanitize_checkbox',
-		)
-	);
-	$wp_customize->add_control(
-		'bnm_show_comments_link',
-		array(
-			'type'        => 'checkbox',
-			'label'       => esc_html__( 'Show comments link', 'bnm' ),
-			'section'     => 'bnm_blog_meta_section',
-		)
-	);
-
 	// Archive - Show time ago format
 	$wp_customize->add_setting(
 		'bnm_time_ago',
@@ -1263,6 +1246,23 @@ function bnm_customize_register( $wp_customize ) {
 			'description' 		=> esc_html__( 'When paired with the "time ago" date format, the cut off for that format will automatically be switched to one day.', 'bnm' ),
 			'section'     		=> 'bnm_blog_meta_section',
 			'active_callback'	=> 'bnm_is_showing_date'
+		)
+	);
+
+	// Archive - Show comments link
+	$wp_customize->add_setting(
+		'bnm_show_comments_link',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'bnm_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_show_comments_link',
+		array(
+			'type'        => 'checkbox',
+			'label'       => esc_html__( 'Show comments link', 'bnm' ),
+			'section'     => 'bnm_blog_meta_section',
 		)
 	);
 
@@ -1466,7 +1466,7 @@ function bnm_customize_register( $wp_customize ) {
 			'type'        => 'checkbox',
 			'label'       => esc_html__( 'Show author avatar', 'bnm' ),
 			'section'     => 'bnm_post_meta_section',
-			'active_callback'	=> 'bnm_is_showing_author'
+			'active_callback'	=> 'bnm_is_showing_author_s'
 		)
 	);
 
@@ -1487,23 +1487,6 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Post - Show comments
-	$wp_customize->add_setting(
-		'bnm_show_comments_link_s',
-		array(
-			'default'           => true,
-			'sanitize_callback' => 'bnm_sanitize_checkbox',
-		)
-	);
-	$wp_customize->add_control(
-		'bnm_show_comments_link_s',
-		array(
-			'type'        => 'checkbox',
-			'label'       => esc_html__( 'Show comments link', 'bnm' ),
-			'section'     => 'bnm_post_meta_section',
-		)
-	);
-
 	// Post - Show time ago format
 	$wp_customize->add_setting(
 		'bnm_time_ago_s',
@@ -1518,7 +1501,7 @@ function bnm_customize_register( $wp_customize ) {
 			'type'        		=> 'checkbox',
 			'label'       		=> esc_html__( 'Use "time ago" date format', 'bnm' ),
 			'section'     		=> 'bnm_post_meta_section',
-			'active_callback'	=> 'bnm_is_showing_date'
+			'active_callback'	=> 'bnm_is_showing_date_s'
 		)
 	);
 
@@ -1537,7 +1520,24 @@ function bnm_customize_register( $wp_customize ) {
 			'label'       		=> esc_html__( 'Show "last updated" date.', 'bnm' ),
 			'description' 		=> esc_html__( 'When paired with the "time ago" date format, the cut off for that format will automatically be switched to one day.', 'bnm' ),
 			'section'     		=> 'bnm_post_meta_section',
-			'active_callback'	=> 'bnm_is_showing_date'
+			'active_callback'	=> 'bnm_is_showing_date_s'
+		)
+	);
+
+	// Post - Show comments
+	$wp_customize->add_setting(
+		'bnm_show_comments_link_s',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'bnm_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_show_comments_link_s',
+		array(
+			'type'        => 'checkbox',
+			'label'       => esc_html__( 'Show comments link', 'bnm' ),
+			'section'     => 'bnm_post_meta_section',
 		)
 	);
 
@@ -2046,6 +2046,17 @@ function bnm_is_showing_author( $control ) {
 }
 
 /**
+ * Checks if bnm is showing author in single post.
+ */
+function bnm_is_showing_author_s( $control ) {
+	if ( $control->manager->get_setting( 'bnm_show_author_s' )->value() === true ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
  * Checks if bnm is showing date
  */
 function bnm_is_showing_date( $control ) {
@@ -2057,7 +2068,18 @@ function bnm_is_showing_date( $control ) {
 }
 
 /**
- * Checks if bnm is showing date
+ * Checks if bnm is showing date in single posts
+ */
+function bnm_is_showing_date_s( $control ) {
+	if ( $control->manager->get_setting( 'bnm_show_date_s' )->value() === true ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Checks if bnm is showing time ago
  */
 function bnm_is_time_ago( $control ) {
 	if ( $control->manager->get_setting( 'bnm_time_ago' )->value() === true ) {

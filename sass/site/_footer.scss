@@ -16,12 +16,12 @@
     }
     .bnm-footer-cols-3 {
         .bnm-footer-column {
-            width: calc( 33.333% - (var(--bnm-post-cols-gap)*2)/3);
+            width: calc( 33.333% - (var(--bnm-footer-cols-gap)*2)/3);
         }
     }
     .bnm-footer-cols-4 {
         .bnm-footer-column {
-            width: calc( 25% - (var(--bnm-post-cols-gap)*3)/4);
+            width: calc( 25% - (var(--bnm-footer-cols-gap)*3)/4);
         }
     }
 }

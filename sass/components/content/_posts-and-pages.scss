@@ -111,7 +111,6 @@
 
 .single {
 	.entry-title {
-		color: var(--bnm-color-text-darker);
 		font-size: var( --bnm-font-size-xxxl );
 		margin: 0 0 10px;
 	}
@@ -142,11 +141,11 @@
 }
 
 .bnm-read-more {
-	color: var(--bnm-color-text-darker);
+	color: var(--bnm-color-link);
 	font-weight: 600;;
 
 	&:visited {
-		color: var(--bnm-color-text-darker);
+		color: var(--bnm-color-link);
 	}
 
 	&:hover {
@@ -164,7 +163,7 @@
 		#blog-entries {
 			display: flex;
 			flex-wrap: wrap;
-			column-gap: 40px;
+			column-gap: var(--bnm-post-cols-gap);
 		}
 		&.bnm-grid-2 {
 			#blog-entries .bnm-entry {
@@ -205,10 +204,10 @@
 	margin: 0 0 10px;
 
 	a {
-		color: var(--bnm-color-text-darker);
+		color: var(--bnm-color-link);
 
 		&:visited {
-			color: var(--bnm-color-text-darker);
+			color: var(--bnm-color-link);
 		}
 
 		&:hover {
@@ -230,7 +229,7 @@
 		}
 
 		&:hover {
-			color: var(--bnm-color-text-darker);
+			color: var(--bnm-color-link);
 		}
 	}
 }
@@ -364,11 +363,11 @@
 	}
 
 	.author a {
-		color: #000000;
+		color: var(--bnm-color-link);
 		font-weight: 600;
 
 		&:visited {
-			color: #000000;
+			color: var(--bnm-color-link);
 		}
 
 		&:hover {
@@ -429,7 +428,7 @@
 	}
 
 	&:hover {
-		color: var(--bnm-color-text-darker);
+		color: var(--bnm-color-link);
 	}
 }
 
