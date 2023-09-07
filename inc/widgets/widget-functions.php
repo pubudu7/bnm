@@ -20,7 +20,7 @@ function bnm_viewall_link( $category_id, $viewall_text ) {
 		}
 
 		if ( $viewall_link ) { ?>
-			<a class="hm-viewall" href="<?php echo esc_url( $viewall_link ); ?>"><span><?php echo esc_html( $viewall_text ); ?></span></a>
+			<a class="bnm-viewall" href="<?php echo esc_url( $viewall_link ); ?>"><span><?php echo esc_html( $viewall_text ); ?></span></a>
 		<?php }
 
 	endif;  

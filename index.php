@@ -13,19 +13,14 @@
  */
 
 get_header();
-
-	if ( is_home() && is_front_page() && ! is_paged() && is_active_sidebar( 'bnm-magazine-1' ) ) : ?>
-		<div class="bnm-front-top-fw">
-			<?php dynamic_sidebar( 'bnm-magazine-1' ); ?>
-		</div>
-	<?php endif; ?>
+?>
 
 	<main id="primary" class="site-main">
 
 		<?php
-		if ( is_home() && is_front_page() && ! is_paged() && is_active_sidebar( 'bnm-magazine-2' ) ) : ?>
-			<div class="bnm-front-beside-sb">
-				<?php dynamic_sidebar( 'bnm-magazine-2' ); ?>
+		if ( is_home() && is_front_page() && ! is_paged() && is_active_sidebar( 'bnm-magazine-1' ) ) : ?>
+			<div class="bnm-magazine-beside-sb">
+				<?php dynamic_sidebar( 'bnm-magazine-1' ); ?>
 			</div>
 		<?php endif;
 

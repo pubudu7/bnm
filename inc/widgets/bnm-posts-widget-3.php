@@ -5,13 +5,13 @@
  *
  */
 
-class BNM_Posts_Widget_1 extends WP_Widget {
+class BNM_Posts_Widget_3 extends WP_Widget {
 
 	/* Register Widget with WordPress*/
 	function __construct() {
 		parent::__construct(
-			'bnm_posts_widget_1', // Base ID
-			esc_html__( 'BNM: Magazine Posts (Style 1)', 'bnm' ), // Name
+			'bnm_posts_widget_3', // Base ID
+			esc_html__( 'BNM: Magazine Posts (Style 3)', 'bnm' ), // Name
 			array( 'description' => esc_html__( 'Displays latest posts or posts from a choosen category.', 'bnm' ), ) // Args
 		);
 	}
@@ -26,8 +26,8 @@ class BNM_Posts_Widget_1 extends WP_Widget {
 	 */
 	public function form( $instance ) {
 		$defaults = array(
-			'title'			=>	esc_html__( 'Latest Posts', 'bnm' ),
-			'category'		=>	'all',
+			'title'			=> esc_html__( 'Latest Posts', 'bnm' ),
+			'category'		=> 'all',
 			'viewall_text'	=> esc_html__( 'View All', 'bnm' )
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -99,17 +99,17 @@ class BNM_Posts_Widget_1 extends WP_Widget {
 		);	
 
 		echo $before_widget;
-		
-		if ( $title ) : ?>
-			<div class="bnm-widget-header">
-				<?php
+		?>
+		<div class="bnm-widget-header">
+			<?php
+				if ( $title ) {
 					echo $before_title . $title . $after_title;
-					bnm_viewall_link( $category, $viewall_text );
-				?>
-			</div>
-		<?php endif; ?>
+				}
+				bnm_viewall_link( $category, $viewall_text );
+			?>
+		</div>
 
-		<div class="bnm-pws-1">
+		<div class="bnm-pws-3">
 			<?php $bnmp_count = 1 ?>
 			<?php 
 				if ( $latest_posts -> have_posts() ) :
@@ -118,54 +118,39 @@ class BNM_Posts_Widget_1 extends WP_Widget {
 
 					if ( $bnmp_count == 1 ) { ?>
 					
-					<div class="bnm-pws1-top clearfix">
-						<article class="bnm-pws1-lg">
+					<div class="bnm-pws3-left">
+						<article class="bnm-pws3-lg">
 
-							<?php
-								if ( has_post_thumbnail() ) {
-									$thumb_id           = get_post_thumbnail_id();
-									$thumb_url_array    = wp_get_attachment_image_src( $thumb_id, 'bnm-archive-image', true );
-									$featured_image_url = $thumb_url_array[0]; 
-								} else {
-									$featured_image_url = get_template_directory_uri() . '/assets/images/slide.png';
-								}
-							?>
-
-								<div class="bnm-pws1-lgp-left">
-									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-										<div class="bnm-pws1-image-holder" style="background: url(<?php echo esc_url( $featured_image_url ); ?>);"></div>
-									</a>
+							<?php if ( has_post_thumbnail() ) { ?>
+								<div class="bnm-pw-bp-thumb">
+									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'bnm-archive-image' ); ?></a>
 								</div>
+							<?php } ?>
 
-								<div class="bnm-pws1-lgp-right">
-									<div class="pws1-lgp-inner">
-										<div class="pws1-lgp-blur-bg" style="background: url(<?php echo esc_url( $featured_image_url ); ?>);"></div>
-										<div class="pws1-lgp-content">
-											<div class="pws1-lgp-details">
-												<?php the_title( '<h3 class="bnmpws1 entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>							
+							<?php bnm_categories(); ?>
 
-												<div class="entry-meta">
-												<div class="entry-meta"><?php echo bnm_posted_on(); ?></div>
-												</div><!-- .entry-meta -->
-											</div>
-										</div>
-									</div>
-								</div>
+							<?php the_title( '<h3 class="bnmpwb entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>							
+
+							<div class="entry-meta">
+								<?php bnm_entry_meta(); ?>
+							</div>
+
+							<div class="entry-summary"><?php the_excerpt(); ?></div>
 
 						</article>
-					</div><!-- .bnm-pws1-top -->
+					</div><!-- .bnm-pws3-left -->
 
-					<div class="bnm-pws1-bottom">
+					<div class="bnm-pws3-right">
 
 				<?php } else { ?>
 
-					<article class="bnm-pw1-smp">
+					<article class="bnm-pw-smp">
 						<?php if ( has_post_thumbnail() ) { ?>
-							<div class="bnm-pw1-smp-thumb">
-								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'bnm-archive-image' ); ?></a>
+							<div class="bnm-pw-smp-thumb">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'bnm-thumbnail' ); ?></a>
 							</div>
 						<?php } ?>
-						<div class="bnm-pw1-smp-details">
+						<div class="bnm-pw-smp-details">
 							<?php the_title( sprintf( '<h3 class="bnmpws-sm entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 							<div class="entry-meta"><?php echo bnm_posted_on(); ?></div>
 						</div>
@@ -177,11 +162,11 @@ class BNM_Posts_Widget_1 extends WP_Widget {
 			endwhile;
 			wp_reset_postdata(); ?>
 
-			    </div><!-- .bnm-pws1-bottom -->
+			    </div><!-- .bnm-pws3-right -->
 			
 			<?php endif; ?>
 		
-		</div><!-- .bnm-pws-1 -->
+		</div><!-- .bnm-pws-3 -->
 
 	<?php
 		echo $after_widget;
@@ -190,7 +175,7 @@ class BNM_Posts_Widget_1 extends WP_Widget {
 }
 
 // Register single category posts widget
-function bnm_register_posts_widget_1() {
-    register_widget( 'BNM_Posts_Widget_1' );
+function bnm_register_posts_widget_3() {
+    register_widget( 'BNM_Posts_Widget_3' );
 }
-add_action( 'widgets_init', 'bnm_register_posts_widget_1' );
+add_action( 'widgets_init', 'bnm_register_posts_widget_3' );

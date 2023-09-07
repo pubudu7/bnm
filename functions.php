@@ -143,18 +143,9 @@ function bnm_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Front Page: Full Width', 'bnm' ),
+			'name'          => esc_html__( 'Magazine', 'bnm' ),
+			'description'   => esc_html__( 'Add BNM: Magazine Posts blocks here.', 'bnm' ),
 			'id'            => 'bnm-magazine-1',
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Front Page: Beside main sidebar', 'bnm' ),
-			'id'            => 'bnm-magazine-2',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -293,6 +284,8 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/widgets/widget-functions.php';
 require get_template_directory() . '/inc/widgets/bnm-posts-widget-1.php';
+require get_template_directory() . '/inc/widgets/bnm-posts-widget-2.php';
+require get_template_directory() . '/inc/widgets/bnm-posts-widget-3.php';
 
 /**
  * Customizer additions.
@@ -433,3 +426,8 @@ function bnm_enqueue_editor_styles() {
 	wp_enqueue_style( 'bnm-editor-overrides', get_theme_file_uri( '/css/style-editor-overrides.css' ), false, BNM_VERSION, 'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'bnm_enqueue_editor_styles' );
+
+/**
+ * Theme Info Page.
+ */
+require get_template_directory() . '/inc/dashboard/theme-info.php';

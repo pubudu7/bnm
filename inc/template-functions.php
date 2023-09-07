@@ -90,23 +90,27 @@ function bnm_body_classes( $classes ) {
 		$classes[] = 'has-header-sb';
 	}
 
-	$entries_layout = get_theme_mod( 'bnm_entries_layout', 'grid' );
-	if ( 'grid' === $entries_layout ) {
-		$classes[] = 'bnm-post-grid';
-		$number_of_cols = get_theme_mod( 'bnm_entries_grid_columns', '2' );
-		$classes[] = 'bnm-grid-' . esc_attr( $number_of_cols );
-	} else {
-		$classes[] = 'bnm-post-list';
-	}
+	if ( is_home() || is_archive() || is_search() ) {
 
-	$archive_thumbnail_position = bnm_archive_thumbnail_position();
-	$archive_thumbnail_align = get_theme_mod( 'bnm_archive_thumbnail_align', 'left' );
-	if ( 'beside-article' ===  $archive_thumbnail_position ) {
-		$classes[] = 'bnm-arc-img-ba';
-		$classes[] = 'bnmaif-' . esc_attr( $archive_thumbnail_align );
-	} elseif ( 'beside-content' === $archive_thumbnail_position ) {
-		$classes[] = 'bnm-arc-img-bc';
-		$classes[] = 'bnmaif-' . esc_attr( $archive_thumbnail_align );
+		$entries_layout = get_theme_mod( 'bnm_entries_layout', 'grid' );
+		if ( 'grid' === $entries_layout ) {
+			$classes[] = 'bnm-post-grid';
+			$number_of_cols = get_theme_mod( 'bnm_entries_grid_columns', '2' );
+			$classes[] = 'bnm-grid-' . esc_attr( $number_of_cols );
+		} else {
+			$classes[] = 'bnm-post-list';
+		}
+
+		$archive_thumbnail_position = bnm_archive_thumbnail_position();
+		$archive_thumbnail_align = get_theme_mod( 'bnm_archive_thumbnail_align', 'left' );
+		if ( 'beside-article' ===  $archive_thumbnail_position ) {
+			$classes[] = 'bnm-arc-img-ba';
+			$classes[] = 'bnmaif-' . esc_attr( $archive_thumbnail_align );
+		} elseif ( 'beside-content' === $archive_thumbnail_position ) {
+			$classes[] = 'bnm-arc-img-bc';
+			$classes[] = 'bnmaif-' . esc_attr( $archive_thumbnail_align );
+		}
+
 	}
 
 	// if ( get_theme_mod( 'bnm_images_rounded_borders', false ) ) {
