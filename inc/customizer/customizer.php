@@ -28,6 +28,7 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->get_control( 'blogname' )->priority         = 1;
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_control( 'blogdescription' )->priority  = 3;
+	$wp_customize->get_control( 'background_color' )->priority  = 2;
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	/*
@@ -199,8 +200,29 @@ function bnm_customize_register( $wp_customize ) {
 			'bnm_primary_color',
 			array(
 				'section'		    => 'colors',
-				'priority'          => 1,
+				'priority'			=> 1,
 				'label'			    => esc_html__( 'Theme Primary Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Boxed Inner Background Color.
+	$wp_customize->add_setting(
+		'bnm_boxed_inner_bg_color',
+		array(
+			'default'			=> '#ffffff',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_boxed_inner_bg_color',
+			array(
+				'section'		    => 'colors',
+				'label'			    => esc_html__( 'Inner Background Color', 'bnm' ),
+				'active_callback'	=> 'bnm_is_boxed_layout_active'
 			)
 		)
 	);
@@ -220,7 +242,6 @@ function bnm_customize_register( $wp_customize ) {
 			'bnm_text_color',
 			array(
 				'section'		    => 'colors',
-				'priority'          => 1,
 				'label'			    => esc_html__( 'Text Color', 'bnm' ),
 			)
 		)
@@ -241,7 +262,6 @@ function bnm_customize_register( $wp_customize ) {
 			'bnm_links_color',
 			array(
 				'section'		    => 'colors',
-				'priority'          => 1,
 				'label'			    => esc_html__( 'Links Color', 'bnm' ),
 			)
 		)

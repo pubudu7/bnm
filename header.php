@@ -132,7 +132,7 @@ $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
 	<div id="content" class="site-content">
 		<?php
 			/**
-			 * Inside side content action top
+			 * Inside site content action top
 			 * 
 			 * @since 1.0.3
 			 */

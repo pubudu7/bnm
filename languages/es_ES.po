@@ -1,0 +1,976 @@
+# Translation of Themes - BNM in Spanish (Spain)
+# This file is distributed under the same license as the Themes - BNM package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-09-13 12:26:33+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.7\n"
+"Language: es\n"
+"Project-Id-Version: Themes - BNM\n"
+
+#. Description of the theme
+#, gp-priority: high
+msgid "BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor. See more details at https://themezhut.com/themes/bnm/"
+msgstr ""
+
+#. Theme Name of the theme
+#: inc/dashboard/theme-info.php:56
+#, gp-priority: high
+msgid "BNM"
+msgstr "BNM"
+
+#. Template Name of the theme
+msgid "Magazine Template"
+msgstr "Plantilla Magazine"
+
+#: inc/widgets/bnm-sidebar-posts-widget.php:15
+msgid "Displays latest posts or posts from a choosen category.Use this widget in the main sidebars."
+msgstr "Muestra las últimas entradas o entradas de una categoría seleccionada. Usa este widget en las barras laterales principales."
+
+#: inc/widgets/bnm-sidebar-posts-widget.php:14
+msgid "BNM: Sidebar Posts"
+msgstr "BNM: entradas en la barra lateral"
+
+#: inc/widgets/bnm-posts-widget-3.php:14
+msgid "BNM: Magazine Posts (Style 3)"
+msgstr "BNM: entradas para revista (Estilo 3)"
+
+#: inc/widgets/bnm-posts-widget-2.php:64
+msgid "Second Set of Posts"
+msgstr "Segundo conjunto de entradas"
+
+#: inc/widgets/bnm-posts-widget-2.php:56 inc/widgets/bnm-posts-widget-2.php:79
+#: inc/widgets/bnm-sidebar-posts-widget.php:54
+msgid "Ignore sticky posts."
+msgstr "Ignora las entradas fijas."
+
+#: inc/widgets/bnm-posts-widget-2.php:51 inc/widgets/bnm-posts-widget-2.php:74
+#: inc/widgets/bnm-sidebar-posts-widget.php:49
+msgid "Number of posts:"
+msgstr "Número de entradas:"
+
+#: inc/widgets/bnm-posts-widget-2.php:41
+msgid "First Set of Posts"
+msgstr "Primer conjunto de entradas"
+
+#: inc/widgets/bnm-posts-widget-2.php:13
+msgid "Displays posts in a two column layout."
+msgstr "Muestra entradas en un diseño de dos columnas."
+
+#: inc/widgets/bnm-posts-widget-2.php:12
+msgid "BNM: Magazine Posts (Style 2)"
+msgstr "BNM: entradas para revista (Estilo 2)"
+
+#: inc/widgets/bnm-posts-widget-1.php:45 inc/widgets/bnm-posts-widget-2.php:59
+#: inc/widgets/bnm-posts-widget-2.php:82 inc/widgets/bnm-posts-widget-3.php:45
+#: inc/widgets/bnm-sidebar-posts-widget.php:57
+msgid "View All Text:"
+msgstr "Texto «Ver todo»:"
+
+#: inc/widgets/bnm-posts-widget-1.php:41 inc/widgets/bnm-posts-widget-2.php:47
+#: inc/widgets/bnm-posts-widget-2.php:70 inc/widgets/bnm-posts-widget-3.php:41
+#: inc/widgets/bnm-sidebar-posts-widget.php:45
+msgid "Select a post category"
+msgstr "Seleccionar una categoría de entradas"
+
+#: inc/widgets/bnm-posts-widget-1.php:37 inc/widgets/bnm-posts-widget-2.php:43
+#: inc/widgets/bnm-posts-widget-2.php:66 inc/widgets/bnm-posts-widget-3.php:37
+#: inc/widgets/bnm-sidebar-posts-widget.php:41
+msgid "Title:"
+msgstr "Título:"
+
+#: inc/widgets/bnm-posts-widget-1.php:31 inc/widgets/bnm-posts-widget-2.php:30
+#: inc/widgets/bnm-posts-widget-2.php:35 inc/widgets/bnm-posts-widget-3.php:31
+#: inc/widgets/bnm-sidebar-posts-widget.php:34
+msgid "View All"
+msgstr "Ver todo"
+
+#: inc/widgets/bnm-posts-widget-1.php:29 inc/widgets/bnm-posts-widget-2.php:26
+#: inc/widgets/bnm-posts-widget-2.php:31 inc/widgets/bnm-posts-widget-3.php:29
+#: inc/widgets/bnm-sidebar-posts-widget.php:30
+msgid "Latest Posts"
+msgstr "Últimas entradas"
+
+#: inc/widgets/bnm-posts-widget-1.php:15 inc/widgets/bnm-posts-widget-3.php:15
+msgid "Displays latest posts or posts from a choosen category."
+msgstr "Muestra las últimas entradas o entradas de una categoría seleccionada."
+
+#: inc/widgets/bnm-posts-widget-1.php:14
+msgid "BNM: Magazine Posts (Style 1)"
+msgstr "BNM: entradas para revista (Estilo 1)"
+
+#: inc/dashboard/theme-info.php:129
+msgid "Learn more from the theme documentation."
+msgstr ""
+
+#: inc/dashboard/theme-info.php:128
+msgid "If you need to create a seperate page for magazine create a page using the page template \"Magazine Template\"."
+msgstr ""
+
+#: inc/dashboard/theme-info.php:127
+msgid "Creating a magazine homepage is really easy. All you have to do is add the \"BNM: Magazine Posts\" widgets to the \"Magazine\" widget area."
+msgstr ""
+
+#: inc/dashboard/theme-info.php:126
+msgid "Creating a Magazine Homepage"
+msgstr "Crear una página de inicio de revista"
+
+#: inc/dashboard/theme-info.php:113
+msgid "Theme Preview"
+msgstr "Vista previa del tema"
+
+#: inc/dashboard/theme-info.php:112
+msgid "See the theme preview of free version."
+msgstr "Mira la vista previa del tema de la versión gratuita."
+
+#: inc/dashboard/theme-info.php:111
+msgid "Theme Demo"
+msgstr "Demostración del tema"
+
+#: inc/dashboard/theme-info.php:105
+msgid "Theme Details."
+msgstr "Detalles del tema."
+
+#: inc/dashboard/theme-info.php:104
+msgid "Know all the details about BNM theme."
+msgstr "Conoce todos los detalles sobre el tema BNM."
+
+#: inc/dashboard/theme-info.php:103
+msgid "Theme Info"
+msgstr "Información del tema"
+
+#: inc/dashboard/theme-info.php:97
+msgid "Read the documentation."
+msgstr "Lee la documentación."
+
+#: inc/dashboard/theme-info.php:96
+msgid "Need to learn all about BNM? Read the theme documentation carefully."
+msgstr "¿Necesitas saber todo sobre BNM? Lee detenidamente la documentación del tema."
+
+#: inc/dashboard/theme-info.php:95
+msgid "Theme Documentation"
+msgstr "Documentación del tema"
+
+#: inc/dashboard/theme-info.php:89
+msgid "Go to customizer"
+msgstr "Ir al personalizador"
+
+#: inc/dashboard/theme-info.php:88
+msgid "All the BNM theme settings are located at the customizer. Start customizing your website with customizer."
+msgstr "Todos los ajustes del tema BNM se encuentran en el personalizador. Empieza a personalizar tu web con el personalizador."
+
+#: inc/dashboard/theme-info.php:87
+msgid "Theme Customizer"
+msgstr "Personalizador del tema"
+
+#: inc/dashboard/theme-info.php:59
+msgid "Magazine Homepage"
+msgstr "Página de inicio de revista"
+
+#: inc/dashboard/theme-info.php:50
+msgid "Welcome to BNM"
+msgstr "Bienvenido a BNM"
+
+#: inc/dashboard/theme-info.php:37 inc/dashboard/theme-info.php:39
+msgid "BNM Theme"
+msgstr "Tema BNM"
+
+#: inc/dashboard/theme-info.php:19
+msgid "Get Started with BNM"
+msgstr "Primeros pasos con BNM"
+
+#: inc/dashboard/theme-info.php:18
+msgid "Welcome to BNM! To get started with BNM please visit the theme Welcome page."
+msgstr "¡Bienvenido a BNM! Para empezar con BNM, por favor, visita la página de bienvenida del tema."
+
+#: functions.php:147
+msgid "Add BNM: Magazine Posts blocks here."
+msgstr ""
+
+#: functions.php:146
+msgid "Magazine"
+msgstr "Revista"
+
+#: template-parts/mobile-sidebar.php:3
+msgid "Close"
+msgstr "Cerrar"
+
+#. translators: used between category list items, there is a space after the
+#. comma
+#: inc/template-tags.php:218
+msgid " / "
+msgstr " / "
+
+#: inc/customizer/customizer.php:1612
+msgid "Page Layout"
+msgstr "Diseño de la página"
+
+#: inc/customizer/customizer.php:1592
+msgid "Page Settings"
+msgstr "Ajustes de página"
+
+#: inc/customizer/customizer.php:245
+msgid "Links Color"
+msgstr "Color de los enlaces"
+
+#: inc/customizer/customizer.php:92
+msgid "Hide site tagline"
+msgstr "Ocultar la descripción corta del sitio"
+
+#: inc/customizer/customizer.php:74
+msgid "Hide site title"
+msgstr "Ocultar el título del sitio"
+
+#: header.php:90
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-single.php:64
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Seguir leyendo<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: template-parts/content-page.php:44 template-parts/content-single.php:77
+msgid "Pages:"
+msgstr "Páginas:"
+
+#: template-parts/content-none.php:44
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Parece que no hemos podido encontrar lo que estás buscando. Quizá pueda ayudarte una búsqueda."
+
+#: template-parts/content-none.php:37
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Lo siento, pero no hay nada que coincida con tus términos de búsqueda. Por favor, inténtalo de nuevo con algunas palabras clave diferentes."
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content-none.php:24
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "¿Listo para publicar tu primera entrada? <a href=\"%1$s\">Empieza aquí</a>"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "No se ha encontrado nada"
+
+#. translators: %s is the current author's name.
+#: template-parts/author-bio.php:32
+msgid "More by %s"
+msgstr "Más de %s"
+
+#. translators: %s: search query.
+#: search.php:28
+msgid "Search Results for: %s"
+msgstr "Resultados de la búsqueda para: %s"
+
+#: inc/template-tags.php:484
+msgid "Read More"
+msgstr "Leer más"
+
+#: inc/template-tags.php:466
+msgid "Newer Posts &rarr;"
+msgstr "Entradas siguientes &rarr;"
+
+#: inc/template-tags.php:465
+msgid "&larr; Older Posts"
+msgstr "&larr; Entradas anteriores"
+
+#: inc/template-tags.php:413
+msgid "Previous article:"
+msgstr "Artículo anterior:"
+
+#: inc/template-tags.php:412
+msgid "Previous Article"
+msgstr "Artículo anterior"
+
+#: inc/template-tags.php:410
+msgid "Next article:"
+msgstr "Artículo siguiente:"
+
+#: inc/template-tags.php:409
+msgid "Next Article"
+msgstr "Artículo siguiente"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:343 template-parts/content-page.php:58
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Editar <span class=\"screen-reader-text\">%s</span>"
+
+#. translators: %s: post title
+#: inc/template-tags.php:326
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Deja un comentario<span class=\"screen-reader-text\"> en %s</span>"
+
+#: inc/template-tags.php:314
+msgid "Tagged"
+msgstr "Etiquetado"
+
+#. translators: 1: list of tags.
+#: inc/template-tags.php:242
+msgid "Tagged %1$s"
+msgstr "Etiquetado %1$s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:239
+msgctxt "list item separator"
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:223
+msgid "Posted in"
+msgstr "Publicado en"
+
+#. translators: %s: post author.
+#: inc/template-tags.php:192
+msgctxt "post author"
+msgid "by %s"
+msgstr "por %s"
+
+#: inc/template-tags.php:99
+msgid "Expanded Social links"
+msgstr "Enlaces sociales ampliados"
+
+#. translators: %s: Time ago date format
+#: inc/template-functions.php:334
+msgid "%s ago"
+msgstr "%s antes"
+
+#: inc/template-functions.php:288
+msgid "Read more"
+msgstr "Leer más"
+
+#: inc/customizer/customizer.php:1709
+msgid "Copyright Text"
+msgstr "Texto del copyright"
+
+#: inc/customizer/customizer.php:1689
+msgid "Footer Bottom"
+msgstr "Pie de página Inferior"
+
+#: inc/customizer/customizer.php:1677
+msgid "Widget Area Width"
+msgstr "Anchura del área de widgets"
+
+#: inc/customizer/customizer.php:1658
+msgid "1"
+msgstr "1"
+
+#: inc/customizer/customizer.php:1655
+msgid "Widget Columns"
+msgstr "Columnas de widgets"
+
+#: inc/customizer/customizer.php:1637
+msgid "Footer Widgets"
+msgstr "Widgets del pie de página"
+
+#: inc/customizer/customizer.php:1629
+msgid "Footer Settings"
+msgstr "Ajustes del pie de página"
+
+#: inc/customizer/customizer.php:1583
+msgid "Display author bio at the bottom of the post."
+msgstr ""
+
+#: inc/customizer/customizer.php:1566
+msgid "Display previous and next links at the bottom of each post."
+msgstr ""
+
+#: inc/customizer/customizer.php:1548
+msgid "Post Content"
+msgstr "Publicar contenido"
+
+#: inc/customizer/customizer.php:1378
+msgid "Post Layout"
+msgstr "Disposición de entrada"
+
+#: inc/customizer/customizer.php:1349
+msgid "Post Settings"
+msgstr "Ajustes de las entradas"
+
+#: inc/customizer/customizer.php:1337
+msgid "Button"
+msgstr "Botón"
+
+#: inc/customizer/customizer.php:1336
+msgid "Link"
+msgstr "Enlace"
+
+#: inc/customizer/customizer.php:1333
+msgid "Read More Link Type"
+msgstr ""
+
+#: inc/customizer/customizer.php:1316
+msgid "Excerpt Length"
+msgstr "Longitud del extracto"
+
+#: inc/customizer/customizer.php:1296 inc/customizer/customizer.php:1338
+msgid "None"
+msgstr "Ninguna"
+
+#: inc/customizer/customizer.php:1295
+msgid "Content"
+msgstr "Contenido"
+
+#: inc/customizer/customizer.php:1294
+msgid "Excerpt"
+msgstr "Extracto"
+
+#: inc/customizer/customizer.php:1291
+msgid "Content Type"
+msgstr "Tipo de contenido"
+
+#: inc/customizer/customizer.php:1273
+msgid "Content / Excerpt"
+msgstr "Contenido / Extracto"
+
+#: inc/customizer/customizer.php:1246 inc/customizer/customizer.php:1521
+msgid "When paired with the \"time ago\" date format, the cut off for that format will automatically be switched to one day."
+msgstr ""
+
+#: inc/customizer/customizer.php:1245 inc/customizer/customizer.php:1520
+msgid "Show \"last updated\" date."
+msgstr ""
+
+#: inc/customizer/customizer.php:1228
+msgid "Cut off for \"time ago\" date in days."
+msgstr ""
+
+#: inc/customizer/customizer.php:1207 inc/customizer/customizer.php:1502
+msgid "Use \"time ago\" date format"
+msgstr ""
+
+#: inc/customizer/customizer.php:1264 inc/customizer/customizer.php:1539
+msgid "Show comments link"
+msgstr "Mostrar enlace de comentarios"
+
+#: inc/customizer/customizer.php:1190 inc/customizer/customizer.php:1485
+msgid "Show date"
+msgstr "Mostrar fecha"
+
+#: inc/customizer/customizer.php:1172 inc/customizer/customizer.php:1467
+msgid "Show author avatar"
+msgstr "Mostrar el avatar del autor"
+
+#: inc/customizer/customizer.php:1155 inc/customizer/customizer.php:1450
+msgid "Show author"
+msgstr "Mostrar el autor"
+
+#: inc/customizer/customizer.php:1138 inc/customizer/customizer.php:1433
+msgid "Show category links"
+msgstr "Mostrar enlaces de categorías"
+
+#: inc/customizer/customizer.php:1120 inc/customizer/customizer.php:1415
+msgid "Post Meta"
+msgstr "Metadatos de entrada"
+
+#: inc/customizer/customizer.php:1112
+msgid "Next/Prev"
+msgstr "Siguiente/Anterior"
+
+#: inc/customizer/customizer.php:1111
+msgid "Numbers"
+msgstr "Números"
+
+#: inc/customizer/customizer.php:1108
+msgid "Blog Pagination Style"
+msgstr "Estilo de la paginación del blog"
+
+#: inc/customizer/customizer.php:1091
+msgid "Crop featured image to theme defined size? (changes require regenerating thumbnails for existing featured images)"
+msgstr ""
+
+#: inc/customizer/customizer.php:1069
+msgid "Featured Image Align"
+msgstr "Alinear imagen destacada"
+
+#: inc/customizer/customizer.php:1052 inc/customizer/customizer.php:1406
+msgid "Hidden"
+msgstr "Oculto"
+
+#: inc/customizer/customizer.php:1051
+msgid "Beside article content"
+msgstr ""
+
+#: inc/customizer/customizer.php:1050
+msgid "Beside article"
+msgstr ""
+
+#: inc/customizer/customizer.php:1049 inc/customizer/customizer.php:1405
+msgid "After article header"
+msgstr ""
+
+#: inc/customizer/customizer.php:1048 inc/customizer/customizer.php:1404
+msgid "Before article header"
+msgstr ""
+
+#: inc/customizer/customizer.php:1045 inc/customizer/customizer.php:1401
+msgid "Featured Image Position"
+msgstr "Posición de la imagen destacada"
+
+#: inc/customizer/customizer.php:1027
+msgid "6"
+msgstr "6"
+
+#: inc/customizer/customizer.php:1026
+msgid "5"
+msgstr "5"
+
+#: inc/customizer/customizer.php:1025 inc/customizer/customizer.php:1661
+msgid "4"
+msgstr "4"
+
+#: inc/customizer/customizer.php:1024 inc/customizer/customizer.php:1660
+msgid "3"
+msgstr "3"
+
+#: inc/customizer/customizer.php:1023 inc/customizer/customizer.php:1659
+msgid "2"
+msgstr "2"
+
+#: inc/customizer/customizer.php:1020
+msgid "Number of grid columns"
+msgstr "Número de columnas de la cuadrícula"
+
+#: inc/customizer/customizer.php:1003
+msgid "List"
+msgstr "Lista"
+
+#: inc/customizer/customizer.php:1002
+msgid "Grid"
+msgstr "Grid"
+
+#: inc/customizer/customizer.php:999
+msgid "Entries Layout"
+msgstr "Diseño de entradas"
+
+#: inc/customizer/customizer.php:976
+msgid "Blog Layout"
+msgstr "Diseño del blog"
+
+#: inc/customizer/customizer.php:954 inc/customizer/customizer.php:1356
+msgid "Layout"
+msgstr "Diseño"
+
+#: inc/customizer/customizer.php:947
+msgid "Blog Settings"
+msgstr "Ajustes del blog"
+
+#: inc/customizer/customizer.php:935
+msgid "Show Slide-out sidebar widgets on Mobile Menu"
+msgstr ""
+
+#: inc/customizer/customizer.php:918
+msgid "Show Secondary Menu on Mobile Menu"
+msgstr ""
+
+#: inc/customizer/customizer.php:901
+msgid "Show Social Menu on Mobile Menu"
+msgstr "Mostrar menú social en menú móvil"
+
+#: inc/customizer/customizer.php:883
+msgid "Mobile Menu"
+msgstr "Menú móvil"
+
+#: inc/customizer/customizer.php:872
+msgid "On Primary Menu"
+msgstr "En el menú principal"
+
+#: inc/customizer/customizer.php:871
+msgid "Before site title/logo"
+msgstr "Antes del título/logotipo del sitio"
+
+#: inc/customizer/customizer.php:870
+msgid "On top bar"
+msgstr "En la barra superior"
+
+#: inc/customizer/customizer.php:868
+msgid "Slide-out sidebar toggle button location"
+msgstr ""
+
+#: inc/customizer/customizer.php:850
+msgid "Show Primary Menu on Slide-out sidebar"
+msgstr ""
+
+#: inc/customizer/customizer.php:832
+msgid "here"
+msgstr "aquí"
+
+#. translators: %s: link to Slide Out Sidebar widget panel in Customizer.
+#: inc/customizer/customizer.php:831
+msgid "Show a Slide-out sidebar in the header, which you can populate by adding widgets %1$s."
+msgstr ""
+
+#: inc/customizer/customizer.php:828
+msgid "Show Slide-out sidebar"
+msgstr ""
+
+#: inc/customizer/customizer.php:797
+msgid "Top Bar Inner Width"
+msgstr ""
+
+#: inc/customizer/customizer.php:779
+msgid "Top Bar"
+msgstr "Barra superior"
+
+#: inc/customizer/customizer.php:764
+msgid "Menu Alignment"
+msgstr "Alineación del menú"
+
+#: inc/customizer/customizer.php:742
+msgid "Menu Width"
+msgstr "Anchura del menú"
+
+#: inc/customizer/customizer.php:710
+msgid "Header Padding Bottom (px)"
+msgstr "Relleno inferior de la cabecera (px)"
+
+#: inc/customizer/customizer.php:667
+msgid "Header Padding Top (px)"
+msgstr "Relleno superior de la cabecera (px)"
+
+#: inc/customizer/customizer.php:628 inc/customizer/customizer.php:769
+#: inc/customizer/customizer.php:1073
+msgid "Right"
+msgstr "Derecha"
+
+#: inc/customizer/customizer.php:627 inc/customizer/customizer.php:768
+msgid "Center"
+msgstr "Centro"
+
+#: inc/customizer/customizer.php:626 inc/customizer/customizer.php:767
+#: inc/customizer/customizer.php:1072
+msgid "Left"
+msgstr "Izquierda"
+
+#: inc/customizer/customizer.php:623
+msgid "Logo Alignment"
+msgstr "Alineación de logotipo"
+
+#: inc/customizer/customizer.php:606 inc/customizer/customizer.php:746
+#: inc/customizer/customizer.php:801 inc/customizer/customizer.php:1680
+msgid "Full"
+msgstr "Lleno"
+
+#: inc/customizer/customizer.php:605 inc/customizer/customizer.php:745
+#: inc/customizer/customizer.php:800 inc/customizer/customizer.php:1681
+msgid "Contained"
+msgstr "Contenido"
+
+#: inc/customizer/customizer.php:602
+msgid "Header Width"
+msgstr "Ancho de la cabecera"
+
+#: inc/customizer/customizer.php:585
+msgid "Single Line Layout"
+msgstr ""
+
+#: inc/customizer/customizer.php:581
+msgid "Header Layout"
+msgstr "Disposición de la cabecera"
+
+#: inc/customizer/customizer.php:563
+msgid "Appearance"
+msgstr "Apariencia"
+
+#: inc/customizer/customizer.php:556
+msgid "Header Settings"
+msgstr "Ajustes de cabecera"
+
+#: inc/customizer/customizer.php:522
+msgid "Sidebar Width (%)"
+msgstr "Ancho de la barra lateral (%)"
+
+#: inc/customizer/customizer.php:477 inc/customizer/customizer.php:523
+msgid "This value applies only when the sidebar is active."
+msgstr ""
+
+#: inc/customizer/customizer.php:476 inc/customizer/customizer.php:499
+msgid "Boxed Layout Width (px)"
+msgstr ""
+
+#: inc/customizer/customizer.php:453
+msgid "Container Width (px)"
+msgstr "Ancho del contenedor (px)"
+
+#: inc/customizer/customizer.php:436
+msgid "Boxed"
+msgstr "En cajas"
+
+#: inc/customizer/customizer.php:435
+msgid "Wide"
+msgstr "Amplio"
+
+#: inc/customizer/customizer.php:432
+msgid "Site Layout"
+msgstr "Diseño del sitio"
+
+#: inc/customizer/customizer.php:415
+msgid "General Settings"
+msgstr ""
+
+#: inc/customizer/customizer.php:400
+msgid "Single Post Content Font Size"
+msgstr ""
+
+#: inc/customizer/customizer.php:357 inc/customizer/customizer.php:401
+msgid "You can add: px-em-rem"
+msgstr "Puedes añadir: px-em-rem"
+
+#: inc/customizer/customizer.php:356
+msgid "Site Title Font Size"
+msgstr "Tamaño de fuente del título del sitio"
+
+#: inc/customizer/customizer.php:318
+msgid "Black: 900"
+msgstr "Black: 900"
+
+#: inc/customizer/customizer.php:317
+msgid "Extra Bold: 800"
+msgstr "Extra negrita: 800"
+
+#: inc/customizer/customizer.php:316
+msgid "Bold: 700"
+msgstr "Bold: 700"
+
+#: inc/customizer/customizer.php:315
+msgid "Semi Bold: 600"
+msgstr "Semi Bold: 600"
+
+#: inc/customizer/customizer.php:314
+msgid "Medium: 500"
+msgstr "Medium: 500"
+
+#: inc/customizer/customizer.php:313
+msgid "Normal: 400"
+msgstr "Normal: 400"
+
+#: inc/customizer/customizer.php:312
+msgid "Light: 300"
+msgstr "Light: 300"
+
+#: inc/customizer/customizer.php:311
+msgid "Extra Light: 200"
+msgstr "Extra Light: 200"
+
+#: inc/customizer/customizer.php:310
+msgid "Thin: 100"
+msgstr "Thin: 100"
+
+#: inc/customizer/customizer.php:309
+msgid "Default"
+msgstr "Por defecto"
+
+#: inc/customizer/customizer.php:307
+msgid "Only the font supported font weights will be applied."
+msgstr ""
+
+#: inc/customizer/customizer.php:306
+msgid "Headings Font Weight"
+msgstr "Peso de fuente de encabezados"
+
+#: inc/customizer/customizer.php:286
+msgid "Headings Font"
+msgstr "Fuente de los encabezados"
+
+#: inc/customizer/customizer.php:270
+msgid "Body Font"
+msgstr "Fuente del cuerpo"
+
+#: inc/customizer/customizer.php:255
+msgid "If the \"Inherit\" option is selected the theme will use the \"System Fonts Stack\". If you select a \"Google\" font it will be automatically downloaded and served locally from your server."
+msgstr ""
+
+#: inc/customizer/customizer.php:254
+msgid "Typography"
+msgstr "Tipografía"
+
+#: inc/customizer/customizer.php:224
+msgid "Text Color"
+msgstr "Color del texto"
+
+#: inc/customizer/customizer.php:203
+msgid "Theme Primary Color"
+msgstr "Color principal del tema"
+
+#: inc/customizer/customizer.php:175
+msgid "Logo Max Height (px)"
+msgstr "Altura máxima del logotipo (px)"
+
+#: inc/customizer/customizer.php:131
+msgid "Logo Max Width (px)"
+msgstr "Anchura máxima del logotipo (px)"
+
+#: inc/customizer/custom-controls/fonts/class-fonts-control.php:42
+#: inc/customizer/custom-controls/fonts/fonts.php:858
+msgid "Google Fonts"
+msgstr "Fuentes de Google"
+
+#: inc/customizer/custom-controls/fonts/class-fonts-control.php:31
+#: inc/customizer/custom-controls/fonts/fonts.php:856
+msgid "Standard Fonts"
+msgstr "Fuentes estándar"
+
+#: inc/customizer/custom-controls/fonts/class-fonts-control.php:26
+msgid "Inherit"
+msgstr "Heredar"
+
+#. translators: %d: ID of a post.
+#: inc/class-bnm-nav-walker.php:93
+msgid "#%d (no title)"
+msgstr "#%d (sin título)"
+
+#: inc/class-bnm-nav-walker.php:55 inc/template-functions.php:206
+msgid "Show sub menu"
+msgstr "Mostrar el submenú"
+
+#: inc/class-bnm-meta-boxes.php:136
+msgid "Full Width Content Centered."
+msgstr "Contenido centrado de ancho completo."
+
+#: inc/class-bnm-meta-boxes.php:133
+msgid "Full Width"
+msgstr "Ancho completo"
+
+#: inc/class-bnm-meta-boxes.php:130
+msgid "Left Sidebar"
+msgstr "Barra lateral izquierda"
+
+#: inc/class-bnm-meta-boxes.php:127
+msgid "Right Sidebar"
+msgstr "Barra lateral derecha"
+
+#: inc/class-bnm-meta-boxes.php:124 inc/customizer/customizer.php:584
+msgid "Default Layout"
+msgstr "Diseño por defecto"
+
+#: inc/class-bnm-meta-boxes.php:38
+msgid "Select Layout"
+msgstr "Seleccionar el diseño"
+
+#: header.php:33
+msgid "Skip to content"
+msgstr "Saltar al contenido"
+
+#: functions.php:231
+msgid "Footer 4"
+msgstr "Pie de página 4"
+
+#: functions.php:221
+msgid "Footer 3"
+msgstr "Pie de página 3"
+
+#: functions.php:211
+msgid "Footer 2"
+msgstr "Pie de página 2"
+
+#: functions.php:201
+msgid "Footer 1"
+msgstr "Pie de página 1"
+
+#: functions.php:190
+msgid "Below Header"
+msgstr "Debajo de la cabecera"
+
+#: functions.php:181
+msgid "Add widgets here to appear on the Header"
+msgstr ""
+
+#: functions.php:179
+msgid "Header Sidebar"
+msgstr "Barra lateral de la cabecera"
+
+#: functions.php:170 functions.php:192
+msgid "Add widgets here to appear before the Header"
+msgstr ""
+
+#: functions.php:168
+msgid "Above Header"
+msgstr "Encima de la cabecera"
+
+#: functions.php:159
+msgid "Add widgets here to appear in an off-screen sidebar when it is enabled under the Customizer Header Settings."
+msgstr ""
+
+#: functions.php:157 inc/customizer/customizer.php:810
+msgid "Slide-out Sidebar"
+msgstr ""
+
+#: functions.php:137
+msgid "Add widgets here."
+msgstr "Añade widgets aquí."
+
+#: functions.php:135
+msgid "Sidebar"
+msgstr "Barra lateral"
+
+#: functions.php:76
+msgid "Social Menu"
+msgstr ""
+
+#: functions.php:75 header.php:51
+msgid "Secondary Menu"
+msgstr "Menú secundario"
+
+#: functions.php:74 inc/customizer/customizer.php:724
+msgid "Primary Menu"
+msgstr "Menú principal"
+
+#. translators: 1: WordPress 2: Theme Author.
+#: footer.php:74
+msgid "Powered by %1$s and %2$s."
+msgstr "Funciona con %1$s y %2$s."
+
+#. translators: 1: Year 2: Site URL.
+#: footer.php:66
+msgid "Copyright &#169; %1$s %2$s."
+msgstr "Copyright &#169; %1$s %2$s."
+
+#: comments.php:79
+msgid "Comments are closed."
+msgstr "Los comentarios están cerrados."
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:45
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s comentario en «%2$s»"
+msgstr[1] "%1$s comentarios en «%2$s»"
+
+#. translators: 1: title.
+#: comments.php:39
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "Un comentario en «%1$s»"
+
+#. translators: %1$s: smiley
+#: 404.php:55
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Prueba a buscar en el archivo por meses. %1$s"
+
+#: 404.php:37
+msgid "Most Used Categories"
+msgstr "Categorías más usadas"
+
+#: 404.php:28
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr "Parece que no se ha encontrado nada en esta ubicación. ¿Quizá podrías intentar una búsqueda o usar uno de los enlaces que se muestran a continuación?"
+
+#: 404.php:24
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "¡Vaya! No se ha podido encontrar esa página."
+
+#. Author URI of the theme
+#, gp-priority: low
+msgid "https://themezhut.com"
+msgstr "https://themezhut.com"
+
+#. Author of the theme
+#, gp-priority: low
+msgid "ThemezHut"
+msgstr "ThemezHut"
+
+#. Theme URI of the theme
+#, gp-priority: low
+msgid "https://themezhut.com/themes/bnm/"
+msgstr "https://themezhut.com/themes/bnm/"

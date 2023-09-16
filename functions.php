@@ -7,7 +7,7 @@
 
 if ( ! defined( 'BNM_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'BNM_VERSION', '1.0.2' );
+	define( 'BNM_VERSION', '1.0.4' );
 }
 
 /**
@@ -93,6 +93,12 @@ function bnm_setup() {
 			'script',
 		)
 	);
+
+	// Set up the WordPress core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'bam_custom_background_args', array(
+		'default-color' => '#ffffff',
+		'default-image' => '',
+	) ) );
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
@@ -286,6 +292,8 @@ require get_template_directory() . '/inc/widgets/widget-functions.php';
 require get_template_directory() . '/inc/widgets/bnm-posts-widget-1.php';
 require get_template_directory() . '/inc/widgets/bnm-posts-widget-2.php';
 require get_template_directory() . '/inc/widgets/bnm-posts-widget-3.php';
+require get_template_directory() . '/inc/widgets/bnm-sidebar-posts-widget.php';
+require get_template_directory() . '/inc/widgets/bnm-tabbed-widget.php';
 
 /**
  * Customizer additions.

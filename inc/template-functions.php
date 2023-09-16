@@ -299,9 +299,9 @@ if ( ! function_exists( 'bnm_excerpt_more' ) ) {
  */
 function bnm_math_to_time_ago( $post_time, $format, $post, $updated ) {
 	if ( is_single() ) {
-		$use_time_ago = get_theme_mod( 'bnm_time_ago', false );
-	} else {
 		$use_time_ago = get_theme_mod( 'bnm_time_ago_s', false );
+	} else {
+		$use_time_ago = get_theme_mod( 'bnm_time_ago', false );
 	}
 	
 	// Only filter time when $use_time_ago is enabled, and it's not using a machine-readable format (for datetime).

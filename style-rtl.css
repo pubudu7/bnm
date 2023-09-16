@@ -5,7 +5,7 @@ Theme URI: https://themezhut.com/themes/bnm/
 Author: ThemezHut
 Author URI: https://themezhut.com
 Description: BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor. See more details at https://themezhut.com/themes/bnm/
-Version: 1.0.2
+Version: 1.0.5
 Tested up to: 6.3
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -1077,6 +1077,7 @@ textarea {
   top: 100%;
   left: 0;
   width: 310px;
+  z-index: 99;
 }
 
 .bnm-mobile-sidebar {
@@ -2547,6 +2548,255 @@ footer.comment-meta {
 
 .bnm-footer-widget-area .widget:first-of-type {
   margin-top: 50px;
+}
+
+@media screen and (min-width: 600px) {
+  .bnm-pws-3,
+  .bnm-pws-2 {
+    display: flex;
+    column-gap: var(--bnm-post-cols-gap);
+  }
+  .bnm-pws2-left,
+  .bnm-pws2-right,
+  .bnm-pws3-right,
+  .bnm-pws3-left {
+    width: 50%;
+  }
+}
+
+#secondary .bnm-pws-3,
+#secondary .bnm-pws-2,
+.bnm-footer-column .bnm-pws-3,
+.bnm-footer-column .bnm-pws-2 {
+  display: block;
+}
+
+#secondary .bnm-pws2-left,
+#secondary .bnm-pws2-right,
+#secondary .bnm-pws3-right,
+#secondary .bnm-pws3-left,
+.bnm-footer-column .bnm-pws2-left,
+.bnm-footer-column .bnm-pws2-right,
+.bnm-footer-column .bnm-pws3-right,
+.bnm-footer-column .bnm-pws3-left {
+  width: 100%;
+}
+
+.bnm-pws3-lg .entry-summary {
+  margin-bottom: 30px;
+}
+
+.bnm-pw-bp-thumb {
+  margin: 0 0 10px;
+}
+
+.bnm-pw-smp {
+  display: flex;
+  margin: 0 0 25px;
+}
+
+.bnm-pw-smp-thumb {
+  flex-basis: 35%;
+  margin: 0 0 0 15px;
+}
+
+.bnm-pw-smp-details {
+  flex-grow: 1;
+  flex-basis: 65%;
+}
+
+.bnmpws-sm.entry-title {
+  font-size: var(--bnm-font-size-base);
+  margin: 0 0 10px;
+}
+
+.bnm-widget-header {
+  margin: 0 0 30px;
+  border-bottom: 3px solid var(--bnm-color-primary);
+  position: relative;
+}
+
+.bnm-widget-header .widgettitle,
+.bnm-widget-header .widget-title {
+  display: inline-block;
+  margin: 0 0 3px;
+}
+
+.bnm-viewall {
+  float: left;
+  line-height: 35px;
+  font-size: var(--bnm-font-size-sm);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.bnmpwb.entry-title {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.bnm-pws2-lg {
+  margin-bottom: 35px;
+}
+
+.bnm-pws-1 {
+  --bnm-pws1-gap: 20px;
+  margin-bottom: 75px;
+}
+
+.bnm-pws-1 .bnmpws1.entry-title {
+  font-size: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  .bnm-pws-1 .bnmpws1.entry-title {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bnm-pws-1 .bnmpws1.entry-title {
+    font-size: 16px;
+  }
+}
+
+.bnm-pws-1 .entry-meta {
+  font-weight: 600;
+  font-size: var(--bnm-font-size-xxs);
+}
+
+.bnm-pws-1 .bnmpws-sm.entry-title {
+  margin-bottom: 7px;
+}
+
+.bnm-pws1-lgp-left {
+  width: 63%;
+  float: right;
+}
+
+.bnm-pws1-lgp-left img {
+  vertical-align: middle;
+}
+
+.bnm-pws1-lgp-right {
+  background: #222222;
+  float: left;
+  width: 37%;
+}
+
+.pws1-lgp-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.pws1-lgp-blur-bg {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  /* Full height */
+  height: 100%;
+}
+
+.pws1-lgp-blur-bg:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 95.77863577863578%;
+}
+
+.pws1-lgp-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(34, 34, 34, 0.7);
+}
+
+.pws1-lgp-details {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 30px;
+  z-index: 3;
+}
+
+.pws1-lgp-details .bnmpws1.entry-title a {
+  color: #eeeeee;
+}
+
+.pws1-lgp-details .bnmpws1.entry-title a:visited {
+  color: #eeeeee;
+}
+
+.pws1-lgp-details .bnmpws1.entry-title a:hover {
+  color: var(--bnm-color-primary);
+}
+
+.pws1-lgp-details .entry-meta a {
+  color: #cccccc;
+}
+
+.pws1-lgp-details .entry-meta a:visited {
+  color: #cccccc;
+}
+
+.pws1-lgp-details .entry-meta a:hover {
+  color: var(--bnm-color-primary);
+}
+
+@media screen and (max-width: 600px) {
+  .pws1-lgp-details {
+    padding: 15px;
+  }
+}
+
+.bnm-pws1-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0 0;
+}
+
+.bnm-pw1-smp {
+  flex-basis: calc( 50% - var(--bnm-pws1-gap)/2);
+}
+
+@media screen and (min-width: 600px) {
+  .bnm-pw1-smp {
+    flex-basis: calc( 25% - (var(--bnm-pws1-gap)*3)/4);
+  }
+}
+
+.bnm-pw1-smp-thumb {
+  margin-bottom: 5px;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.bnm-pws1-image-holder {
+  position: relative;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.bnm-pws1-image-holder:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
 }
 
 /* Media

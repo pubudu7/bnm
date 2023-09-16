@@ -19,7 +19,7 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
         $primary_color = get_theme_mod( 'bnm_primary_color', '#f87c7c' );
         $text_color = get_theme_mod( 'bnm_text_color', '#222222' );
         $links_color = get_theme_mod( 'bnm_links_color', '#000000' );
-
+        $inner_background_color = get_theme_mod( 'bnm_boxed_inner_bg_color', '#ffffff' );
 
         if ( ! empty( $primary_color ) && '#f87c7c' != $primary_color ) {
             $css_variables .= '
@@ -36,6 +36,12 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
         if ( ! empty( $links_color ) && '#000000' != $links_color ) {
             $css_variables .= '
                 --bnm-color-link: '. esc_attr( $links_color ) .';
+            ';
+        }
+
+        if ( ! empty( $inner_background_color ) && '#ffffff' != $inner_background_color ) {
+            $css_variables .= '
+                --bnm-color-body-background: '. esc_attr( $inner_background_color ) .';
             ';
         }
 
