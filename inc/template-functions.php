@@ -454,3 +454,72 @@ if ( ! function_exists( 'bnm_filter_the_archive_title' ) ) {
 	add_filter( 'get_the_archive_title', 'bnm_filter_the_archive_title' );
 
 }
+
+if ( ! function_exists( 'bnm_get_selected_breadcrumb' ) ) {
+	/**
+	 * Get the user selected breadcrumb
+	 * 
+	 * @since 1.0.6
+	 */
+	function bnm_get_selected_breadcrumb() {
+		$breadcrumb_source = get_theme_mod( 'bnm_breadcrumb_source', 'none' );
+
+		if ( 'yoast' === $breadcrumb_source ) {
+			if ( function_exists( 'yoast_breadcrumb' ) ) {
+				yoast_breadcrumb( '<div id="bnm-yoast-breadcrumbs">', '</div>' );
+			}
+		} elseif ( 'navxt' === $breadcrumb_source ) {
+			if ( function_exists( 'bcn_display' ) ) {
+				bcn_display();
+			}
+		} elseif ( 'rankmath' === $breadcrumb_source ) {
+			if ( function_exists( 'rank_math_the_breadcrumbs') ) {
+				rank_math_the_breadcrumbs();
+			}
+		}
+	}
+
+}
+
+if ( ! function_exists( 'bnm_breadcrumb_template' ) ) {
+	/**
+	 * Adds the breadcrumb to the selected location
+	 * 
+	 * @since 1.0.6
+	 */
+	function bnm_breadcrumb_template() {
+		$breadcrumb_location = get_theme_mod( 'bnm_breadcrumb_location', 'bnm_before_entry_header' );
+
+		if ( ( is_archive() || is_search() ) && 'bnm_before_entry_header' === $breadcrumb_location ) {
+			add_action( 'bnm_before_main_content', 'bnm_hook_breadcrumb_location', 15 );
+		} else {
+			add_action( $breadcrumb_location, 'bnm_hook_breadcrumb_location', 15 );
+		}
+	}
+	add_action( 'wp', 'bnm_breadcrumb_template' );
+}
+
+if ( ! function_exists( 'bnm_hook_breadcrumb_location' ) ) {
+	/**
+	 * Hook breadcrumb template to the selected location.
+	 * 
+	 * @since 1.0.6
+	 */
+	function bnm_hook_breadcrumb_location() {
+		$breadcrumb_location = get_theme_mod( 'bnm_breadcrumb_location', 'bnm_before_entry_header' );
+
+		if ( 'bnm_after_header' === $breadcrumb_location ) {
+			echo '<div class="bnm-header-bar bnm-header-breadcrumb">
+					<div class="bnm-container">';
+		}
+		
+		bnm_get_selected_breadcrumb();
+
+		if ( 'bnm_after_header' === $breadcrumb_location ) {
+			echo '</div>
+				</div>';
+		}
+
+	}
+
+}

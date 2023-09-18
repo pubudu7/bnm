@@ -14,6 +14,13 @@
 	<?php
 		// Before content hook
 		do_action( 'bnm_before_content' );
+
+		/**
+		 * Before entry header hook.
+		 * 
+		 * @since 1.0.6
+		 */
+		do_action( 'bnm_before_entry_header' );
 	?>
 
 	<header class="entry-header">

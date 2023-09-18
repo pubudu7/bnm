@@ -428,12 +428,22 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	) );
 
+	// General Settings Panel
+	$wp_customize->add_panel(
+		'bnm_panel_general_settings',
+		array(
+			'priority' 			=> 190,
+			'capability' 		=> 'edit_theme_options',
+			'title' 			=> esc_html__( 'General Settings', 'bnm' )
+		)
+	);
+
 	// General Settings Section
 	$wp_customize->add_section(
-		'bnm_general_section',
+		'bnm_site_layout_section',
 		array(
-			'title' => esc_html__( 'General Settings', 'bnm' ),
-			'priority' => 190
+			'title' => esc_html__( 'Site Layout', 'bnm' ),
+			'panel' => 'bnm_panel_general_settings'
 		)
 	);
 
@@ -450,7 +460,7 @@ function bnm_customize_register( $wp_customize ) {
 		array(
 			'type' => 'select',
 			'label' => esc_html__( 'Site Layout', 'bnm' ),
-			'section' => 'bnm_general_section',
+			'section' => 'bnm_site_layout_section',
 			'choices' => array(
 				'wide' => esc_html__( 'Wide', 'bnm' ),
 				'boxed' => esc_html__( 'Boxed', 'bnm' )
@@ -471,7 +481,7 @@ function bnm_customize_register( $wp_customize ) {
 		new BNM_Slider_Control( $wp_customize, 'bnm_container_width',
 		array(
 			'label'         => esc_html__( 'Container Width (px)', 'bnm' ),
-			'section'       => 'bnm_general_section',
+			'section'       => 'bnm_site_layout_section',
 			'choices'       => array(
 				'min'   => 300,
 				'max'   => 2000,
@@ -495,7 +505,7 @@ function bnm_customize_register( $wp_customize ) {
 		array(
 			'label'         => esc_html__( 'Boxed Layout Width (px)', 'bnm' ),
 			'description'	=> esc_html__( 'This value applies only when the sidebar is active.', 'bnm' ),
-			'section'       => 'bnm_general_section',
+			'section'       => 'bnm_site_layout_section',
 			'choices'       => array(
 				'min'   => 300,
 				'max'   => 2000,
@@ -517,7 +527,7 @@ function bnm_customize_register( $wp_customize ) {
 		new BNM_Slider_Control( $wp_customize, 'bnm_boxed_width',
 		array(
 			'label'         => esc_html__( 'Boxed Layout Width (px)', 'bnm' ),
-			'section'       => 'bnm_general_section',
+			'section'       => 'bnm_site_layout_section',
 			'choices'       => array(
 				'min'   => 300,
 				'max'   => 2000,
@@ -541,7 +551,7 @@ function bnm_customize_register( $wp_customize ) {
 		array(
 			'label'         => esc_html__( 'Sidebar Width (%)', 'bnm' ),
 			'description'	=> esc_html__( 'This value applies only when the sidebar is active.', 'bnm' ),
-			'section'       => 'bnm_general_section',
+			'section'       => 'bnm_site_layout_section',
 			'choices'       => array(
 				'min'   => 15,
 				'max'   => 50,
@@ -549,6 +559,58 @@ function bnm_customize_register( $wp_customize ) {
 			)
 		)
 	) );
+
+	// Breadcrumb Settings Section
+	$wp_customize->add_section(
+		'bnm_breadcrumb_section',
+		array(
+			'title' => esc_html__( 'Breadcrumb', 'bnm' ),
+			'panel' => 'bnm_panel_general_settings'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'bnm_breadcrumb_source',
+		array(
+			'default' => 'none',
+			'sanitize_callback' => 'bnm_sanitize_select'
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_breadcrumb_source',
+		array(
+			'type' => 'select',
+			'label' => esc_html__( 'Breadcrumb Source', 'bnm' ),
+			'section' => 'bnm_breadcrumb_section',
+			'choices' => array(
+				'none' 			=> esc_html__( 'None', 'bnm' ),
+				'yoast' 		=> esc_html__( 'Yoast SEO Breadcrumbs', 'bnm' ),
+				'navxt' 		=> esc_html__( 'Breadcrumb NavXT', 'bnm' ),
+				'rankmath' 		=> esc_html__( 'RankMath Breadcrumbs', 'bnm' ),
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'bnm_breadcrumb_location',
+		array(
+			'default' => 'bnm_before_entry_header',
+			'sanitize_callback' => 'bnm_sanitize_select'
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_breadcrumb_location',
+		array(
+			'type' => 'select',
+			'label' => esc_html__( 'Breadcrumb Location', 'bnm' ),
+			'section' => 'bnm_breadcrumb_section',
+			'choices' => array(
+				'bnm_after_header'			=> esc_html__( 'After Site Header', 'bnm' ),
+				'bnm_before_entry_header'	=> esc_html__( 'Before Article Header', 'bnm' )
+			),
+			'active_callback' => 'bnm_is_showing_breadcrumb'
+		)
+	);
 
 	// General - Featured images rounded borders
 	/*$wp_customize->add_setting(
@@ -563,7 +625,7 @@ function bnm_customize_register( $wp_customize ) {
 		array(
 			'type'        => 'checkbox',
 			'label'       => esc_html__( 'Make corners rounded on featured images', 'bnm' ),
-			'section'     => 'bnm_general_section',
+			'section'     => 'bnm_site_layout_section',
 		)
 	);*/
 
@@ -2114,6 +2176,15 @@ function bnm_is_time_ago( $control ) {
  */
 function bnm_has_custom_logo() {
 	if ( has_custom_logo() ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+function bnm_is_showing_breadcrumb( $control ) {
+	if ( $control->manager->get_setting( 'bnm_breadcrumb_source' )->value() !== 'none' ) {
 		return true;
 	} else {
 		return false;
