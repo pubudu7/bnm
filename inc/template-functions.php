@@ -488,13 +488,17 @@ if ( ! function_exists( 'bnm_breadcrumb_template' ) ) {
 	 * @since 1.0.6
 	 */
 	function bnm_breadcrumb_template() {
-		$breadcrumb_location = get_theme_mod( 'bnm_breadcrumb_location', 'bnm_before_entry_header' );
 
-		if ( ( is_archive() || is_search() ) && 'bnm_before_entry_header' === $breadcrumb_location ) {
-			add_action( 'bnm_before_main_content', 'bnm_hook_breadcrumb_location', 15 );
+		if ( 'before-entry-header' === get_theme_mod( 'bnm_breadcrumb_location', 'before-entry-header' ) ) {
+			if ( is_archive() || is_search() ) {
+				add_action( 'bnm_before_main_content', 'bnm_hook_breadcrumb_location', 15 );
+			} elseif ( is_singular() ) {
+				add_action( 'bnm_before_entry_header', 'bnm_hook_breadcrumb_location', 15 );
+			}
 		} else {
-			add_action( $breadcrumb_location, 'bnm_hook_breadcrumb_location', 15 );
+			add_action( 'bnm_after_header', 'bnm_hook_breadcrumb_location', 15 );
 		}
+
 	}
 	add_action( 'wp', 'bnm_breadcrumb_template' );
 }
@@ -506,20 +510,49 @@ if ( ! function_exists( 'bnm_hook_breadcrumb_location' ) ) {
 	 * @since 1.0.6
 	 */
 	function bnm_hook_breadcrumb_location() {
-		$breadcrumb_location = get_theme_mod( 'bnm_breadcrumb_location', 'bnm_before_entry_header' );
+		$breadcrumb_location = get_theme_mod( 'bnm_breadcrumb_location', 'before-entry-header' );
 
-		if ( 'bnm_after_header' === $breadcrumb_location ) {
+		if ( 'after-site-header' === $breadcrumb_location ) {
 			echo '<div class="bnm-header-bar bnm-header-breadcrumb">
 					<div class="bnm-container">';
 		}
+
+		echo '<div class="bnm-breadcrumb-wrap">';
 		
 		bnm_get_selected_breadcrumb();
 
-		if ( 'bnm_after_header' === $breadcrumb_location ) {
+		echo '</div>';
+
+		if ( 'after-site-header' === $breadcrumb_location ) {
 			echo '</div>
 				</div>';
 		}
 
 	}
 
+}
+
+if ( ! function_exists( 'bnm_homepage_article_title' ) ) {
+	/**
+	 * Displays a section title before homepage articles list.
+	 * 
+	 * @since 1.0.7
+	 */
+	function bnm_homepage_article_title() {
+		if ( is_front_page() && is_home() && ! is_paged() ) {
+
+			// Blog section title.
+			$bnm_blog_section_title = get_theme_mod( 'bnm_blog_section_title', '' );
+
+			if ( ! empty( $bnm_blog_section_title ) ) {
+				echo '<div class="bnm-blog-section-header">';
+					echo '<h2 class="bnm-blog-entries-title">';
+						echo esc_html( $bnm_blog_section_title );
+					echo '</h2>';
+				echo '</div>';
+			}
+
+		}
+	}
+	add_action( 'bnm_before_blog_entries', 'bnm_homepage_article_title' );
 }

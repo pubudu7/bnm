@@ -120,7 +120,7 @@ class BNM_Tabbed_Widget extends WP_Widget {
 						<article class="bnm-pw-smp">
 							<?php if ( has_post_thumbnail() ) { ?>
 								<div class="bnm-pw-smp-thumb">
-									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'bnm-small' ); ?></a>
+									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'bnm-thumbnail' ); ?></a>
 								</div>
 							<?php } ?>
 							<div class="bnm-pw-smp-details">
@@ -145,7 +145,7 @@ class BNM_Tabbed_Widget extends WP_Widget {
 						<article class="bnm-pw-smp">
 							<?php if ( has_post_thumbnail() ) { ?>
 								<div class="bnm-pw-smp-thumb">
-									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'bnm-small' ); ?></a>
+									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'bnm-thumbnail' ); ?></a>
 								</div>
 							<?php } ?>
 							<div class="bnm-pw-smp-details">
@@ -195,14 +195,7 @@ class BNM_Tabbed_Widget extends WP_Widget {
 			</div><!-- .tab-pane #bnm-comments -->
 
 			<div id="bnm-tags">
-				<?php        
-					$tags = wp_tag_cloud();             
-					if( $tags ) {               
-						echo $tags;       
-					} else {          
-						esc_html_e( 'No tags created.', 'bnm');           
-					}            
-				?>
+				<?php wp_tag_cloud(); ?>
 			</div><!-- .tab-pane #bnm-tags-->
 
 		</div><!-- .tab-content -->		

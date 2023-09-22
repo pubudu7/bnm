@@ -30,6 +30,14 @@ get_header();
 				</h1>
 			</header><!-- .page-header -->
 
+			<?php 
+				/**
+				 * Before blog entries hook.
+				 * @since 1.0.7
+				 */
+				do_action( 'bnm_before_blog_entries' );
+			?>
+
 			<div id="blog-entries">
 
 			<?php

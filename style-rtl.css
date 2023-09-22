@@ -5,7 +5,7 @@ Theme URI: https://themezhut.com/themes/bnm/
 Author: ThemezHut
 Author URI: https://themezhut.com
 Description: BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor. See more details at https://themezhut.com/themes/bnm/
-Version: 1.0.5
+Version: 1.0.7
 Tested up to: 6.3
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -1314,6 +1314,25 @@ span.bnmst3 {
   border-bottom: 1px solid var(--bnm-color-border);
 }
 
+.bnm-breadcrumb-wrap {
+  margin-bottom: 10px;
+}
+
+.bnm-header-bar {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--bnm-color-border);
+}
+
+.bnm-header-bar .bnm-breadcrumb-wrap {
+  margin-bottom: 0;
+}
+
+.bnm-header-image img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
 /* Footer */
 .bnm-footer-cols-1 .bnm-footer-column,
 .bnm-footer-cols-2 .bnm-footer-column,
@@ -1579,7 +1598,7 @@ body.seperate-containers .comment-list li:first-child .trackback {
 }
 
 .bnm-line-header .main-navigation ul ul a {
-  color: #ffffff;
+  color: #e2e2e2;
 }
 
 .bnm-line-header .main-navigation .current_page_item > a,
@@ -1622,6 +1641,10 @@ body.seperate-containers .comment-list li:first-child .trackback {
   background: var(--bnm-color-primary);
 }
 
+.bnm-default-header .main-navigation ul ul li a:hover {
+  color: #ffffff;
+}
+
 .bnm-default-header .main-navigation ul ul li a:hover::after {
   display: none;
 }
@@ -1638,6 +1661,10 @@ body.seperate-containers .comment-list li:first-child .trackback {
 .bnm-default-header .main-navigation ul ul .current_page_ancestor > a::after,
 .bnm-default-header .main-navigation ul ul .current-menu-ancestor > a::after {
   display: none;
+}
+
+.bnm-default-header .main-navigation ul ul a {
+  color: #e2e2e2;
 }
 
 .bnm-default-header .main-navigation .current_page_item > a::after,
@@ -2287,6 +2314,17 @@ body.seperate-containers .comment-list li:first-child .trackback {
   margin: 20px 0 0;
 }
 
+.bnm-blog-section-header {
+  margin: 0 0 30px;
+  border-bottom: 3px solid var(--bnm-color-primary);
+  position: relative;
+}
+
+.bnm-blog-section-header .bnm-blog-entries-title {
+  display: inline-block;
+  margin: 0 0 3px;
+}
+
 /* Comments
 --------------------------------------------- */
 .comment-content a {
@@ -2641,7 +2679,7 @@ footer.comment-meta {
 
 .bnm-pws-1 {
   --bnm-pws1-gap: 20px;
-  margin-bottom: 75px;
+  margin-bottom: 60px;
 }
 
 .bnm-pws-1 .bnmpws1.entry-title {
@@ -2797,6 +2835,91 @@ footer.comment-meta {
   content: "";
   width: 100%;
   padding-top: 56.25%;
+}
+
+/* Tab Widget */
+ul.bnm-tab-nav {
+  overflow: hidden;
+  margin: 0 0 15px 0;
+  list-style: none;
+  padding: 0;
+}
+
+li.bnm-tab {
+  float: right;
+  padding: 0 !important;
+  text-align: center;
+  width: 25%;
+}
+
+li.bnm-tab a {
+  width: 100%;
+  border-bottom: 3px solid #dddddd;
+}
+
+li.bnm-tab.th-ui-state-active a {
+  border-bottom: 3px solid #ff4f4f;
+  outline: 0;
+}
+
+.bnm-tabs-wdt .bnm-tab-anchor {
+  padding: 10px 20px;
+  line-height: 40px;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.3;
+  color: #333;
+}
+
+.bnm-tabs-wdt .bnm-tab-anchor:focus {
+  outline: none;
+}
+
+@media (max-width: 1199px) {
+  .bnm-tabs-wdt .bnm-tab-anchor {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+.bnm-tabs-wdt #bnm-recent,
+.bnm-tabs-wdt #bnm-comments,
+.bnm-tabs-wdt #bnm-tags {
+  display: none;
+}
+
+.bnm-tabs-wdt #bnm-tags a {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.bnmw-comment {
+  overflow: hidden;
+  margin: 0 0 1em;
+}
+
+.bnmw-comment-author,
+.bnm_comment_post {
+  font-weight: 600;
+}
+
+.bnmw-comment {
+  margin-top: 5px;
+}
+
+.bnmw_avatar {
+  float: right;
+  margin: 0 0 0 1em;
+}
+
+.bnmw_avatar img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.bnmw-comm-content {
+  overflow: hidden;
 }
 
 /* Media

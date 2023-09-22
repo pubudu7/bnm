@@ -39,6 +39,12 @@ get_header();
 				<?php
 			endif;
 
+			/**
+			 * Before blog entries hook.
+			 * @since 1.0.7
+			 */
+			do_action( 'bnm_before_blog_entries' );
+
 			?>
 				<div id="blog-entries">
 					<?php

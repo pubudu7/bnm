@@ -56,11 +56,47 @@ if ( ! function_exists( 'bnm_header_style' ) ) :
 		?>
 		<style type="text/css">
 			.site-title a,
+			.site-title a:visited,
 			.site-description {
 				color: #<?php echo esc_attr( $header_text_color ); ?>;
 			}
-
 		</style>
 		<?php
 	}
+endif;
+
+if ( ! function_exists( 'bnm_header_image' ) ) :
+	/**
+	 * Displays header image.
+	 */
+	function bnm_header_image() {
+
+		$header_image = get_header_image();
+
+		if ( ! empty ( $header_image ) ) : 
+
+			$custom_header = get_custom_header();
+
+			$alt = "";
+
+			// Use alternative text assigned to the image, if available. Otherwise, leave it empty.
+			if ( ! empty( $custom_header->attachment_id ) ) {
+				$image_alt = get_post_meta( $custom_header->attachment_id, '_wp_attachment_image_alt', true );
+			
+				if ( is_string( $image_alt ) ) {
+					$alt = $image_alt;
+				}
+			}
+		
+			$bnm_link_header_image = get_theme_mod( 'bnm_link_header_image', false );
+			echo '<div class="bnm-header-image">';
+				if ( $bnm_link_header_image == true ) { echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '" rel="home">'; }
+					echo '<img src="' . esc_url ( $header_image ) . '" height="' . esc_attr( $custom_header->height ) . '" width="' . esc_attr( $custom_header->width ) . '" alt="' . esc_attr( $alt ) . '" />';
+				if ( $bnm_link_header_image == true ) { echo '</a>'; }
+			echo '</div>';
+
+		endif;
+
+	}
+
 endif;

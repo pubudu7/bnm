@@ -238,6 +238,269 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
             ';
         }
 
+        // Display Header image as header background
+        if ( has_header_image() ) {
+            if ( 'header-background' === get_theme_mod( 'bnm_header_image_location', 'before-header-inner' ) ) {
+                $header_image = get_header_image();
+                $theme_css .= '
+                    .bnm-header-inner-wrapper {
+                        background-image:url('. esc_url( $header_image ) .');
+                        background-position: center center;
+                        background-size: cover;
+                    }
+                ';
+            }
+        }
+
+        /**
+         * HEADER COLORS.
+         */
+        $header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
+        $header_bg_color = get_theme_mod( 'bnm_header_bg_color', '' );
+        $menu_bg_color = get_theme_mod( 'bnm_menu_bg_color', '' );
+        $menu_link_color = get_theme_mod( 'bnm_menu_link_color', '' );
+        $menu_link_hover_color = get_theme_mod( 'bnm_menu_link_hover_color', '' );
+        $menu_link_action_hover_color = get_theme_mod( 'bnm_menu_link_action_hover_color', '' );
+        $dropdown_menu_bg_color = get_theme_mod( 'bnm_dropdown_menu_bg_color', '' );
+        $dropdown_menu_link_color = get_theme_mod( 'bnm_dropdown_menu_link_color', '' );
+        $dropdown_menu_link_hover_color = get_theme_mod( 'bnm_dropdown_menu_link_hover_color', '' );
+        $dropdown_menu_link_hover_bg_color = get_theme_mod( 'bnm_dropdown_menu_link_hover_bg_color', '' );
+
+        if ( ! empty( $header_bg_color ) ) {
+            $theme_css .= '
+                .bnm-header-inner-wrapper {
+                    background-color: '. esc_attr( $header_bg_color ) .';
+                }
+            ';
+        }
+
+        /**
+         * Single Line Header Layout Menu Styles.
+         */
+        if ( 'single-line' === $header_layout ) {
+
+            if ( ! empty( $menu_bg_color ) ) {
+                $theme_css .= '
+                    .bnm-line-header .main-navigation {
+                        background-color: '. esc_attr( $menu_bg_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $menu_link_color ) ) {
+                $theme_css .= '
+                    .bnm-line-header .main-navigation a {
+                        color: '. esc_attr( $menu_link_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $menu_link_hover_color ) ) {
+                $theme_css .= '
+                    .bnm-line-header .main-navigation ul li a:hover {
+                        color: '. esc_attr( $menu_link_hover_color ) .';
+                    }
+    
+                    .bnm-line-header .main-navigation .current_page_item > a, 
+                    .bnm-line-header .main-navigation .current-menu-item > a, 
+                    .bnm-line-header .main-navigation .current_page_ancestor > a, 
+                    .bnm-line-header .main-navigation .current-menu-ancestor > a {
+                        color: '. esc_attr( $menu_link_hover_color ) .';
+                    }
+                ';
+            }
+    
+            // if ( ! empty( $menu_link_action_hover_color ) ) {
+            //     $theme_css .= '
+            //         .bnm-default-header .main-navigation ul li a:hover::after,
+            //         .bnm-default-header .main-navigation .current_page_item > a::after, 
+            //         .bnm-default-header .main-navigation .current-menu-item > a::after, 
+            //         .bnm-default-header .main-navigation .current_page_ancestor > a::after, 
+            //         .bnm-default-header .main-navigation .current-menu-ancestor > a::after {
+            //             background-color: '. esc_attr( $menu_link_action_hover_color ) .';
+            //         }
+            //     ';
+            // }
+    
+            if ( ! empty( $dropdown_menu_link_color ) ) {
+                $theme_css .= '
+                    .bnm-line-header .main-navigation ul ul li a {
+                        color: '. esc_attr( $dropdown_menu_link_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $dropdown_menu_link_hover_color ) ) {
+                $theme_css .= '
+                    .bnm-line-header .main-navigation ul ul .current_page_item > a, 
+                    .bnm-line-header .main-navigation ul ul .current-menu-item > a, 
+                    .bnm-line-header .main-navigation ul ul .current_page_ancestor > a, 
+                    .bnm-line-header .main-navigation ul ul .current-menu-ancestor > a,
+                    .bnm-line-header .main-navigation ul ul li a:hover {
+                        color: '. esc_attr( $dropdown_menu_link_hover_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $dropdown_menu_link_hover_bg_color ) ) {
+                $theme_css .= '
+                    .bnm-line-header .main-navigation ul ul .current_page_item > a, 
+                    .bnm-line-header .main-navigation ul ul .current-menu-item > a, 
+                    .bnm-line-header .main-navigation ul ul .current_page_ancestor > a, 
+                    .bnm-line-header .main-navigation ul ul .current-menu-ancestor > a,
+                    .bnm-line-header .main-navigation ul ul li a:hover {
+                        background-color: '. esc_attr( $dropdown_menu_link_hover_bg_color ) .';
+                    }
+                ';
+            }
+
+        } else {
+            /**
+             * DEFAULT HEADER Layout Menu Style.
+             */
+            if ( ! empty( $menu_bg_color ) ) {
+                $theme_css .= '
+                    .bnm-default-header .site-header .bnm-main-menu {
+                        background-color: '. esc_attr( $menu_bg_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $menu_link_color ) ) {
+                $theme_css .= '
+                    .bnm-default-header .main-navigation a {
+                        color: '. esc_attr( $menu_link_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $menu_link_hover_color ) ) {
+                $theme_css .= '
+                    .bnm-default-header .main-navigation a:hover {
+                        color: '. esc_attr( $menu_link_hover_color ) .';
+                    }
+    
+                    .bnm-default-header .main-navigation .current_page_item > a, 
+                    .bnm-default-header .main-navigation .current-menu-item > a, 
+                    .bnm-default-header .main-navigation .current_page_ancestor > a, 
+                    .bnm-default-header .main-navigation .current-menu-ancestor > a {
+                        color: '. esc_attr( $menu_link_hover_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $menu_link_action_hover_color ) ) {
+                $theme_css .= '
+                    .bnm-default-header .main-navigation ul li a:hover::after,
+                    .bnm-default-header .main-navigation .current_page_item > a::after, 
+                    .bnm-default-header .main-navigation .current-menu-item > a::after, 
+                    .bnm-default-header .main-navigation .current_page_ancestor > a::after, 
+                    .bnm-default-header .main-navigation .current-menu-ancestor > a::after {
+                        background-color: '. esc_attr( $menu_link_action_hover_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $dropdown_menu_link_color ) ) {
+                $theme_css .= '
+                    .bnm-default-header .main-navigation ul ul li a {
+                        color: '. esc_attr( $dropdown_menu_link_color ) .';
+                    }
+                ';
+            }
+    
+            if ( ! empty( $dropdown_menu_link_hover_color ) ) {
+                $theme_css .= '
+                    .bnm-default-header .main-navigation ul ul li a:hover,
+                    .bnm-default-header .main-navigation ul ul .current_page_item > a, 
+                    .bnm-default-header .main-navigation ul ul .current-menu-item > a, 
+                    .bnm-default-header .main-navigation ul ul .current_page_ancestor > a, 
+                    .bnm-default-header .main-navigation ul ul .current-menu-ancestor > a {
+                        color: '. esc_attr( $dropdown_menu_link_hover_color ) .';
+                    }
+                ';
+            }
+
+            if ( ! empty( $dropdown_menu_link_hover_bg_color ) ) {
+                $theme_css .= '
+                    .bnm-default-header .main-navigation ul ul .current_page_item > a, 
+                    .bnm-default-header .main-navigation ul ul .current-menu-item > a, 
+                    .bnm-default-header .main-navigation ul ul .current_page_ancestor > a, 
+                    .bnm-default-header .main-navigation ul ul .current-menu-ancestor > a,
+                    .bnm-default-header .main-navigation ul ul li a:hover {
+                        background-color: '. esc_attr( $dropdown_menu_link_hover_bg_color ) .';
+                    }
+                ';
+            }
+
+        } // END HEADER LAYOUT IF()
+
+        /**
+         * Common menu styles for both header layouts.
+         */
+         if ( ! empty( $dropdown_menu_bg_color ) ) {
+            $theme_css .= '
+                #site-navigation.bnm-menu ul ul {
+                    background-color: '. esc_attr( $dropdown_menu_bg_color ) .';
+                }
+            ';
+        }
+
+         if ( ! empty( $menu_link_color ) ) {
+            $theme_css .= '
+                #bnm-search-toggle .bnm-svg-icon {
+                    color: '. esc_attr( $menu_link_color ) .';
+                }
+            ';
+        }
+
+        /**
+         * TOP BAR COLORS
+         */
+        $topbar_bg_color = get_theme_mod( 'bnm_topbar_bg_color', '' );
+        $topbar_text_color = get_theme_mod( 'bnm_topbar_text_color', '' );
+        $topbar_link_color = get_theme_mod( 'bnm_topbar_link_color', '' );
+        $topbar_link_hover_color = get_theme_mod( 'bnm_topbar_link_hover_color', '' );
+
+        if ( ! empty( $topbar_bg_color ) ) {
+            $theme_css .= '
+                .bnm-top-bar {
+                    background-color: '. esc_attr( $topbar_bg_color ) .';
+                }
+            ';
+        }
+
+        if ( ! empty( $topbar_text_color ) ) {
+            $theme_css .= '
+                .bnm-top-bar {
+                    color: '. esc_attr( $topbar_text_color ) .';
+                }
+            ';
+        }
+
+        if ( ! empty( $topbar_link_color ) ) {
+            $theme_css .= '
+                .secondary-menu a,
+                .bnm-top-bar a {
+                    color: '. esc_attr( $topbar_link_color ) .';
+                }
+
+                .bnm-slideout-toggle span {
+                    border-color: '. esc_attr( $topbar_link_color ) .';
+                }
+            ';
+        }
+
+        if ( ! empty( $topbar_link_hover_color ) ) {
+            $theme_css .= '
+                .bnm-top-bar .bnm-social-menu a:hover,
+                .bnm-top-bar a:hover {
+                    color: '. esc_attr( $topbar_link_hover_color ) .';
+                }
+            ';
+        }
+
+
         return $theme_css;
 
     }

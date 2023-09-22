@@ -489,7 +489,23 @@ span.bnmst3 {
 	}
 }
 
+.bnm-breadcrumb-wrap {
+	margin-bottom: 10px;
+}
+
 .bnm-header-bar {
 	padding: 10px 0;
 	border-bottom: 1px solid var(--bnm-color-border);
+
+	.bnm-breadcrumb-wrap {
+		margin-bottom: 0;
+	}
+}
+
+.bnm-header-image {
+	img {
+		width: 100%;
+		height: auto;
+		vertical-align: middle;
+	}
 }

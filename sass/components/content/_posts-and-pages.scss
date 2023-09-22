@@ -448,3 +448,14 @@
 .entry-readmore {
 	margin: 20px 0 0;
 }
+
+.bnm-blog-section-header {
+	margin: 0 0 30px;
+	border-bottom: 3px solid var(--bnm-color-primary);
+	position: relative;
+
+	.bnm-blog-entries-title {
+		display: inline-block;
+		margin: 0 0 3px;
+	}
+}

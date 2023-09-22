@@ -434,6 +434,11 @@ if ( ! function_exists( 'bnm_search_box' ) ) :
  * Displays the search 
  */
 function bnm_search_box() {
+
+	if ( false === get_theme_mod( 'bnm_show_search_onmenu', true ) ) {
+		return;
+	}
+
 	?>
 		<div class="bnm-search-container desktop-only">
 			<button id="bnm-search-toggle">

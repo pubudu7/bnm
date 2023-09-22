@@ -5,7 +5,7 @@ Theme URI: https://themezhut.com/themes/bnm/
 Author: ThemezHut
 Author URI: https://themezhut.com
 Description: BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor. See more details at https://themezhut.com/themes/bnm/
-Version: 1.0.5
+Version: 1.0.7
 Tested up to: 6.3
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -1314,9 +1314,23 @@ span.bnmst3 {
   border-bottom: 1px solid var(--bnm-color-border);
 }
 
+.bnm-breadcrumb-wrap {
+  margin-bottom: 10px;
+}
+
 .bnm-header-bar {
   padding: 10px 0;
   border-bottom: 1px solid var(--bnm-color-border);
+}
+
+.bnm-header-bar .bnm-breadcrumb-wrap {
+  margin-bottom: 0;
+}
+
+.bnm-header-image img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
 }
 
 /* Footer */
@@ -1584,7 +1598,7 @@ body.seperate-containers .comment-list li:first-child .trackback {
 }
 
 .bnm-line-header .main-navigation ul ul a {
-  color: #ffffff;
+  color: #e2e2e2;
 }
 
 .bnm-line-header .main-navigation .current_page_item > a,
@@ -1627,6 +1641,10 @@ body.seperate-containers .comment-list li:first-child .trackback {
   background: var(--bnm-color-primary);
 }
 
+.bnm-default-header .main-navigation ul ul li a:hover {
+  color: #ffffff;
+}
+
 .bnm-default-header .main-navigation ul ul li a:hover::after {
   display: none;
 }
@@ -1643,6 +1661,10 @@ body.seperate-containers .comment-list li:first-child .trackback {
 .bnm-default-header .main-navigation ul ul .current_page_ancestor > a::after,
 .bnm-default-header .main-navigation ul ul .current-menu-ancestor > a::after {
   display: none;
+}
+
+.bnm-default-header .main-navigation ul ul a {
+  color: #e2e2e2;
 }
 
 .bnm-default-header .main-navigation .current_page_item > a::after,
@@ -2290,6 +2312,17 @@ body.seperate-containers .comment-list li:first-child .trackback {
 
 .entry-readmore {
   margin: 20px 0 0;
+}
+
+.bnm-blog-section-header {
+  margin: 0 0 30px;
+  border-bottom: 3px solid var(--bnm-color-primary);
+  position: relative;
+}
+
+.bnm-blog-section-header .bnm-blog-entries-title {
+  display: inline-block;
+  margin: 0 0 3px;
 }
 
 /* Comments

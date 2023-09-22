@@ -30,15 +30,13 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->get_control( 'blogdescription' )->priority  = 3;
 	$wp_customize->get_control( 'background_color' )->priority  = 2;
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-
-	/*
-	// Un-comment when the custom-header feature is ready.
-	$wp_customize->get_control( 'header_textcolor' )->priority 		= 1;
-	$wp_customize->get_section( 'header_image' )->panel 		= 'bnm_panel_header';
-	$wp_customize->get_section( 'header_image' )->priority 		= 50;
 	// Hide the checkbox "Display site title and tagline"
 	$wp_customize->remove_control( 'display_header_text' );
-	*/
+
+	$wp_customize->get_control( 'header_textcolor' )->priority 	= 1;
+	$wp_customize->get_control( 'header_textcolor' )->label 	= esc_html__( 'Site title / tagline color', 'bnm' );
+	$wp_customize->get_section( 'header_image' )->panel 		= 'bnm_panel_header';
+	$wp_customize->get_section( 'header_image' )->priority 		= 50;
 
 	// uri for the customizer images folder
 	$images_uri = get_template_directory_uri() . '/inc/customizer/assets/images/'; 
@@ -59,6 +57,27 @@ function bnm_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+	// Latest articles section title on front page?
+	$wp_customize->add_setting(
+		'bnm_blog_section_title',
+		array(
+			'default'			=> '',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_html'
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_blog_section_title',
+		array(
+			'settings'			=> 'bnm_blog_section_title',
+			'section'			=> 'static_front_page',
+			'type'				=> 'text',
+			'label'				=> esc_html__( 'Front page blog section title.', 'bnm' ),
+			'active_callback'	=> 'bnm_is_showing_blog_on_front'
+		)
+	);
 
 	// Hide site title
 	$wp_customize->add_setting(
@@ -594,7 +613,7 @@ function bnm_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'bnm_breadcrumb_location',
 		array(
-			'default' => 'bnm_before_entry_header',
+			'default' => 'before-entry-header',
 			'sanitize_callback' => 'bnm_sanitize_select'
 		)
 	);
@@ -605,8 +624,8 @@ function bnm_customize_register( $wp_customize ) {
 			'label' => esc_html__( 'Breadcrumb Location', 'bnm' ),
 			'section' => 'bnm_breadcrumb_section',
 			'choices' => array(
-				'bnm_after_header'			=> esc_html__( 'After Site Header', 'bnm' ),
-				'bnm_before_entry_header'	=> esc_html__( 'Before Article Header', 'bnm' )
+				'after-site-header'		=> esc_html__( 'After Site Header', 'bnm' ),
+				'before-entry-header'	=> esc_html__( 'Before Article Header', 'bnm' )
 			),
 			'active_callback' => 'bnm_is_showing_breadcrumb'
 		)
@@ -799,6 +818,26 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	) );
 
+	// Header BG Color
+	$wp_customize->add_setting(
+		'bnm_header_bg_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_header_bg_color',
+			array(
+				'section'		    => 'bnm_header_layout_section',
+				'label'			    => esc_html__( 'Header Background Color', 'bnm' ),
+			)
+		)
+	);
+
 	// Menu Section
 	$wp_customize->add_section(
 		'bnm_primary_menu_section',
@@ -854,6 +893,183 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Menu - show Search on menu
+	$wp_customize->add_setting(
+		'bnm_show_search_onmenu',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'bnm_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_show_search_onmenu',
+		array(
+			'type'        => 'checkbox',
+			'label'       => esc_html__( 'Display Search Box', 'bnm' ),
+			'section'     => 'bnm_primary_menu_section',
+		)
+	);
+
+	// Menu BG Color
+	$wp_customize->add_setting(
+		'bnm_menu_bg_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_menu_bg_color',
+			array(
+				'section'		    => 'bnm_primary_menu_section',
+				'label'			    => esc_html__( 'Menu Background Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Menu Links Color
+	$wp_customize->add_setting(
+		'bnm_menu_link_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_menu_link_color',
+			array(
+				'section'		    => 'bnm_primary_menu_section',
+				'label'			    => esc_html__( 'Menu Link Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Menu Links Color: Hover
+	$wp_customize->add_setting(
+		'bnm_menu_link_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_menu_link_hover_color',
+			array(
+				'section'		    => 'bnm_primary_menu_section',
+				'label'			    => esc_html__( 'Menu Link Color: Hover/Active', 'bnm' ),
+			)
+		)
+	);
+
+	// Menu Links Color: Action
+	$wp_customize->add_setting(
+		'bnm_menu_link_action_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_menu_link_action_hover_color',
+			array(
+				'section'		    => 'bnm_primary_menu_section',
+				'label'			    => esc_html__( 'Menu Link Action Color: Hover/Active', 'bnm' ),
+			)
+		)
+	);
+
+	// Dropdown Menu BG Color
+	$wp_customize->add_setting(
+		'bnm_dropdown_menu_bg_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_dropdown_menu_bg_color',
+			array(
+				'section'		    => 'bnm_primary_menu_section',
+				'label'			    => esc_html__( 'Dropdown Menu Background Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Dropdown Menu Link Color
+	$wp_customize->add_setting(
+		'bnm_dropdown_menu_link_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_dropdown_menu_link_color',
+			array(
+				'section'		    => 'bnm_primary_menu_section',
+				'label'			    => esc_html__( 'Dropdown Menu Link Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Dropdown Menu Link Hover Color
+	$wp_customize->add_setting(
+		'bnm_dropdown_menu_link_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_dropdown_menu_link_hover_color',
+			array(
+				'section'		    => 'bnm_primary_menu_section',
+				'label'			    => esc_html__( 'Dropdown Menu Link Color: Hover/Active', 'bnm' ),
+			)
+		)
+	);
+
+	// Dropdown Menu Link Hover Background Color
+	$wp_customize->add_setting(
+		'bnm_dropdown_menu_link_hover_bg_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_dropdown_menu_link_hover_bg_color',
+			array(
+				'section'		    => 'bnm_primary_menu_section',
+				'label'			    => esc_html__( 'Dropdown Menu Link Background Color: Hover/Active', 'bnm' ),
+			)
+		)
+	);
+
 	// Top Bar Section
 	$wp_customize->add_section(
 		'bnm_topbar_section',
@@ -881,6 +1097,86 @@ function bnm_customize_register( $wp_customize ) {
 			'choices' => array(
 				'contained' => esc_html__( 'Contained', 'bnm' ),
 				'full' => esc_html__( 'Full', 'bnm' )
+			)
+		)
+	);
+
+	// Topbar BG Color
+	$wp_customize->add_setting(
+		'bnm_topbar_bg_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_topbar_bg_color',
+			array(
+				'section'		    => 'bnm_topbar_section',
+				'label'			    => esc_html__( 'Background Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Topbar Links Color
+	$wp_customize->add_setting(
+		'bnm_topbar_link_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_topbar_link_color',
+			array(
+				'section'		    => 'bnm_topbar_section',
+				'label'			    => esc_html__( 'Link Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Menu Links Color: Hover
+	$wp_customize->add_setting(
+		'bnm_topbar_link_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_topbar_link_hover_color',
+			array(
+				'section'		    => 'bnm_topbar_section',
+				'label'			    => esc_html__( 'Link Color: Hover/Active', 'bnm' ),
+			)
+		)
+	);
+
+	// Topbar Text Color
+	$wp_customize->add_setting(
+		'bnm_topbar_text_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_topbar_text_color',
+			array(
+				'section'		    => 'bnm_topbar_section',
+				'label'			    => esc_html__( 'Text Color', 'bnm' ),
 			)
 		)
 	);
@@ -1017,6 +1313,46 @@ function bnm_customize_register( $wp_customize ) {
 			'label'       => esc_html__( 'Show Slide-out sidebar widgets on Mobile Menu', 'bnm' ),
 			'section'     => 'bnm_mobile_menu_section',
 			'active_callback'	=> 'bnm_is_slideout_active'
+		)
+	);
+
+	// Header Image Location
+	$wp_customize->add_setting(
+		'bnm_header_image_location',
+		array(
+			'default' => 'before-header-inner',
+			'sanitize_callback' => 'bnm_sanitize_select'
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_header_image_location',
+		array(
+			'type' => 'select',
+			'label' => esc_html__( 'Header Image Position', 'bnm' ),
+			'section' => 'header_image',
+			'choices' => array(
+				'before-header-inner'	=> esc_html__( 'Before Header Inner', 'bnm' ),
+				'after-header-inner'	=> esc_html__( 'After Header Inner', 'bnm' ),
+				'after-site-header'		=> esc_html__( 'After Site Header', 'bnm' ),
+				'header-background'		=> esc_html__( 'Display as Header Background', 'bnm' ),
+			)
+		)
+	);
+
+	// Header image link to home?
+	$wp_customize->add_setting(
+		'bnm_link_header_image',
+		array(
+			'default'           => false,
+			'sanitize_callback' => 'bnm_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_link_header_image',
+		array(
+			'type'        => 'checkbox',
+			'label'       => esc_html__( 'Link header image to homepage?', 'bnm' ),
+			'section'     => 'header_image',
 		)
 	);
 
@@ -2185,6 +2521,17 @@ function bnm_has_custom_logo() {
 
 function bnm_is_showing_breadcrumb( $control ) {
 	if ( $control->manager->get_setting( 'bnm_breadcrumb_source' )->value() !== 'none' ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Check if blog is displaying on front page
+ */
+function bnm_is_showing_blog_on_front( $control ) {
+	if ( 'posts' == get_option( 'show_on_front' ) ) {
 		return true;
 	} else {
 		return false;

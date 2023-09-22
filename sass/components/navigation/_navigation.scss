@@ -208,7 +208,7 @@
 		}
 
 		ul ul a {
-			color: #ffffff;
+			color: #e2e2e2;
 		}
 
 		.current_page_item > a,
@@ -264,6 +264,7 @@
 
 			ul {
 				li a:hover {
+					color: #ffffff;
 					&::after {
 						display: none;
 					}
@@ -279,6 +280,10 @@
 					background: #111111;
 				}
 			}
+		}
+
+		ul ul a {
+			color: #e2e2e2;
 		}
 
 		.current_page_item > a,

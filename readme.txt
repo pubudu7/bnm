@@ -4,7 +4,7 @@ Contributors: pubudu-malalasekara
 Requires at least: 4.5
 Tested up to: 6.3
 Requires PHP: 5.6
-Stable tag: 1.0.4
+Stable tag: 1.0.7
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,17 @@ BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast a
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.0.7 =
+* Added custom header background image support.
+* Added new color controls for header and primary menu.
+* Added new hook - 'bnm_before_blog_entries'.
+* Added a control to add a section title before homepage articles.
+* Removed " Display Site Title and Tagline" control since the theme has custom controls to show/hide site title and tagline.
+
+= 1.0.6 =
+* Added "Popular, Recent, Comments, Tags" widget.
+* Added theme support for breadcrumb plugins/modules - Yoast, Breadcrumb NavXT, RankMath
 
 = 1.0.5 =
 * Updated the theme screenshot.
@@ -89,3 +100,23 @@ Source: https://stocksnap.io/photo/coastal-landscape-8IEKJZN1OV
 Image 5 shown in screenshot.png, Copyright Studio 7042
 License: CC0 1.0 Universal (CC0 1.0)
 Source: https://stocksnap.io/photo/macbook-coffee-LXOMYCLBQO
+
+Image 6 shown in screenshot.png, Copyright PxHere
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://pxhere.com/en/photo/1292838
+
+Image 7 shown in screenshot.png, Copyright PxHere
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://pxhere.com/en/photo/945306
+
+Image 8 shown in screenshot.png, Copyright PxHere
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://pxhere.com/en/photo/939345
+
+Image 9 shown in screenshot.png, Copyright Matt Moloney
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://stocksnap.io/photo/women-friends-XAIDTZ2IZY
+
+Image 10 shown in screenshot.png, Copyright JJ Skys the Limit
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://stocksnap.io/photo/ocean-water-Y7K1JJEDRE 

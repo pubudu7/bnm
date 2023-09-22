@@ -7,7 +7,7 @@
 
 if ( ! defined( 'BNM_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'BNM_VERSION', '1.0.4' );
+	define( 'BNM_VERSION', '1.0.7' );
 }
 
 /**
@@ -284,6 +284,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Add custom header background support.
+ */
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Widgets.

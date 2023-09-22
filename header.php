@@ -27,6 +27,7 @@ do_action( 'bnm_before_header' );
 
 // Header Settings.
 $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
+$bnm_header_image_loc = get_theme_mod( 'bnm_header_image_location', 'before-header-inner' );
 ?>
 
 <div id="page" class="site">
@@ -65,6 +66,10 @@ $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
 				 * Before header inner action
 				 */
 				do_action( 'bnm_before_header_inner' );
+
+				if ( 'before-header-inner' === $bnm_header_image_loc ) {
+					bnm_header_image();
+				}
 			?>
 
 			<div class="bnm-header-inner bnm-container">
@@ -98,6 +103,10 @@ $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
 				 * After header inner action
 				 */
 				do_action( 'bnm_after_header_inner' );
+
+				if ( 'after-header-inner' === $bnm_header_image_loc ) {
+					bnm_header_image();
+				}
 			?>
 
 		</div><!-- .bnm-header-inner-wrapper -->
@@ -118,6 +127,12 @@ $bnm_header_layout = get_theme_mod( 'bnm_header_layout', 'default' );
 		<?php endif; ?>
 
 	</header><!-- #masthead -->
+
+	<?php
+		if ( 'after-site-header' === $bnm_header_image_loc ) {
+			bnm_header_image();
+		}
+	?>
 
 	<?php do_action( 'bnm_after_header' ); ?>
 
