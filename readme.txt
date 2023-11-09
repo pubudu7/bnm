@@ -2,7 +2,7 @@
 
 Contributors: pubudu-malalasekara
 Requires at least: 4.5
-Tested up to: 6.3
+Tested up to: 6.4
 Requires PHP: 5.6
 Stable tag: 1.0.7
 License: GNU General Public License v2 or later
@@ -21,6 +21,10 @@ BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast a
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.0.8 =
+* Fixed site title width issue.
+* Fixed an issue in breadcrumb.
 
 = 1.0.7 =
 * Added custom header background image support.

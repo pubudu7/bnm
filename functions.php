@@ -7,7 +7,7 @@
 
 if ( ! defined( 'BNM_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'BNM_VERSION', '1.0.7' );
+	define( 'BNM_VERSION', '1.0.8' );
 }
 
 /**
@@ -291,13 +291,17 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
- * Widgets.
+ * Widget Files.
  */
 require get_template_directory() . '/inc/widgets/widget-functions.php';
-require get_template_directory() . '/inc/widgets/bnm-posts-widget-1.php';
-require get_template_directory() . '/inc/widgets/bnm-posts-widget-2.php';
-require get_template_directory() . '/inc/widgets/bnm-posts-widget-3.php';
-require get_template_directory() . '/inc/widgets/bnm-sidebar-posts-widget.php';
+
+if ( ! defined( 'BNM_PRO_VERSION' ) ) {
+	require get_template_directory() . '/inc/widgets/bnm-posts-widget-1.php';
+	require get_template_directory() . '/inc/widgets/bnm-posts-widget-2.php';
+	require get_template_directory() . '/inc/widgets/bnm-posts-widget-3.php';
+	require get_template_directory() . '/inc/widgets/bnm-sidebar-posts-widget.php';
+}
+
 require get_template_directory() . '/inc/widgets/bnm-tabbed-widget.php';
 
 /**

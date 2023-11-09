@@ -5,8 +5,8 @@ Theme URI: https://themezhut.com/themes/bnm/
 Author: ThemezHut
 Author URI: https://themezhut.com
 Description: BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor. See more details at https://themezhut.com/themes/bnm/
-Version: 1.0.7
-Tested up to: 6.3
+Version: 1.0.8
+Tested up to: 6.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -891,7 +891,6 @@ textarea {
   margin-right: auto;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
 }
 
 .site-branding-container .site-logo {
@@ -1026,6 +1025,15 @@ textarea {
   .bnm-line-header.has-header-sb .bnm-header-inner,
   .bnm-default-header.has-header-sb .bnm-header-inner {
     flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .bnm-default-header.has-header-sb:not(.logo-aligned-center) .bnm-header-sidebar {
+    flex-basis: 60.66667%;
+  }
+  .bnm-default-header.has-header-sb:not(.logo-aligned-center) .site-branding-container {
+    flex-basis: 39.33333%;
   }
 }
 
@@ -2600,6 +2608,11 @@ footer.comment-meta {
   .bnm-pws3-left {
     width: 50%;
   }
+}
+
+.bnm-pws2-left,
+.bnm-pws2-right {
+  position: relative;
 }
 
 #secondary .bnm-pws-3,

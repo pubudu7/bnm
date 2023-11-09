@@ -489,6 +489,10 @@ if ( ! function_exists( 'bnm_breadcrumb_template' ) ) {
 	 */
 	function bnm_breadcrumb_template() {
 
+		if ( 'none' === get_theme_mod( 'bnm_breadcrumb_source', 'none' ) ) {
+			return;
+		}
+
 		if ( 'before-entry-header' === get_theme_mod( 'bnm_breadcrumb_location', 'before-entry-header' ) ) {
 			if ( is_archive() || is_search() ) {
 				add_action( 'bnm_before_main_content', 'bnm_hook_breadcrumb_location', 15 );
