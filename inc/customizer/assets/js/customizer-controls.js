@@ -30,3 +30,19 @@ jQuery( document ).ready( function() {
     });
 
 } );
+
+
+( function ( $ ) {
+	wp.customize.bind( 'ready', function () {
+		// Lets you jump to specific sections in the Customizer
+		$( [ 'control', 'section', 'panel' ] ).each( function ( i, type ) {
+			$( 'a[rel="goto-' + type + '"]' ).click( function ( e ) {
+				e.preventDefault();
+				const id = $( this ).attr( 'href' ).replace( '#', '' );
+				if ( wp.customize[ type ].has( id ) ) {
+					wp.customize[ type ].instance( id ).focus();
+				}
+			} );
+		} );
+	} );
+} )( jQuery );

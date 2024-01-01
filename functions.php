@@ -126,9 +126,23 @@ add_action( 'after_setup_theme', 'bnm_setup' );
  * @global int $content_width
  */
 function bnm_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'bnm_content_width', 840 );
+
+	$container_width = get_theme_mod( 'bnm_container_width', 1200 );
+	$sidebar_width = get_theme_mod( 'bnm_sidebar_width', 30 );
+	$layout = bnm_get_layout();
+
+	if ( 'left-sidebar' === $layout || 'right-sidebar' === $layout ) {
+		$content_width = $container_width * ( ( 100 - $sidebar_width ) / 100 );
+	} elseif ( 'no-sidebar' === $layout ) {
+		$content_width = $container_width;
+	} else {
+		$content_width = 840;
+	}
+
+	$GLOBALS['content_width'] = apply_filters( 'bnm_content_width', $content_width );
+
 }
-add_action( 'after_setup_theme', 'bnm_content_width', 0 );
+add_action( 'template_redirect', 'bnm_content_width', 0 );
 
 /**
  * Register widget area.

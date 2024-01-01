@@ -1689,6 +1689,18 @@ body.seperate-containers .comment-list li:first-child .trackback {
   background: var(--bnm-color-primary);
 }
 
+.bnm-nav-sticky.bnm-line-header .bnm-header-inner-wrapper,
+.bnm-nav-sticky.bnm-default-header .bnm-main-menu {
+  z-index: 9999;
+  position: fixed;
+}
+
+.bnm-nav-sticky .bnm-header-inner-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--bnm-color-border);
+}
+
 .bnm-mobile-menu-toggle {
   display: block;
   margin-left: auto;

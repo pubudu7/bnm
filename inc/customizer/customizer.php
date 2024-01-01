@@ -889,6 +889,7 @@ function bnm_customize_register( $wp_customize ) {
 				'center'	=> esc_html__( 'Center', 'bnm' ),
 				'right'		=> esc_html__( 'Right', 'bnm' )
 			),
+			'priority'	=> 10,
 			'active_callback' => 'bnm_is_default_header'
 		)
 	);
@@ -907,6 +908,7 @@ function bnm_customize_register( $wp_customize ) {
 			'type'        => 'checkbox',
 			'label'       => esc_html__( 'Display Search Box', 'bnm' ),
 			'section'     => 'bnm_primary_menu_section',
+			'priority'	  => 15,
 		)
 	);
 
@@ -926,6 +928,7 @@ function bnm_customize_register( $wp_customize ) {
 			array(
 				'section'		    => 'bnm_primary_menu_section',
 				'label'			    => esc_html__( 'Menu Background Color', 'bnm' ),
+				'priority'	  		=> 20,
 			)
 		)
 	);
@@ -946,6 +949,7 @@ function bnm_customize_register( $wp_customize ) {
 			array(
 				'section'		    => 'bnm_primary_menu_section',
 				'label'			    => esc_html__( 'Menu Link Color', 'bnm' ),
+				'priority'	  		=> 25,
 			)
 		)
 	);
@@ -966,6 +970,7 @@ function bnm_customize_register( $wp_customize ) {
 			array(
 				'section'		    => 'bnm_primary_menu_section',
 				'label'			    => esc_html__( 'Menu Link Color: Hover/Active', 'bnm' ),
+				'priority'	  		=> 30,
 			)
 		)
 	);
@@ -986,6 +991,7 @@ function bnm_customize_register( $wp_customize ) {
 			array(
 				'section'		    => 'bnm_primary_menu_section',
 				'label'			    => esc_html__( 'Menu Link Action Color: Hover/Active', 'bnm' ),
+				'priority'	  		=> 35,
 			)
 		)
 	);
@@ -1006,6 +1012,7 @@ function bnm_customize_register( $wp_customize ) {
 			array(
 				'section'		    => 'bnm_primary_menu_section',
 				'label'			    => esc_html__( 'Dropdown Menu Background Color', 'bnm' ),
+				'priority'	  		=> 40,
 			)
 		)
 	);
@@ -1026,6 +1033,7 @@ function bnm_customize_register( $wp_customize ) {
 			array(
 				'section'		    => 'bnm_primary_menu_section',
 				'label'			    => esc_html__( 'Dropdown Menu Link Color', 'bnm' ),
+				'priority'	  		=> 45,
 			)
 		)
 	);
@@ -1046,6 +1054,7 @@ function bnm_customize_register( $wp_customize ) {
 			array(
 				'section'		    => 'bnm_primary_menu_section',
 				'label'			    => esc_html__( 'Dropdown Menu Link Color: Hover/Active', 'bnm' ),
+				'priority'	  		=> 50,
 			)
 		)
 	);
@@ -1066,6 +1075,7 @@ function bnm_customize_register( $wp_customize ) {
 			array(
 				'section'		    => 'bnm_primary_menu_section',
 				'label'			    => esc_html__( 'Dropdown Menu Link Background Color: Hover/Active', 'bnm' ),
+				'priority'	  		=> 55,
 			)
 		)
 	);
@@ -1628,7 +1638,7 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Excerpt length.
+	// Archive - Cut off for "time ago" date in days
 	$wp_customize->add_setting(
 		'bnm_time_ago_date_count',
 		array(
@@ -1644,11 +1654,10 @@ function bnm_customize_register( $wp_customize ) {
 			'section'			=> 'bnm_blog_meta_section',
 			'type'				=> 'number',
 			'label'				=> esc_html__( 'Cut off for "time ago" date in days.', 'bnm' ),
-			'active_callback'	=> 'bnm_is_time_ago'
 		)
-	);
+	);	
 
-	// Archive - Show time ago format
+	// Archive - Show updated date
 	$wp_customize->add_setting(
 		'bnm_show_updated_date',
 		array(
@@ -1918,12 +1927,17 @@ function bnm_customize_register( $wp_customize ) {
 		array(
 			'type'        		=> 'checkbox',
 			'label'       		=> esc_html__( 'Use "time ago" date format', 'bnm' ),
+			'description' => sprintf(
+				/* translators: %s: link to the setting - Cut off for "time ago" date in days. */
+				esc_html__( 'You can set the number of cut off days from %1$s.', 'bnm' ),
+				'<a rel="goto-control" href="#bnm_time_ago_date_count">' . esc_html__( 'Blog Settings', 'bnm' ) . '</a>'
+			),
 			'section'     		=> 'bnm_post_meta_section',
 			'active_callback'	=> 'bnm_is_showing_date_s'
 		)
 	);
 
-	// Post - Show time ago format
+	// Post - Show updated date format
 	$wp_customize->add_setting(
 		'bnm_show_updated_date_s',
 		array(
@@ -2500,7 +2514,7 @@ function bnm_is_showing_date_s( $control ) {
  * Checks if bnm is showing time ago
  */
 function bnm_is_time_ago( $control ) {
-	if ( $control->manager->get_setting( 'bnm_time_ago' )->value() === true ) {
+	if ( ( $control->manager->get_setting( 'bnm_time_ago' )->value() === true ) || ( $control->manager->get_setting( 'bnm_time_ago_s' )->value() === true ) ) {
 		return true;
 	} else {
 		return false;
