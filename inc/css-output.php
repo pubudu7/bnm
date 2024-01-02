@@ -500,8 +500,10 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
             ';
         }
 
-
-        return $theme_css;
+        /**
+         * bnm_theme_custom_css hook since BNM 1.0.9
+         */
+        return $theme_css = apply_filters( 'bnm_theme_custom_css', $theme_css );
 
     }
 }

@@ -39,7 +39,10 @@
 		// After page header hook.
 		do_action( 'bnm_after_page_header' );
 
-		bnm_post_thumbnail(); 
+		if ( get_theme_mod( 'bnm_show_page_thumbnail', true ) ) {
+			bnm_post_thumbnail(); 
+		}
+		
 	?>
 
 	<div class="entry-content">
