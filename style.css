@@ -64,6 +64,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --bnm-color-link-visited: #5d7ddb;
   --bnm-color-button-background: var(--bnm-color-primary);
   --bnm-color-button-text: #ffffff;
+  --bnm-color-button-hover-text: #ffffff;
   --bnm-color-button-hover-background: #222222;
   --bnm-color-button-focus-background: #111111;
   --bnm-color-border: #dddddd;
@@ -758,6 +759,7 @@ input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
 .bnm-readmore-btn:hover {
+  color: var(--bnm-color-button-hover-text);
   background: var(--bnm-color-button-hover-background);
 }
 

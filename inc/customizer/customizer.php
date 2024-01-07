@@ -286,6 +286,106 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Link Color - Hover .
+	$wp_customize->add_setting(
+		'bnm_links_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_links_hover_color',
+			array(
+				'section'		    => 'colors',
+				'label'			    => esc_html__( 'Links Color:Hover', 'bnm' ),
+			)
+		)
+	);
+
+	// Button Background Color.
+	$wp_customize->add_setting(
+		'bnm_button_bg_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_button_bg_color',
+			array(
+				'section'		    => 'colors',
+				'label'			    => esc_html__( 'Button Background Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Button Background Color - Hover .
+	$wp_customize->add_setting(
+		'bnm_button_bg_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_button_bg_hover_color',
+			array(
+				'section'		    => 'colors',
+				'label'			    => esc_html__( 'Button Background Color:Hover', 'bnm' ),
+			)
+		)
+	);
+
+	// Button Text Color.
+	$wp_customize->add_setting(
+		'bnm_button_text_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_button_text_color',
+			array(
+				'section'		    => 'colors',
+				'label'			    => esc_html__( 'Button Text Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Button Text Color - Hover .
+	$wp_customize->add_setting(
+		'bnm_button_text_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_button_text_hover_color',
+			array(
+				'section'		    => 'colors',
+				'label'			    => esc_html__( 'Button Text Color:Hover', 'bnm' ),
+			)
+		)
+	);
+
 	// Typography Options Section
 	$wp_customize->add_section(
 		'bnm_typography_section',

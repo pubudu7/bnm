@@ -15,6 +15,7 @@ input[type="submit"],
 	font-weight: bold;
 
 	&:hover {
+		color: var(--bnm-color-button-hover-text);
 		background: var(--bnm-color-button-hover-background);
 	}
 

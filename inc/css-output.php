@@ -19,7 +19,12 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
         $primary_color = get_theme_mod( 'bnm_primary_color', '#f87c7c' );
         $text_color = get_theme_mod( 'bnm_text_color', '#222222' );
         $links_color = get_theme_mod( 'bnm_links_color', '#000000' );
+        $links_hover_color = get_theme_mod( 'bnm_links_hover_color', '' );
         $inner_background_color = get_theme_mod( 'bnm_boxed_inner_bg_color', '#ffffff' );
+        $button_bg_color = get_theme_mod( 'bnm_button_bg_color', '' );
+        $button_bg_hover_color = get_theme_mod( 'bnm_button_bg_hover_color', '' );
+        $button_text_color = get_theme_mod( 'bnm_button_text_color', '' );
+        $button_text_hover_color = get_theme_mod( 'bnm_button_text_hover_color', '' );
 
         if ( ! empty( $primary_color ) && '#f87c7c' != $primary_color ) {
             $css_variables .= '
@@ -39,9 +44,39 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
             ';
         }
 
+        if ( ! empty( $links_hover_color ) ) {
+            $css_variables .= '
+                --bnm-color-link-hover: '. esc_attr( $links_hover_color ) .';
+            ';
+        }
+
         if ( ! empty( $inner_background_color ) && '#ffffff' != $inner_background_color ) {
             $css_variables .= '
                 --bnm-color-body-background: '. esc_attr( $inner_background_color ) .';
+            ';
+        }
+
+        if ( ! empty( $button_bg_color ) ) {
+            $css_variables .= '
+                --bnm-color-button-background: '. esc_attr( $button_bg_color ) .';
+            ';
+        }
+
+        if ( ! empty( $button_bg_hover_color ) ) {
+            $css_variables .= '
+                --bnm-color-button-hover-background: '. esc_attr( $button_bg_hover_color ) .';
+            ';
+        }
+
+        if ( ! empty( $button_text_color ) ) {
+            $css_variables .= '
+                --bnm-color-button-text: '. esc_attr( $button_text_color ) .';
+            ';
+        }
+        
+        if ( ! empty( $button_text_hover_color ) ) {
+            $css_variables .= '
+                --bnm-color-button-hover-text: '. esc_attr( $button_text_hover_color ) .';
             ';
         }
 
