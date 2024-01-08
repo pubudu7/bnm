@@ -2231,7 +2231,7 @@ body.seperate-containers .comment-list li:first-child .trackback {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  color: #787878;
+  color: var(--bnm-color-text-light);
 }
 
 .entry-meta .byline,

@@ -266,6 +266,26 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Secondary Text Color.
+	$wp_customize->add_setting(
+		'bnm_secondary_text_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_secondary_text_color',
+			array(
+				'section'		    => 'colors',
+				'label'			    => esc_html__( 'Secondary Text Color', 'bnm' ),
+			)
+		)
+	);
+
 	// Link Color.
 	$wp_customize->add_setting(
 		'bnm_links_color',
@@ -2215,6 +2235,86 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Footer Widget Area Bg Color.
+	$wp_customize->add_setting(
+		'bnm_footer_widget_bg_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_footer_widget_bg_color',
+			array(
+				'section'		    => 'bnm_footer_widgets_section',
+				'label'			    => esc_html__( 'Widget Area Background Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Footer Widget Text Color.
+	$wp_customize->add_setting(
+		'bnm_footer_widget_text_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_footer_widget_text_color',
+			array(
+				'section'		    => 'bnm_footer_widgets_section',
+				'label'			    => esc_html__( 'Widget Text Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Footer Widget Links Color.
+	$wp_customize->add_setting(
+		'bnm_footer_widget_link_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_footer_widget_link_color',
+			array(
+				'section'		    => 'bnm_footer_widgets_section',
+				'label'			    => esc_html__( 'Widget Link Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Footer Widget Links Hover Color.
+	$wp_customize->add_setting(
+		'bnm_footer_widget_link_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_footer_widget_link_hover_color',
+			array(
+				'section'		    => 'bnm_footer_widgets_section',
+				'label'			    => esc_html__( 'Widget Link Color:Hover', 'bnm' ),
+			)
+		)
+	);
+
 	$wp_customize->add_section(
 		'bnm_footer_bottom_section',
 		array(
@@ -2239,6 +2339,86 @@ function bnm_customize_register( $wp_customize ) {
 			'section'		=> 'bnm_footer_bottom_section',
 			'type'			=> 'textarea',
 			'label'			=> esc_html__( 'Copyright Text', 'bnm' )
+		)
+	);
+
+	// Footer bottom Area Bg Color.
+	$wp_customize->add_setting(
+		'bnm_footer_bottom_bg_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_footer_bottom_bg_color',
+			array(
+				'section'		    => 'bnm_footer_bottom_section',
+				'label'			    => esc_html__( 'Footer Bottom Area Background Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Footer bottom Text Color.
+	$wp_customize->add_setting(
+		'bnm_footer_bottom_text_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_footer_bottom_text_color',
+			array(
+				'section'		    => 'bnm_footer_bottom_section',
+				'label'			    => esc_html__( 'Footer Bottom Text Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Footer bottom Links Color.
+	$wp_customize->add_setting(
+		'bnm_footer_bottom_link_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_footer_bottom_link_color',
+			array(
+				'section'		    => 'bnm_footer_bottom_section',
+				'label'			    => esc_html__( 'Footer Bottom Link Color', 'bnm' ),
+			)
+		)
+	);
+
+	// Footer bottom Links Hover Color.
+	$wp_customize->add_setting(
+		'bnm_footer_bottom_link_hover_color',
+		array(
+			'default'			=> '',
+			'capability'		=> 'edit_theme_options',
+			'sanitize_callback'	=> 'bnm_sanitize_hex_color'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control( 
+			$wp_customize,
+			'bnm_footer_bottom_link_hover_color',
+			array(
+				'section'		    => 'bnm_footer_bottom_section',
+				'label'			    => esc_html__( 'Footer Bottom Link Color:Hover', 'bnm' ),
+			)
 		)
 	);
 
