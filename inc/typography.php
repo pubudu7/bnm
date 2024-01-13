@@ -96,13 +96,13 @@ function bnm_custom_typography_css() {
     // Post font size.
     if ( $post_desktop_font_size ) {
         $css .= '
-            .single .bnm-entry {
+            .single .bnm-entry .entry-content {
                 font-size: ' . esc_attr( $post_desktop_font_size ) . ';
             }
         ';
 
         $block_editor_css .= '
-            .wp-block-post-content {
+            .editor-styles-wrapper .wp-block-post-content {
                 font-size: ' . esc_attr( $post_desktop_font_size ) . ';
             }
         ';
@@ -111,7 +111,7 @@ function bnm_custom_typography_css() {
     if ( $post_tablet_font_size ) {
         $css .= '
             @media screen and (max-width: 768px) {
-                .single .bnm-entry {
+                .single .bnm-entry .entry-content {
                     font-size: ' . esc_attr( $post_tablet_font_size ) . ';
                 }
             }
@@ -119,7 +119,7 @@ function bnm_custom_typography_css() {
 
         $block_editor_css .= '
             @media screen and (max-width: 768px) {
-                .wp-block-post-content {
+                .editor-styles-wrapper .wp-block-post-content {
                     font-size: ' . esc_attr( $post_desktop_font_size ) . ';
                 }
             }
@@ -129,7 +129,7 @@ function bnm_custom_typography_css() {
     if ( $post_mobile_font_size ) {
         $css .= '
             @media screen and (max-width: 600px) {
-                .single .bnm-entry {
+                .single .bnm-entry .entry-content {
                     font-size: ' . esc_attr( $post_mobile_font_size ) . ';
                 }
             }
@@ -137,7 +137,7 @@ function bnm_custom_typography_css() {
 
         $block_editor_css .= '
             @media screen and (max-width: 600px) {
-                .wp-block-post-content {
+                .editor-styles-wrapper .wp-block-post-content {
                     font-size: ' . esc_attr( $post_desktop_font_size ) . ';
                 }
             }
@@ -160,5 +160,9 @@ function bnm_custom_typography_css() {
         $theme_css = $editor_css;
     }
 
-    return $theme_css;
+    /**
+     * bnm_theme_typography_css hook since BNM 1.1.0
+     */
+    return $theme_css = apply_filters( 'bnm_theme_typography_css', $theme_css, $block_editor_css );
+
 }

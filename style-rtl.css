@@ -5,7 +5,7 @@ Theme URI: https://themezhut.com/themes/bnm/
 Author: ThemezHut
 Author URI: https://themezhut.com
 Description: BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast and powerful WordPress theme for all kinds of blogs, news sites, and magazine websites. You can easily change your header layout, blog listing layout, sidebar layout, site width, colors, and typography using the BNM theme customizer. It also offers more than 8 widget areas to display your advertisements or content as you like. BNM is SEO-ready, GDPR-compatible, and fully supports the Gutenberg block editor. See more details at https://themezhut.com/themes/bnm/
-Version: 1.0.8
+Version: 1.0.9
 Tested up to: 6.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -64,6 +64,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --bnm-color-link-visited: #5d7ddb;
   --bnm-color-button-background: var(--bnm-color-primary);
   --bnm-color-button-text: #ffffff;
+  --bnm-color-button-hover-text: #ffffff;
   --bnm-color-button-hover-background: #222222;
   --bnm-color-button-focus-background: #111111;
   --bnm-color-border: #dddddd;
@@ -758,6 +759,7 @@ input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
 .bnm-readmore-btn:hover {
+  color: var(--bnm-color-button-hover-text);
   background: var(--bnm-color-button-hover-background);
 }
 
@@ -1689,6 +1691,18 @@ body.seperate-containers .comment-list li:first-child .trackback {
   background: var(--bnm-color-primary);
 }
 
+.bnm-nav-sticky.bnm-line-header .bnm-header-inner-wrapper,
+.bnm-nav-sticky.bnm-default-header .bnm-main-menu {
+  z-index: 9999;
+  position: fixed;
+}
+
+.bnm-nav-sticky .bnm-header-inner-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--bnm-color-border);
+}
+
 .bnm-mobile-menu-toggle {
   display: block;
   margin-right: auto;
@@ -2217,7 +2231,7 @@ body.seperate-containers .comment-list li:first-child .trackback {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  color: #787878;
+  color: var(--bnm-color-text-light);
 }
 
 .entry-meta .byline,
