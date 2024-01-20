@@ -1153,6 +1153,7 @@ textarea {
 
 .bnm-mobile-menu-toggle:hover {
   background-color: transparent;
+  color: #000000;
 }
 
 .bnm-mobile-menu-toggle:active, .bnm-mobile-menu-toggle:focus {
@@ -1722,6 +1723,10 @@ body.seperate-containers .comment-list li:first-child .trackback {
   .bnm-mobile-sidebar .bnm-mobile-menu-toggle {
     display: block;
   }
+}
+
+.bnm-mobile-sidebar .bnm-mobile-menu-toggle:hover {
+  color: #ffffff;
 }
 
 .bnm-mobile-menu {

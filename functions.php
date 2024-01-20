@@ -342,6 +342,11 @@ if ( ! function_exists( 'bnm_get_fonts_array' ) ) :
 		if ( $headings_font ) {
 			$fonts_arr[] = $headings_font;
 		}
+
+		/**
+		 * Since 1.1.0
+		 */
+		$fonts_arr = apply_filters( 'bnm_fonts_array', $fonts_arr );
 	
 		if ( empty( $fonts_arr ) ) {
 			return;
