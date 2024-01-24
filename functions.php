@@ -7,7 +7,7 @@
 
 if ( ! defined( 'BNM_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'BNM_VERSION', '1.0.8' );
+	define( 'BNM_VERSION', '1.1.0' );
 }
 
 /**

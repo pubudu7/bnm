@@ -22,6 +22,11 @@ BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast a
 
 == Changelog ==
 
+= 1.1.0 =
+* Added "Pro" version notice to customizer.
+* Added new filter "bnm_fonts_array".
+* Fixed customizer content font size not working issue.
+
 = 1.0.9 =
 * Added new color options.
 * Added "bnm_theme_custom_css" hook.

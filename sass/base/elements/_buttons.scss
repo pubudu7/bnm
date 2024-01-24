@@ -14,7 +14,7 @@ input[type="submit"],
 	font-size: var(--bnm-font-size-base);
 	font-weight: bold;
 
-	&:hover {
+	&:hover:not(.bnm-slideout-toggle):not(.bnm-mobile-menu-toggle) {
 		color: var(--bnm-color-button-hover-text);
 		background: var(--bnm-color-button-hover-background);
 	}

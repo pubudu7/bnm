@@ -44,3 +44,20 @@ ul.th-responsive-switches li {
 .customize-control-bnm-responsive-number {
     margin: 15px 0;
 }
+
+#accordion-section-bnm_upsell a.button.button-secondary {
+    background: #00A388;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+}
+
+.control-section-bnm-upsell .accordion-section-title .button {
+    margin-top: -3px;
+}
+.control-section-bnm-upsell.control-section .accordion-section-title {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    border-top: 2px solid #00A388;
+    border-bottom: 2px solid #00A388 !important;
+}

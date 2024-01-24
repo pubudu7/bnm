@@ -334,6 +334,9 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
                     .bnm-line-header .main-navigation a {
                         color: '. esc_attr( $menu_link_color ) .';
                     }
+                    .bnm-line-header .bnm-slideout-toggle span {
+                        border-color: '. esc_attr( $menu_link_color ) .';
+                    }
                 ';
             }
     
@@ -341,6 +344,10 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
                 $theme_css .= '
                     .bnm-line-header .main-navigation ul li a:hover {
                         color: '. esc_attr( $menu_link_hover_color ) .';
+                    }
+
+                    .bnm-line-header .bnm-slideout-toggle:hover span {
+                        border-color: '. esc_attr( $menu_link_hover_color ) .';
                     }
     
                     .bnm-line-header .main-navigation .current_page_item > a, 
@@ -413,6 +420,10 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
                     .bnm-default-header .main-navigation a {
                         color: '. esc_attr( $menu_link_color ) .';
                     }
+
+                    .bnm-default-header .bnm-slideout-toggle span {
+                        border-color: '. esc_attr( $menu_link_color ) .';
+                    }
                 ';
             }
     
@@ -420,6 +431,10 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
                 $theme_css .= '
                     .bnm-default-header .main-navigation a:hover {
                         color: '. esc_attr( $menu_link_hover_color ) .';
+                    }
+                    
+                    .bnm-default-header .bnm-slideout-toggle:hover span {
+                        border-color: '. esc_attr( $menu_link_hover_color ) .';
                     }
     
                     .bnm-default-header .main-navigation .current_page_item > a, 
@@ -527,7 +542,7 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
                     color: '. esc_attr( $topbar_link_color ) .';
                 }
 
-                .bnm-slideout-toggle span {
+                .bnm-top-bar .bnm-slideout-toggle span {
                     border-color: '. esc_attr( $topbar_link_color ) .';
                 }
             ';

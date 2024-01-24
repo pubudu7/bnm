@@ -16,7 +16,7 @@
 
 .page-content,
 .entry-content,
-.entry-summary {
+.entry-summary:not(.bnm-widget .entry-summary) {
 	margin: 1.5em 0 0;
 
 	a:not(.bnm-read-more):not(.wp-block-button__link):not(.bnm-readmore-btn) {
