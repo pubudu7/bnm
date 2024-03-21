@@ -4,7 +4,7 @@ Contributors: pubudu-malalasekara
 Requires at least: 4.5
 Tested up to: 6.4
 Requires PHP: 5.6
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,10 @@ BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast a
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.1.1 =
+* Added option to show hide tags in single posts.
+* Fixed an error in template-tags.php.
 
 = 1.1.0 =
 * Added "Pro" version notice to customizer.

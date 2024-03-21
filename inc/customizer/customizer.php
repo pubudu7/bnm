@@ -2093,7 +2093,24 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Post Meta Section
+	// Post - Show tags
+	$wp_customize->add_setting(
+		'bnm_show_tags_list_s',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'bnm_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'bnm_show_tags_list_s',
+		array(
+			'type'        => 'checkbox',
+			'label'       => esc_html__( 'Show tags list', 'bnm' ),
+			'section'     => 'bnm_post_meta_section',
+		)
+	);
+
+	// Post Content Section
 	$wp_customize->add_section(
 		'bnm_post_content_section',
 		array(

@@ -754,11 +754,11 @@ input[type="submit"],
   font-weight: bold;
 }
 
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
-.bnm-readmore-btn:hover {
+button:hover:not(.bnm-slideout-toggle):not(.bnm-mobile-menu-toggle),
+input[type="button"]:hover:not(.bnm-slideout-toggle):not(.bnm-mobile-menu-toggle),
+input[type="reset"]:hover:not(.bnm-slideout-toggle):not(.bnm-mobile-menu-toggle),
+input[type="submit"]:hover:not(.bnm-slideout-toggle):not(.bnm-mobile-menu-toggle),
+.bnm-readmore-btn:hover:not(.bnm-slideout-toggle):not(.bnm-mobile-menu-toggle) {
   color: var(--bnm-color-button-hover-text);
   background: var(--bnm-color-button-hover-background);
 }
@@ -945,6 +945,7 @@ textarea {
 
 .bnm-top-bar .bnm-slideout-toggle span {
   background: #000000;
+  border: 1px solid #000000;
 }
 
 .top-bar-inner {
@@ -968,6 +969,7 @@ textarea {
 
 .bnm-header-inner .bnm-slideout-toggle span {
   background: #000000;
+  border: 1px solid #000000;
 }
 
 .bnm-default-header.logo-aligned-center .bnm-header-inner {

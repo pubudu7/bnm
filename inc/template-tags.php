@@ -160,9 +160,7 @@ if ( ! function_exists( 'bnm_posted_on' ) ) :
 
 		remove_filter( 'get_the_modified_date', 'bnm_convert_modified_to_time_ago', 10, 3 );
 
-		$posted_on = sprintf(
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
+		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
@@ -305,16 +303,20 @@ if ( ! function_exists( 'bnm_entry_footer' ) ) :
 	function bnm_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list();
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( 
-					'<div class="bnm-tag-list"><span class="bnm-tagged">%1$s</span><span class="tags-links bnm-tags-links">%2$s</span></div>', 
-					esc_html__( 'Tagged', 'bnm' ), 
-					$tags_list 
-				); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
+
+			if ( is_single() && true === get_theme_mod( 'bnm_show_tags_list_s', true ) ) {
+				/* translators: used between list items, there is a space after the comma */
+				$tags_list = get_the_tag_list();
+				if ( $tags_list ) {
+					/* translators: 1: list of tags. */
+					printf( 
+						'<div class="bnm-tag-list"><span class="bnm-tagged">%1$s</span><span class="tags-links bnm-tags-links">%2$s</span></div>', 
+						esc_html__( 'Tagged', 'bnm' ), 
+						$tags_list 
+					); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
+			} 
+			
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
