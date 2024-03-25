@@ -22,9 +22,11 @@ BNM stands for Blog, News, and Magazine. BNM is a simple, lightweight yet fast a
 
 == Changelog ==
 
-= 1.1.1 =
-* Added option to show hide tags in single posts.
-* Fixed an error in template-tags.php.
+= 2.0.0 =
+* Refactored header.php using hooks.
+* Fixed incorrect author posts url on author-bio.php
+* Fixed incorrect position for 'bnm_after_entry_content' hook.
+* Changed header image position control.
 
 = 1.1.0 =
 * Added "Pro" version notice to customizer.

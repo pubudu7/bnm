@@ -9,16 +9,13 @@
 
 ?>
 
+<?php do_action( 'bnm_before_article' ); ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php
-
 		// Before content hook
 		do_action( 'bnm_before_content' );
-
-		if ( 'before-header' === get_theme_mod( 'bnm_post_image_position', 'after-header' ) ) {
-			bnm_post_thumbnail( 'bnm-featured-image' );
-		}
 	?>
 
 	<?php 
@@ -49,10 +46,6 @@
 	<?php
 		// After entry header hook.
 		do_action( 'bnm_after_entry_header' );
-		
-		if ( 'after-header' === get_theme_mod( 'bnm_post_image_position', 'after-header' ) ) {
-			bnm_post_thumbnail( 'bnm-featured-image' );
-		}
 	?>
 
 	<div class="entry-content">
@@ -79,15 +72,13 @@
 			)
 		);
 
-		// After entry content hook.
-		do_action( 'bnm_after_entry_content' );
-
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php bnm_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<?php 
+		// After entry content hook.
+		do_action( 'bnm_after_entry_content' );
+	?>
 
 	<?php 
 		if ( ! is_singular( 'attachment' ) ) { 
@@ -101,3 +92,5 @@
 	?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
+
+<?php do_action( 'bnm_after_article' ); ?>

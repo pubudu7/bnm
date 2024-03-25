@@ -12,13 +12,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php
-
 		// Before content hook
 		do_action( 'bnm_before_content' );
-
-		if ( 'before-header' === bnm_archive_thumbnail_position() || 'beside-article' === bnm_archive_thumbnail_position() ) {
-			bnm_post_thumbnail( 'bnm-archive-image' );
-		}
 	?>
 
 	<div class="bnm-article-inner">
@@ -51,24 +46,21 @@
 					<?php bnm_entry_meta(); ?>
 				</div><!-- .entry-meta -->
 			<?php endif; ?>
+
 		</header><!-- .entry-header -->
 
 		<?php
-		
 			// After entry header hook.
 			do_action( 'bnm_after_entry_header' );
-
-			if ( 'after-header' === bnm_archive_thumbnail_position() ) {
-				bnm_post_thumbnail( 'bnm-archive-image' );
-			}
 		?>
 
 		<div class="entry-content-wrapper">
+
 			<?php
-				if ( 'beside-content' === bnm_archive_thumbnail_position() ) {
-					bnm_post_thumbnail( 'bnm-archive-image' );
-				}
+				// Before entry content hook.
+				do_action( 'bnm_before_entry_content' );
 			?>
+
 			<div class="entry-content">
 				<?php
 					$bnm_content_type = get_theme_mod( 'bnm_content_type', 'excerpt' );
@@ -78,12 +70,14 @@
 						the_content();
 					}
 
-					// After entry content hook.
-					do_action( 'bnm_after_entry_content' );
-
 					bnm_read_more_button();
 				?>
 			</div><!-- .entry-content -->
+
+			<?php 
+				// After entry content hook.
+				do_action( 'bnm_after_entry_content' );
+			?>
 
 		</div><!-- .entry-content-wrapper -->
 

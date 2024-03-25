@@ -1461,8 +1461,9 @@ function bnm_customize_register( $wp_customize ) {
 			'label' => esc_html__( 'Header Image Position', 'bnm' ),
 			'section' => 'header_image',
 			'choices' => array(
-				'before-header-inner'	=> esc_html__( 'Before Header Inner', 'bnm' ),
-				'after-header-inner'	=> esc_html__( 'After Header Inner', 'bnm' ),
+				'before-header-inner'	=> esc_html__( 'Before Logo + Content', 'bnm' ),
+				'after-header-inner'	=> esc_html__( 'After Logo + Content', 'bnm' ),
+				'before-site-header'	=> esc_html__( 'Before Site Header', 'bnm' ),
 				'after-site-header'		=> esc_html__( 'After Site Header', 'bnm' ),
 				'header-background'		=> esc_html__( 'Display as Header Background', 'bnm' ),
 			)
@@ -2110,7 +2111,7 @@ function bnm_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Post Content Section
+	// Post Meta Section
 	$wp_customize->add_section(
 		'bnm_post_content_section',
 		array(

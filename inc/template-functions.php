@@ -560,3 +560,57 @@ if ( ! function_exists( 'bnm_homepage_article_title' ) ) {
 	}
 	add_action( 'bnm_before_blog_entries', 'bnm_homepage_article_title' );
 }
+
+/**
+ * Filter for changing featured image size on different locations.
+ */
+function bnm_set_featured_image_sizes( $image_size ) {
+	if ( is_home() || is_archive() ) {
+		$image_size = 'bnm-archive-image';
+	} elseif ( is_single() ) {
+		$image_size = 'bnm-featured-image';
+	} else {
+		$image_size = '';
+	}
+	return $image_size;
+}
+add_filter( 'bnm_post_thumbnail_size', 'bnm_set_featured_image_sizes' );
+
+/**
+ * Function to position featured images.
+ */
+function bnm_position_featured_image() {
+
+	if ( is_single() ) {
+
+		$image_position = get_theme_mod( 'bnm_post_image_position', 'after-header' );
+
+		if ( 'before-header' === $image_position ) {
+			add_action( 'bnm_before_entry_header', 'bnm_post_thumbnail' );
+		} elseif ( 'after-header' === $image_position ) {
+			add_action( 'bnm_after_entry_header', 'bnm_post_thumbnail' );
+		}
+
+	} elseif ( is_home() || is_archive() ) {
+
+		$image_position = bnm_archive_thumbnail_position();
+
+		if ( 'before-header' === $image_position || 'beside-article' === $image_position ) {
+			add_action( 'bnm_before_content', 'bnm_post_thumbnail' );
+		} elseif ( 'after-header' === bnm_archive_thumbnail_position() ) {
+			add_action( 'bnm_after_entry_header', 'bnm_post_thumbnail' );
+		} elseif ( 'beside-content' === bnm_archive_thumbnail_position() ) {
+			add_action( 'bnm_before_entry_content', 'bnm_post_thumbnail' );
+		}
+
+	} elseif ( is_page() ) {
+
+		if ( get_theme_mod( 'bnm_show_page_thumbnail', true ) ) {
+			add_action( 'bnm_after_page_header', 'bnm_post_thumbnail' );
+		}
+		
+	}
+
+}
+add_action( 'wp', 'bnm_position_featured_image', 5 );
+

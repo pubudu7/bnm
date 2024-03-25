@@ -7,51 +7,7 @@
  * @package BNM
  */
 
-if ( ! function_exists( 'bnm_site_title' ) ) : 
 
-	function bnm_site_title() {
-
-		$bnm_site_title = get_bloginfo( 'title' );
-		$bnm_description = get_bloginfo( 'description', 'display' );
-
-		$hide_title = ( get_theme_mod( 'bnm_hide_site_title', false ) || '' == $bnm_site_title ) ? true : false;
-		$hide_tagline = ( get_theme_mod( 'bnm_hide_site_tagline', false ) || '' == $bnm_description ) ? true : false;
-
-		?>
-		<div class="site-branding-container">
-			<?php if ( has_custom_logo() ) : ?>
-				<div class="site-logo">
-					<?php the_custom_logo(); ?>
-				</div>
-			<?php endif; ?>
-
-			<div class="site-branding">
-				<?php
-
-				if ( ! $hide_title ) :
-
-					if ( is_front_page() && is_home() ) :
-						?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<?php
-					else :
-						?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-						<?php
-					endif;
-
-				endif;
-				
-				if ( ! $hide_tagline ) :
-					?>
-					<p class="site-description"><?php echo $bnm_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-				<?php endif; ?>
-			</div><!-- .site-branding -->
-		</div><!-- .site-branding-container -->
-		<?php
-	}
-
-endif;
 
 if ( ! function_exists( 'bnm_primary_nav' ) ) : 
 	/**
@@ -120,22 +76,8 @@ if ( ! function_exists( 'bnm_social_nav' ) ) :
 		endif; 
 	}
 endif;
+add_action( 'bnm_after_top_bar_main', 'bnm_social_nav' );
 
-if ( ! function_exists( 'bnm_slide_out_menu_toggle' ) ) : 
-
-	function bnm_slide_out_menu_toggle( $location = 'primary-menu' ) {
-		if ( $location === get_theme_mod( 'bnm_slideout_btn_loc', 'primary-menu' ) && true === get_theme_mod( 'bnm_show_slideout_sb', false ) ) : ?>
-			<button class="bnm-slideout-toggle">
-				<div class="bnmst-bars">
-					<span class="bnmst1"></span>
-					<span class="bnmst2"></span>
-					<span class="bnmst3"></span>
-				</div>
-			</button>
-		<?php endif; 
-	}
-	
-endif;
 
 if ( ! function_exists( 'bnm_posted_on' ) ) :
 	/**
@@ -363,17 +305,22 @@ if ( ! function_exists( 'bnm_post_thumbnail' ) ) :
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
+	 * 
+	 * // TO do: remove $size parameter.
 	 */
 	function bnm_post_thumbnail( $size = 'bnm-featured-image' ) {
+
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
+
+		$image_size = apply_filters( 'bnm_post_thumbnail_size', 'bnm-featured-image' );
 
 		if ( is_singular() ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail( $size ); ?>
+				<?php the_post_thumbnail( $image_size ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
@@ -382,7 +329,7 @@ if ( ! function_exists( 'bnm_post_thumbnail' ) ) :
 				<a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 					<?php
 						the_post_thumbnail(
-							$size,
+							$image_size,
 							array(
 								'alt' => the_title_attribute(
 									array(
@@ -419,6 +366,7 @@ if ( ! function_exists( 'bnm_post_previous_next' ) ) :
 		}
 	}
 endif;
+add_action( 'bnm_after_article', 'bnm_post_previous_next', 12 );
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
@@ -429,30 +377,6 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}
-endif;
-
-if ( ! function_exists( 'bnm_search_box' ) ) :
-/**
- * Displays the search 
- */
-function bnm_search_box() {
-
-	if ( false === get_theme_mod( 'bnm_show_search_onmenu', true ) ) {
-		return;
-	}
-
-	?>
-		<div class="bnm-search-container desktop-only">
-			<button id="bnm-search-toggle">
-				<span class="bnm-search-icon"><?php bnm_the_icon_svg( 'search' ) ?></span>
-				<span class="bnm-close-icon"><?php bnm_the_icon_svg( 'close' ) ?></span>
-			</button>
-			<div id="bnm-search-box">
-				<?php get_search_form(); ?>
-			</div><!-- bnm-search-box -->
-		</div><!-- bnm-search-container -->
-	<?php
-}
 endif;
 
 
@@ -494,3 +418,19 @@ if ( ! function_exists( 'bnm_read_more_button' ) ) {
 		<?php endif; 
 	}
 }
+
+if ( ! function_exists( 'bnm_entry_footer_markup' ) ) {
+	/**
+	 * Entry footer.
+	 */
+	function bnm_entry_footer_markup() {
+		if ( is_single() ) {
+			?>
+				<footer class="entry-footer">
+					<?php bnm_entry_footer(); ?>
+				</footer><!-- .entry-footer -->
+			<?php
+		}
+	}
+}
+add_action( 'bnm_after_entry_content', 'bnm_entry_footer_markup' );

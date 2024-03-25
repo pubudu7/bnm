@@ -305,13 +305,13 @@
 
 }
 
-.bnm-nav-sticky.bnm-line-header .bnm-header-inner-wrapper,
-.bnm-nav-sticky.bnm-default-header .bnm-main-menu {
+.bnm-nav-sticky.bnm-header-inner-wrapper,
+.bnm-nav-sticky.bnm-main-menu {
 	z-index: 9999;
 	position: fixed;
 }
 
-.bnm-nav-sticky .bnm-header-inner-wrapper {
+.bnm-nav-sticky.bnm-header-inner-wrapper {
 	width: 100%;
 	background-color: #ffffff;
 	border-bottom: 1px solid var(--bnm-color-border);

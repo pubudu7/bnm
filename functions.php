@@ -467,3 +467,10 @@ add_action( 'enqueue_block_editor_assets', 'bnm_enqueue_editor_styles' );
  * Theme Info Page.
  */
 require get_template_directory() . '/inc/dashboard/theme-info.php';
+
+
+/**
+ * Load Structure.
+ */
+require get_template_directory() . '/inc/structure/header.php';
+require get_template_directory() . '/inc/structure/navigation.php';

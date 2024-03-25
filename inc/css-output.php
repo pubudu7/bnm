@@ -310,6 +310,7 @@ if ( ! function_exists( 'bnm_custom_css' ) ) {
 
         if ( ! empty( $header_bg_color ) ) {
             $theme_css .= '
+                .bnm-nav-sticky.bnm-header-inner-wrapper,
                 .bnm-header-inner-wrapper {
                     background-color: '. esc_attr( $header_bg_color ) .';
                 }
